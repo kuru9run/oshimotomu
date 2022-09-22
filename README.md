@@ -6,6 +6,9 @@
 ## 画面遷移図
 https://www.figma.com/file/yx6Ks5LfpCuKDECLkD1qof/oshimotomu?node-id=0%3A1
 
+## ER図
+![ER図](https://user-images.githubusercontent.com/81852866/190978206-b71d09ae-7635-49e5-970b-8fb45767aba8.png)
+
 ## ■メインのターゲットユーザー
 20〜30代前半の女性<br>
 アイドルやアニメ、舞台などの「オタク」を自認する方<br>
