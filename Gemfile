@@ -70,3 +70,6 @@ group :development do
   gem 'annotate'
 end
 
+# daisyUIを適用する
+gem 'cssbundling-rails'
+gem 'jsbundling-rails'
