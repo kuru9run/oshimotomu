@@ -21,4 +21,6 @@
 class Fan < ApplicationRecord
   belongs_to :user
   belongs_to :favorite
+
+  validates :favorite_id, uniqueness: { scope: :user_id }
 end

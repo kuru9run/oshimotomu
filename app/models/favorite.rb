@@ -21,5 +21,6 @@
 #  fk_rails_...  (content_id => contents.id)
 #
 class Favorite < ApplicationRecord
+  has_many :fans
   belongs_to :content
 end
