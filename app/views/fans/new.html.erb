@@ -9,7 +9,7 @@
   <article class="prose">
     <h2>現在の推し(任意、複数登録可)</h2>
     <div class="form-control">
-      <%= form_with scope: :favorite, url: fans_path, method: :post, local: true do |f| %>
+      <%= form_with model: @fan, local: true do |f| %>
         <%= f.label :name, class: "label" %>
         <%= f.text_field :name, class: "input input-bordered w-full" %>
         <%= f.label :type, class: "label" %>
@@ -18,14 +18,31 @@
         <%= f.select :decade, options_for_select(Favorite.decades.keys), prompt: "選択してください" %>
         <%= f.label :gender, class: "label" %>
         <%= f.select :gender, options_for_select(Favorite.genders.keys), prompt: "選択してください" %>
+        <%= f.label :job, class: "label" %>
+        <%= f.select :job, options_for_select(Favorite.jobs.keys), prompt: "選択してください" %>
+        <%= f.label :content_id, class: "label" %>
+        <%= f.collection_select :content_id, @contents_titles, :id, :title, prompt: "※選択肢に無い作品は追加することができます" %>
+        <%= link_to '作品タイトル追加', "#my-modal" %>
         <div class="py-4">
-          <%= f.submit '登録', class: "btn" %>
+          <%= f.submit '推しを追加', class: "btn" %>
         </div>
       <% end %>
+        <!-- Put this part before </body> tag -->
+        <div class="modal" id="my-modal">
+          <div class="modal-box">
+            <%= form_with model: @content, local: true do |c| %>
+              <%= c.text_field :title, placeholder: '作品タイトルを入力してください', class: "input input-bordered w-full" %>
+              <%= c.submit '追加', class: "btn" %>
+            <% end %>
+            <div class="modal-action">
+              <a href="#" class="btn">閉じる</a>
+            </div>
+          </div>
+        </div>
     </div>
     <h2>以前の推し(任意、複数登録可)</h2>
     <div class="form-control">
-      <%= form_with scope: :favorite, url: fans_path, method: :post, local: true do |f| %>
+      <%= form_with model: @fan, local: true do |f| %>
         <%= f.label :name, class: "label" %>
         <%= f.text_field :name, class: "input input-bordered w-full" %>
         <%= f.label :type, class: "label" %>
@@ -34,8 +51,12 @@
         <%= f.select :decade, options_for_select(Favorite.decades.keys), prompt: "選択してください" %>
         <%= f.label :gender, class: "label" %>
         <%= f.select :gender, options_for_select(Favorite.genders.keys), prompt: "選択してください" %>
+        <%= f.label :job, class: "label" %>
+        <%= f.select :job, options_for_select(Favorite.jobs.keys), prompt: "選択してください" %>
+        <%= f.label :content_id, class: "label" %>
+        <%= f.collection_select :content_id, @contents_titles, :id, :title, prompt: "選択してください" %>
         <div class="py-4">
-          <%= f.submit '登録', class: "btn" %>
+          <%= f.submit '推しを追加', class: "btn" %>
         </div>
       <% end %>
     </div>
