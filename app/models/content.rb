@@ -13,5 +13,6 @@
 #
 class Content < ApplicationRecord
   has_many :favorites
+
   validates :title, presence: true, uniqueness: true, length: { maximum: 255 }
 end
