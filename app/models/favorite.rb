@@ -22,9 +22,9 @@
 #
 class Favorite < ApplicationRecord
   has_many :fans
-  belongs_to :content
+  belongs_to :content, optional: true
 
-  validates :name, uniqueness: { scope: [:type, :gender, :job, :content_id] }
+  validates :name, uniqueness: { scope: [:existence, :gender, :job, :content_id] }
   enum existence: { person: 0, character: 1 }
   enum decade: { under_ten: 0, teens: 1, twenties: 2, thirties: 3, forties: 4, fifties: 5, sixties: 6, seventies_and_over: 7  }
   enum gender: { male: 0, female: 1 }
