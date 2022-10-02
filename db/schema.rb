@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_02_013014) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_02_172130) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "request_id", null: false
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["request_id"], name: "index_answers_on_request_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
 
   create_table "contents", force: :cascade do |t|
     t.string "title", null: false
@@ -43,6 +53,28 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_02_013014) do
     t.index ["content_id"], name: "index_favorites_on_content_id"
   end
 
+  create_table "request_bookmarks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "request_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["request_id"], name: "index_request_bookmarks_on_request_id"
+    t.index ["user_id"], name: "index_request_bookmarks_on_user_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title"
+    t.text "description"
+    t.integer "existence"
+    t.integer "decade"
+    t.integer "gender"
+    t.integer "job"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_requests_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "name", null: false
@@ -54,7 +86,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_02_013014) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "answers", "requests"
+  add_foreign_key "answers", "users"
   add_foreign_key "fans", "favorites"
   add_foreign_key "fans", "users"
   add_foreign_key "favorites", "contents"
+  add_foreign_key "request_bookmarks", "requests"
+  add_foreign_key "request_bookmarks", "users"
+  add_foreign_key "requests", "users"
 end
