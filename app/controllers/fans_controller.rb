@@ -12,10 +12,8 @@ class FansController < ApplicationController
     @fan = Fan.new(user_id: current_user.id, favorite_id: @favorite.id)
     @favorite.save
     if @fan.save
-      debugger
       redirect_to new_fan_path
     else
-      debugger
       render :new
     end
   end
