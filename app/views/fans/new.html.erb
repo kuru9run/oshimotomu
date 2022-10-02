@@ -1,0 +1,75 @@
+<div class="container mx-auto px-4 my-3">
+  <div class="alert my-5">
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      <span>続けてあなたの推しを登録してください</span>
+    </div>
+  </div>
+
+  <article class="prose">
+    <h2>現在の推し(任意、複数登録可)</h2>
+    <div class="form-control">
+      <%= form_with model: @fan, local: true do |f| %>
+        <%= f.label :name, class: "label" %>
+        <%= f.text_field :name, class: "input input-bordered w-full" %>
+        <%= f.label :existence, class: "label" %>
+        <%= f.select :existence, options_for_select(Favorite.existences.keys), prompt: "選択してください" %>
+        <%= f.label :decade, class: "label" %>
+        <%= f.select :decade, options_for_select(Favorite.decades.keys), prompt: "選択してください" %>
+        <%= f.label :gender, class: "label" %>
+        <%= f.select :gender, options_for_select(Favorite.genders.keys), prompt: "選択してください" %>
+        <%= f.label :job, class: "label" %>
+        <%= f.select :job, options_for_select(Favorite.jobs.keys), prompt: "選択してください" %>
+        <%= f.label :content_id, class: "label" %>
+        <%= f.collection_select :content_id, Content.select(:title).distinct, :id, :title, prompt: "※選択肢に無い作品は追加することができます" %>
+        <%= link_to '作品タイトル追加', "#my-modal" %>
+        <div class="py-4">
+          <%= f.submit '推しを追加', class: "btn" %>
+        </div>
+      <% end %>
+    </div>
+    <% if @fans_now != nil %>
+      <%= render @fans_now %>
+    <% end %>
+
+    <h2>以前の推し(任意、複数登録可)</h2>
+    <div class="form-control">
+      <%= form_with model: @fan, local: true do |f| %>
+        <%= f.label :name, class: "label" %>
+        <%= f.text_field :name, class: "input input-bordered w-full" %>
+        <%= f.label :existence, class: "label" %>
+        <%= f.select :existence, options_for_select(Favorite.existences.keys), prompt: "選択してください" %>
+        <%= f.label :decade, class: "label" %>
+        <%= f.select :decade, options_for_select(Favorite.decades.keys), prompt: "選択してください" %>
+        <%= f.label :gender, class: "label" %>
+        <%= f.select :gender, options_for_select(Favorite.genders.keys), prompt: "選択してください" %>
+        <%= f.label :job, class: "label" %>
+        <%= f.select :job, options_for_select(Favorite.jobs.keys), prompt: "選択してください" %>
+        <%= f.label :content_id, class: "label" %>
+        <%= f.collection_select :content_id, Content.select(:title).distinct, :id, :title, prompt: "選択してください" %>
+        <%= link_to '作品タイトル追加', "#my-modal" %>
+        <div class="py-4">
+          <%= f.submit '推しを追加', class: "btn" %>
+        </div>
+      <% end %>
+    </div>
+    <% if @fans_before != nil %>
+      <%= render @fans_before %>
+    <% end %>
+
+    <!-- ↓モーダル中身--Put this part before </body> tag -->
+    <div class="modal" id="my-modal">
+      <div class="modal-box">
+        <%= form_with model: @content, local: true do |c| %>
+          <%= c.text_field :title, placeholder: '作品タイトルを入力してください', class: "input input-bordered w-full" %>
+          <%= c.submit '追加', class: "btn" %>
+        <% end %>
+        <div class="modal-action">
+          <a href="#" class="btn">閉じる</a>
+        </div>
+      </div>
+    </div>
+    <!-- ↑モーダル中身--Put this part before </body> tag -->
+    <%= button_to '完了', requests_path, class: "btn btn-primary btn-block" %>
+  </article>
+</div>

@@ -3,6 +3,7 @@
 # Table name: fans
 #
 #  id          :bigint           not null, primary key
+#  state       :integer          default(0), not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  favorite_id :bigint           not null
@@ -23,4 +24,6 @@ class Fan < ApplicationRecord
   belongs_to :favorite
 
   validates :favorite_id, uniqueness: { scope: :user_id }
+
+  enum state: { now: 0, before: 1 }
 end

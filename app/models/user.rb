@@ -22,6 +22,6 @@ class User < ApplicationRecord
 
   validates :password, length: { minimum: 3 }, confirmation: true, if: -> { new_record? || change[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || change[:crypted_password] }
-  validates :email, uniqueness: true, :email, presence: true
+  validates :email, uniqueness: true, presence: true
   validates :name, presence: true, length: { maximum: 255 }
 end

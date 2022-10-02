@@ -1,0 +1,15 @@
+<article class="prose">
+  <h2>ログイン</h2>
+  <div class="form-control">
+    <%= form_with url: login_path, local: true do |f| %>
+      <%= f.label :email, class: "label" %>
+      <%= f.email_field :email, class: "input input-bordered w-full" %>
+      <%= f.label :password, class: "label" %>
+      <%= f.password_field :password, class: "input input-bordered w-full" %>
+      <div class="py-4">
+        <%= f.submit 'ログイン', class: "btn" %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to '新規ユーザー登録はこちら', new_user_path %>
+</article>

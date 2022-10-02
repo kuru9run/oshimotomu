@@ -6,6 +6,17 @@ module.exports = {
     './app/javascript/**/*.js'
   ],
   daisyui: {
+    theme: {
+      container: {
+        padding: {
+          DEFAULT: '1rem',
+          sm: '2rem',
+          lg: '6rem',
+          xl: '10rem',
+          '2xl': '12rem',
+        },
+      },
+    },
     themes: [
       {
         mytheme: {
@@ -22,5 +33,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [require("daisyui")],
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
 }
