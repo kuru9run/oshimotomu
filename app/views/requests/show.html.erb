@@ -1,0 +1,24 @@
+<div class="container mx-auto px-4 my-3">
+  <div class="flex flex-col w-full">
+    <p class="text-xl"><%= @request.title %></p>
+    <p><%= @request.user.name %></p>
+    <p><%= @favorites_before.first&.name %></p>
+    <p class="text-sm text-right"><%= l(@request.created_at, format: :long) %></p>
+    <div class="grid card bg-white rounded-box">
+      <p class="px-4">募集条件</p>
+      <div class="mx-auto mb-3">
+        <p><%= "#{Request.human_attribute_name(:existence)}: #{@request.existence}" %></p>
+        <p><%= "#{Request.human_attribute_name(:decade)}: #{@request.decade}" %></p>
+        <p><%= "#{Request.human_attribute_name(:gender)}: #{@request.gender}" %></p>
+        <p><%= "#{Request.human_attribute_name(:job)}: #{@request.job}" %></p>
+      </div>
+    </div> 
+    <% unless @request.description.blank? %>
+      <div class="grid card bg-white rounded-box place-items-center my-3">
+        <p><%= @request.description %></p>
+      </div> 
+    <% end %>
+    <div class="divider"></div> 
+    <div class="grid h-20 card bg-white rounded-box place-items-center">コメントがあったらここに表示</div>
+  </div>
+</div>
