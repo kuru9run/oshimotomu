@@ -1,0 +1,24 @@
+<div class="container mx-auto px-4 my-3">
+  <article class="prose">
+    <div class="form-control w-full">
+      <%= form_with model: @request, local: true do |f| %>
+        <%= f.label :title, Request.human_attribute_name(:title), class: "label" %>
+        <%= f.text_field :title, placeholder: '例：顔が良い若手俳優', class: "input input-bordered w-full" %>
+        <%= f.label :description, Request.human_attribute_name(:description), class: "label" %>
+        <%= f.text_area :description, placeholder: "例：以前○○さんが好きだったので似ている雰囲気の人だと嬉しいです！", class: "textarea textarea-bordered h-24 w-full" %>
+        <div class="divider">募集条件</div>
+        <%= f.label :existence, class: "label" %>
+        <%= f.select :existence, options_for_select(Request.existences.keys), prompt: "選択してください" %>
+        <%= f.label :decade, class: "label" %>
+        <%= f.select :decade, options_for_select(Request.decades.keys), prompt: "選択してください" %>
+        <%= f.label :gender, class: "label" %>
+        <%= f.select :gender, options_for_select(Request.genders.keys), prompt: "選択してください" %>
+        <%= f.label :job, class: "label" %>
+        <%= f.select :job, options_for_select(Request.jobs.keys), prompt: "選択してください" %>
+        <div class="py-4">
+          <%= f.submit t('.save'), class: "btn" %>
+        </div>
+      <% end %>
+    </div>
+  </article>
+</div>

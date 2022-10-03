@@ -14,9 +14,12 @@
       </div>
     </div> 
     <% unless @request.description.blank? %>
-      <div class="grid card bg-white rounded-box place-items-center my-3">
+      <div class="grid card bg-white rounded-box place-items-center mt-2">
         <p><%= @request.description %></p>
       </div> 
+    <% end %>
+    <% if current_user.own?(@request) %>
+      <%= link_to t('defaults.edit'), edit_request_path %>
     <% end %>
     <div class="divider"></div> 
     <div class="grid h-20 card bg-white rounded-box place-items-center">コメントがあったらここに表示</div>

@@ -3,6 +3,7 @@ ja:
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
+    edit: '編集'
 
   users:
     new:
@@ -18,3 +19,13 @@ ja:
       fail: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました'
+  requests:
+    new:
+      title: '推し募集 新規作成'
+    create:
+      success: '投稿しました'
+      fail: '投稿に失敗しました'
+    destroy:
+      success: '削除しました'
+    edit:
+      save: '編集内容を保存'
