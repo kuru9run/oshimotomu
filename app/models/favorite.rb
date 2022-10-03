@@ -21,7 +21,7 @@
 #  fk_rails_...  (content_id => contents.id)
 #
 class Favorite < ApplicationRecord
-  has_many :fans
+  has_many :fans, dependent: :destroy
   belongs_to :content, optional: true
 
   validates :name, uniqueness: { scope: [:existence, :gender, :job, :content_id] }

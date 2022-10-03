@@ -25,7 +25,7 @@ ja:
       content:
         title: '作品タイトル'
       request:
-        title: '件名'
+        title: '推し募集タイトル'
         description: '内容'
         existence: '実在する人物／キャラクター'
         decade: '年齢'

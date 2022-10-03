@@ -18,3 +18,16 @@ ja:
       fail: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました'
+  requests:
+    new:
+      title: '推し募集 新規作成'
+    create:
+      success: '投稿しました'
+      fail: '投稿に失敗しました'
+    destroy:
+      success: '削除しました'
+    edit:
+      save: '編集内容を保存'
+    show:
+      edit: '編集'
+      destroy: '削除'

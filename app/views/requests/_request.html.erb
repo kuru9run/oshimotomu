@@ -1,0 +1,12 @@
+<article class="prose">
+  <div class="card w-96 bg-neutral text-primary-content">
+    <div class="card-body">
+      <h2><%= link_to request.title, request_path(request), class: "card-title" %></h2>
+      <p><%= request.existence %></p>
+      <p><%= request.decade %></p>
+      <p><%= request.gender %></p>
+      <p><%= request.job %></p>
+      <p><%= request.user.name %></p>
+    </div>
+  </div>
+</article>
