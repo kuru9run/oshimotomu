@@ -10,6 +10,7 @@
         <p><%= "#{Promotion.human_attribute_name(:decade)}: #{@promotion.decade}" %></p>
         <p><%= "#{Promotion.human_attribute_name(:gender)}: #{@promotion.gender}" %></p>
         <p><%= "#{Promotion.human_attribute_name(:job)}: #{@promotion.job}" %></p>
+        <p><%= "#{Promotion.human_attribute_name(:content_id)}: #{@promotion.content.title}" %></p>
       </div>
     </div> 
     <% unless @promotion.description.blank? %>
