@@ -3,7 +3,7 @@
 # Table name: comments
 #
 #  id           :bigint           not null, primary key
-#  body         :string
+#  body         :text
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  promotion_id :bigint           not null
@@ -23,5 +23,5 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :promotion
 
-  validates :body, presence: true, length: { maximum: 255 }
+  validates :body, presence: true, length: { maximum: 65_535 }
 end
