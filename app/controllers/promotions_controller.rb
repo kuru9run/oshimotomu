@@ -28,12 +28,18 @@ class PromotionsController < ApplicationController
     end
   end
 
+  def destroy
+    @promotion = Promotion.find(params[:id])
+    @promotion.destroy!
+    redirect_to promotions_path
+  end
+
   def show
     @promotion = Promotion.find(params[:id])
   end
 
   def index
-    @promotions = Promotion.all.includes(:user)
+    @promotions = Promotion.all.includes(:user, :content)
   end
 
   private
