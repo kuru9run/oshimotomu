@@ -26,7 +26,7 @@ ja:
         title: '作品タイトル'
       request:
         title: '推し募集タイトル'
-        description: '内容'
+        description: '募集内容'
         existence: '実在する人物／キャラクター'
         decade: '年齢'
         gender: '性別'
@@ -35,7 +35,7 @@ ja:
         body: '回答内容'
       promotion:
         name: '氏名'
-        description: '内容'
+        description: '布教内容'
         existence: '実在する人物／キャラクター'
         decade: '年齢'
         gender: '性別'

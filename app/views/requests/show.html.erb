@@ -20,7 +20,7 @@
     <% end %>
     <% if current_user.own?(@request) %>
       <%= link_to t('.edit'), edit_request_path %>
-      <%= link_to t('.destroy'), request_path(@request), data: { turbo_method: :delete } %>
+      <%= button_to t('.destroy'), request_path(@request), method: :delete %>
     <% end %>
     <div class="divider"></div> 
     <div class="grid h-20 card bg-white rounded-box place-items-center">コメントがあったらここに表示</div>

@@ -1,0 +1,13 @@
+<article class="prose">
+  <div class="card w-96 bg-neutral text-primary-content">
+    <div class="card-body">
+      <h2><%= link_to promotion.name, promotion_path(promotion), class: "card-title" %></h2>
+      <p><%= promotion.existence %></p>
+      <p><%= promotion.decade %></p>
+      <p><%= promotion.gender %></p>
+      <p><%= promotion.job %></p>
+      <p><%= promotion.content&.title %></p>
+      <p><%= promotion.user.name %></p>
+    </div>
+  </div>
+</article>

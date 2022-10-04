@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :fans, only: %i[new create destroy]
   resources :contents, only: %i[create destroy]
   resources :requests
+  resources :promotions
 end
