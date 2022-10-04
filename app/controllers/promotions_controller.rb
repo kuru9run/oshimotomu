@@ -19,9 +19,11 @@ class PromotionsController < ApplicationController
   end
 
   def show
+    @promotion = Promotion.find(params[:id])
   end
 
   def index
+    @promotions = Promotion.all.includes(:user)
   end
 
   private
