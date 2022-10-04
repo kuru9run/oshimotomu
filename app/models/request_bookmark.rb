@@ -10,8 +10,9 @@
 #
 # Indexes
 #
-#  index_request_bookmarks_on_request_id  (request_id)
-#  index_request_bookmarks_on_user_id     (user_id)
+#  index_request_bookmarks_on_request_id              (request_id)
+#  index_request_bookmarks_on_user_id                 (user_id)
+#  index_request_bookmarks_on_user_id_and_request_id  (user_id,request_id) UNIQUE
 #
 # Foreign Keys
 #
