@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_02_172130) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_04_030605) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_02_172130) do
     t.datetime "updated_at", null: false
     t.index ["request_id"], name: "index_answers_on_request_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "promotion_id", null: false
+    t.string "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["promotion_id"], name: "index_comments_on_promotion_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "contents", force: :cascade do |t|
@@ -53,12 +63,38 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_02_172130) do
     t.index ["content_id"], name: "index_favorites_on_content_id"
   end
 
+  create_table "promotion_bookmarks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "promotion_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["promotion_id"], name: "index_promotion_bookmarks_on_promotion_id"
+    t.index ["user_id", "promotion_id"], name: "index_promotion_bookmarks_on_user_id_and_promotion_id", unique: true
+    t.index ["user_id"], name: "index_promotion_bookmarks_on_user_id"
+  end
+
+  create_table "promotions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.integer "existence"
+    t.integer "decade"
+    t.integer "gender"
+    t.integer "job"
+    t.bigint "content_id"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["content_id"], name: "index_promotions_on_content_id"
+    t.index ["user_id"], name: "index_promotions_on_user_id"
+  end
+
   create_table "request_bookmarks", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "request_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["request_id"], name: "index_request_bookmarks_on_request_id"
+    t.index ["user_id", "request_id"], name: "index_request_bookmarks_on_user_id_and_request_id", unique: true
     t.index ["user_id"], name: "index_request_bookmarks_on_user_id"
   end
 
@@ -88,9 +124,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_02_172130) do
 
   add_foreign_key "answers", "requests"
   add_foreign_key "answers", "users"
+  add_foreign_key "comments", "promotions"
+  add_foreign_key "comments", "users"
   add_foreign_key "fans", "favorites"
   add_foreign_key "fans", "users"
   add_foreign_key "favorites", "contents"
+  add_foreign_key "promotion_bookmarks", "promotions"
+  add_foreign_key "promotion_bookmarks", "users"
+  add_foreign_key "promotions", "contents"
+  add_foreign_key "promotions", "users"
   add_foreign_key "request_bookmarks", "requests"
   add_foreign_key "request_bookmarks", "users"
   add_foreign_key "requests", "users"
