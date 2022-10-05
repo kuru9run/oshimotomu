@@ -1,5 +1,6 @@
 ja:
   defaults:
+    application: '求：推し'
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
@@ -10,6 +11,12 @@ ja:
     create:
       success: 'ユーザー登録が完了しました'
       fail: 'ユーザー登録に失敗しました'
+  fans:
+    new:
+      title: '推し登録'
+    create:
+      success: '推しを登録しました'
+      fail: '推しの登録に失敗しました'
   user_sessions:
     new:
       title: 'ログイン'

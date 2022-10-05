@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
@@ -18,8 +17,12 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
           </button>
           <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-            <li><%= link_to "ログイン", login_path %></li>
-            <li><%= link_to "ユーザー登録", new_user_path %></li>
+            <% if logged_in? %>
+              <li><%= button_to "ログアウト", logout_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "ログイン", login_path %></li>
+              <li><%= link_to "ユーザー登録", new_user_path %></li>
+            <% end %>
             <li><%= link_to "推し募集", requests_path %></li>
             <li><%= link_to "布教", promotions_path %></li>
             <li><%= link_to "みんなの推し変遷", "#" %></li>
@@ -27,9 +30,10 @@
         </div>
       </div>
       <div class="flex-1">
-        <a class="btn btn-ghost normal-case text-xl">求：推し</a>
+        <a class="btn btn-ghost normal-case text-xl"><%= t('defaults.application') %></a>
       </div>
     </div>
+    <%= render partial: 'shared/flash_message' %>
     <%= yield %>
     <footer class="footer p-10 bg-neutral text-neutral-content">
       <div>

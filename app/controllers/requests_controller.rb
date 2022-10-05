@@ -17,8 +17,9 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
     @request.user = current_user
     if @request.save
-      redirect_to requests_path
+      redirect_to requests_path, t('.success')
     else
+      flash[:danger] = t('.fail')
       render :new
     end
   end

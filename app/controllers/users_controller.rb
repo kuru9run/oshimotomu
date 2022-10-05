@@ -7,8 +7,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
-      redirect_to new_fan_path
+      redirect_to new_fan_path, notice: t('.success')
     else
+      flash.now[:danger] = t('.fail')
       render :new
     end
   end
