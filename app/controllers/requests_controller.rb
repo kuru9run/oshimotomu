@@ -7,6 +7,8 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     fans_before = @request.user.fans.where(state: :before)
     @favorites_before = fans_before.map { |fan| fan.favorite }
+    @answers = @request.answers
+    @answer = Answer.new 
   end
 
   def new

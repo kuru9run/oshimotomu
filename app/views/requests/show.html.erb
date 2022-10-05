@@ -18,11 +18,16 @@
         <p><%= @request.description %></p>
       </div> 
     <% end %>
-    <% if current_user.own?(@request) %>
+    <% if current_user&.own?(@request) %>
       <%= link_to t('.edit'), edit_request_path %>
       <%= button_to t('.destroy'), request_path(@request), method: :delete %>
     <% end %>
-    <div class="divider"></div> 
-    <div class="grid h-20 card bg-white rounded-box place-items-center">コメントがあったらここに表示</div>
   </div>
+  <% if logged_in? %>
+    <%= render partial: 'answers/form', locals: { answer: @answer, request: @request } %>
+  <% end %>
+  <% if @answers.any? %>
+    <div class="divider"></div> 
+    <%= render @answers %>
+  <% end %>
 </div>

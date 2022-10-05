@@ -7,15 +7,16 @@ class FansController < ApplicationController
   end
 
   def create
-    @content = Content.find_by(id: favorite_params[:content_id])
+    @content = Content.find_by(id: params[:content_id])
     @favorite = Favorite.find_or_create_by(name: favorite_params[:name], existence: favorite_params[:existence], decade: favorite_params[:decade], gender: favorite_params[:gender], job: favorite_params[:job], content_id: @content&.id)
-    @fan = Fan.new(user_id: current_user.id, favorite_id: @favorite.id)
-    @favorite.save
-    if @fan.save
-      redirect_to new_fan_path, t('.success')
-    else
-      flash.now[:danger] = t('.fail')
-      render :new
+    @fan = @favorite.fans.build(user_id: current_user.id)
+    if @favorite.save
+      if @fan.save
+        redirect_to new_fan_path, t('.success')
+      else
+        flash.now[:danger] = t('.fail')
+        render :new
+      end
     end
   end
 
