@@ -1,4 +1,68 @@
 ja:
+  enums:
+    favorite:
+      existence:
+        person: 実在する人物
+        character: キャラクター
+      decade:
+        under_ten: 10歳未満
+        teens: 10代
+        twenties: 20代
+        thirties: 30代
+        forties: 40代
+        fifties: 50代
+        sixties: 60代
+        seventies_and_over: 70代以上
+      gender:
+        male: 男性
+        female: 女性
+      job: 
+        actor: 俳優
+        voice_actor: 声優
+        artist: アーティスト
+        idol: アイドル
+    request:
+      existence:
+        person: 実在する人物
+        character: キャラクター
+      decade:
+        under_ten: 10歳未満
+        teens: 10代
+        twenties: 20代
+        thirties: 30代
+        forties: 40代
+        fifties: 50代
+        sixties: 60代
+        seventies_and_over: 70代以上
+      gender:
+        male: 男性
+        female: 女性
+      job: 
+        actor: 俳優
+        voice_actor: 声優
+        artist: アーティスト
+        idol: アイドル
+    promotion:
+      existence:
+        person: 実在する人物
+        character: キャラクター
+      decade:
+        under_ten: 10歳未満
+        teens: 10代
+        twenties: 20代
+        thirties: 30代
+        forties: 40代
+        fifties: 50代
+        sixties: 60代
+        seventies_and_over: 70代以上
+      gender:
+        male: 男性
+        female: 女性
+      job: 
+        actor: 俳優
+        voice_actor: 声優
+        artist: アーティスト
+        idol: アイドル
   activerecord:
     models:
       user: 'ユーザー'
