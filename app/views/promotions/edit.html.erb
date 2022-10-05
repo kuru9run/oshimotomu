@@ -2,6 +2,7 @@
   <article class="prose">
     <div class="form-control w-full">
       <%= form_with model: @promotion do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
         <%= f.label :name, Promotion.human_attribute_name(:name), class: "label" %>
         <%= f.text_field :name, placeholder: '布教したい人物の氏名を入力してください', class: "input input-bordered w-full" %>
         <%= f.label :description, Promotion.human_attribute_name(:description), class: "label" %>
@@ -27,6 +28,7 @@
     <div class="modal" id="my-modal">
       <div class="modal-box">
         <%= form_with model: @content do |c| %>
+          <%= render 'shared/error_messages', object: c.object %>
           <%= c.text_field :title, placeholder: '作品タイトルを入力してください', class: "input input-bordered w-full" %>
           <%= c.submit '追加', class: "btn" %>
         <% end %>
