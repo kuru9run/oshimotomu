@@ -1,0 +1,5 @@
+<%= form_with model: [request, answer] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body, placeholder: '○○さんがおすすめです！', class: "textarea textarea-bordered h-24 w-full" %>
+  <%= f.submit t('defaults.submit'), class: "btn" %>
+<% end %>

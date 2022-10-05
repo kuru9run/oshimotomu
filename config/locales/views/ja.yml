@@ -4,6 +4,8 @@ ja:
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
+    submit: '送信'
+    delete: '削除'
 
   users:
     new:
