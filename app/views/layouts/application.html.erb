@@ -11,9 +11,9 @@
 
   <body>
     <%= render 'shared/header' %>
-    <%= breadcrumbs separator: " &rsaquo; " %>
-    <%= render partial: 'shared/flash_message' %>
+    <%= render 'shared/breadcrumbs' %>
+    <%= render 'shared/flash_message' %>
     <%= yield %>
-    <%= render partial: 'shared/footer' %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

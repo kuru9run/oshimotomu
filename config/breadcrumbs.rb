@@ -32,6 +32,15 @@ crumb :promotion_show do |promotion|
   parent :promotions
 end
 
+crumb :favorites do
+  link t('breadcrumb.favorites'), favorites_path
+  parent :root
+end
+
+crumb :favorite_show do |favorite|
+  link "#{favorite.name}さん", favorite_path(favorite)
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
