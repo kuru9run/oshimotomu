@@ -1,0 +1,5 @@
+<%= form_with model: [promotion, comment] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body, placeholder: '例：気になってきたのでおすすめの楽曲も教えてほしいです！', class: "textarea textarea-bordered h-24 w-full" %>
+  <%= f.submit t('defaults.submit'), class: "btn" %>
+<% end %>

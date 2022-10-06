@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   resources :requests, shallow: true do
     resources :answers, only: %i[create destroy]
   end
-  resources :promotions
+  resources :promotions, shallow: true do
+    resources :comments, only: %i[create destroy]
+  end
 end

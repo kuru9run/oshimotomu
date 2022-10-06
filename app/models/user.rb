@@ -22,6 +22,7 @@ class User < ApplicationRecord
   has_many :requests, dependent: :destroy
   has_many :request_bookmarks, dependent: :destroy
   has_many :answers, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :password, length: { minimum: 3 }, confirmation: true, if: -> { new_record? || change[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || change[:crypted_password] }

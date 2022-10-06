@@ -1,8 +1,8 @@
 class AnswersController < ApplicationController
   def create
-    @answer = current_user.answers.build(answer_params)
-    if @answer.save
-      redirect_to request_path(@answer.request)
+    answer = current_user.answers.build(answer_params)
+    if answer.save
+      redirect_to request_path(answer.request)
     else
       render 'requests#show'
     end
