@@ -1,6 +1,7 @@
+<% breadcrumb :promotion_show, @promotion %>
 <div class="container mx-auto px-4 my-3">
   <div class="flex flex-col w-full">
-    <p class="text-xl"><%= @promotion.name %></p>
+    <p class="text-xl"><%= @promotion.name %>さん</p>
     <p><%= @promotion.user.name %></p>
     <p class="text-sm text-right"><%= l(@promotion.created_at, format: :long) %></p>
     <div class="grid card bg-white rounded-box">
