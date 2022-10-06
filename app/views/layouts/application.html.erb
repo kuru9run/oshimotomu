@@ -33,6 +33,7 @@
         <%= link_to t('defaults.application'), root_path, class: "btn btn-ghost normal-case text-xl" %>
       </div>
     </div>
+    <%= breadcrumbs separator: " &rsaquo; " %>
     <%= render partial: 'shared/flash_message' %>
     <%= yield %>
     <footer class="footer p-10 bg-neutral text-neutral-content">

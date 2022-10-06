@@ -1,4 +1,9 @@
 ja:
+  breadcrumbs:
+    home: 'トップ'
+    requests: '推し募集'
+    new: '新規作成'
+    promotions: '布教'
   defaults:
     application: '求：推し'
     login: 'ログイン'
@@ -28,6 +33,8 @@ ja:
     destroy:
       success: 'ログアウトしました'
   requests:
+    index:
+      title: '推し募集 一覧'
     new:
       title: '推し募集 新規作成'
     create:
@@ -41,6 +48,8 @@ ja:
       edit: '編集'
       destroy: '削除'
   promotions:
+    index:
+      title: '布教 一覧'
     new:
       title: '布教 新規作成'
     create:
