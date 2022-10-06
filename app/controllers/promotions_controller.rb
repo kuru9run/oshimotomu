@@ -36,6 +36,8 @@ class PromotionsController < ApplicationController
 
   def show
     @promotion = Promotion.find(params[:id])
+    @comments = @promotion.comments
+    @comment = Comment.new
   end
 
   def index

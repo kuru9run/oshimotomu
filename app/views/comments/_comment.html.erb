@@ -1,0 +1,4 @@
+<div class="grid h-20 card bg-white rounded-box place-items-center"><%= comment.body %></div>
+<% if logged_in? && current_user.own?(comment) %>
+  <%= button_to t('defaults.delete'), comment_path(comment), method: :delete %>
+<% end %>
