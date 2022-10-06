@@ -9,7 +9,7 @@
   <article class="prose">
     <h2>現在の推し(任意、複数登録可)</h2>
     <div class="form-control">
-      <%= form_with model: @fan, local: true do |f| %>
+      <%= form_with model: @fan_now, local: true do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
         <%= f.label :name, class: "label" %>
         <%= f.text_field :name, class: "input input-bordered w-full" %>
@@ -24,6 +24,7 @@
         <%= f.label :content_id, class: "label" %>
         <%= f.collection_select :content_id, Content.select(:title).distinct, :id, :title, prompt: "※選択肢に無い作品は追加することができます" %>
         <%= link_to '作品タイトル追加', "#my-modal" %>
+        <%= f.hidden_field :state, value: :now %>
         <div class="py-4">
           <%= f.submit '推しを追加', class: "btn" %>
         </div>
@@ -35,7 +36,7 @@
 
     <h2>以前の推し(任意、複数登録可)</h2>
     <div class="form-control">
-      <%= form_with model: @fan, local: true do |f| %>
+      <%= form_with model: @fan_before, local: true do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
         <%= f.label :name, class: "label" %>
         <%= f.text_field :name, class: "input input-bordered w-full" %>
@@ -50,6 +51,7 @@
         <%= f.label :content_id, class: "label" %>
         <%= f.collection_select :content_id, Content.select(:title).distinct, :id, :title, prompt: "選択してください" %>
         <%= link_to '作品タイトル追加', "#my-modal" %>
+        <%= f.hidden_field :state, value: :before %>
         <div class="py-4">
           <%= f.submit '推しを追加', class: "btn" %>
         </div>

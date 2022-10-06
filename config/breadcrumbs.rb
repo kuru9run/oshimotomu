@@ -1,5 +1,5 @@
 crumb :root do
-  link "Home", root_path
+  link t('breadcrumbs.home'), root_path
 end
 
 crumb :requests do
@@ -33,12 +33,13 @@ crumb :promotion_show do |promotion|
 end
 
 crumb :favorites do
-  link t('breadcrumb.favorites'), favorites_path
+  link t('breadcrumbs.transitions'), favorites_path
   parent :root
 end
 
 crumb :favorite_show do |favorite|
   link "#{favorite.name}さん", favorite_path(favorite)
+  parent :favorites
 end
 
 # crumb :projects do

@@ -13,5 +13,11 @@
     <% end %>
     <p>人気の推し</p>
     ここに縦長カードで表示したい
+    <% if logged_in? %>
+      <p>あなたの現在の推し</p>
+      <%= render @my_favorite_now %>
+      <p>あなたの以前の推し</p>
+      <%= render @my_favorite_before %>
+    <% end %>
   </article>
 </div>

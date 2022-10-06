@@ -4,6 +4,7 @@ ja:
     requests: '推し募集'
     new: '新規作成'
     promotions: '布教'
+    transitions: '推し変遷'
   defaults:
     application: '求：推し'
     login: 'ログイン'
