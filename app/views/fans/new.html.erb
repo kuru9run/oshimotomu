@@ -1,10 +1,12 @@
 <div class="container mx-auto px-4 my-3">
-  <div class="alert my-5">
-    <div>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-      <span>続けてあなたの推しを登録してください</span>
+  <% if current_user.fans.blank? %>
+    <div class="alert my-5">
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <span>続けてあなたの推しを登録してください</span>
+      </div>
     </div>
-  </div>
+  <% end %>
 
   <article class="prose">
     <h2>現在の推し(任意、複数登録可)</h2>

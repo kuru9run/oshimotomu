@@ -19,6 +19,7 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   has_many :fans, dependent: :destroy
+  has_many :favorites, through: :fans
   has_many :requests, dependent: :destroy
   has_many :request_bookmarks, dependent: :destroy
   has_many :answers, dependent: :destroy

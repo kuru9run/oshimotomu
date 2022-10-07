@@ -1,6 +1,19 @@
 <% breadcrumb :favorites %>
 <div class="container mx-auto px-4 my-3">
   <article class="prose">
+    <%= search_form_for @q do |f| %>
+      <%= f.label :name %>
+      <%= f.search_field :name_cont %>
+      <%= f.label :existence %>
+      <%= f.select :existence_eq, Favorite.existences_i18n.invert.map {|k, v| [k, Favorite.existences[v]]}, include_blank: '指定しない' %>
+      <%= f.label :decade %>
+      <%= f.select :decade_eq, Favorite.decades_i18n.invert.map {|k, v| [k, Favorite.decades[v]]}, include_blank: '指定しない' %>
+      <%= f.label :gender %>
+      <%= f.select :gender_eq, Favorite.genders_i18n.invert.map {|k, v| [k, Favorite.genders[v]]}, include_blank: '指定しない' %>
+      <%= f.label :job %>
+      <%= f.select :job_eq, Favorite.jobs_i18n.invert.map {|k, v| [k, Favorite.jobs[v]]}, include_blank: '指定しない' %>
+      <%= f.submit class: "btn" %>
+    <% end %>
     <% if @favorites.count > 0 %>
       <%= render @favorites %>
     <% else %>
