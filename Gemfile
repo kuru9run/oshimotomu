@@ -68,6 +68,7 @@ group :development do
   gem 'bullet'
   gem 'solargraph'
   gem 'annotate'
+  gem 'faker'
 end
 
 # daisyUIを適用する
