@@ -1,2 +1,9 @@
 <% breadcrumb :favorite_show, @favorite %>
-favorite/show
+<div class="p-4">
+  <p class="text-xl text-center font-bold">以前<%= @favorite.name %>さん推し → 現在の推しは？</p>
+  <%= pie_chart @chart_now %>
+</div>
+<div class="p-4">
+  <p class="text-xl text-center font-bold">現在<%= @favorite.name %>さん推し ← 以前の推しは？</p>
+  <%= pie_chart @chart_before %>
+</div>

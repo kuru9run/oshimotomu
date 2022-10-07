@@ -4,6 +4,8 @@
   "dependencies": {
     "@hotwired/turbo-rails": "^7.2.0",
     "autoprefixer": "^10.4.12",
+    "chart.js": "^3.9.1",
+    "chartkick": "^4.2.0",
     "daisyui": "^2.31.0",
     "esbuild": "^0.15.9",
     "postcss": "^8.4.16",
