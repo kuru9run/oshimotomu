@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :promotions, shallow: true do
     resources :comments, only: %i[create destroy]
   end
+  resources :favorites, only: %i[index show]
 end

@@ -1,0 +1,12 @@
+<article class="prose">
+  <div class="card w-96 bg-neutral text-primary-content">
+    <div class="card-body">
+      <h2><%= link_to favorite.name, favorite_path(favorite), class: "card-title" %></h2>
+      <p><%= favorite.existence %></p>
+      <p><%= favorite.decade %></p>
+      <p><%= favorite.gender %></p>
+      <p><%= favorite.job %></p>
+      <p><%= favorite.content&.title %></p>
+    </div>
+  </div>
+</article>
