@@ -2,8 +2,20 @@
 <div class="container mx-auto px-4 my-3">
   <article class="prose">
     <div class="flex flex-col w-full">
-      <p class="text-xl">マイページ</p>
+      <p class="text-xl">プロフィール</p>
+      <%= render partial: 'shared/avatar', locals: { user: current_user } %>
       <div class="divider"></div> 
+      <p class="text-xl">投稿した推し募集一覧</p>
+      <div class="divider"></div> 
+      <p class="text-xl">回答した推し募集一覧</p>
+      <div class="divider"></div> 
+      <p class="text-xl">投稿した布教一覧</p>
+      <div class="divider"></div> 
+      <p class="text-xl">コメントした布教一覧</p>
+      <div class="divider"></div> 
+      <p class="text-xl">ブックマークした推し募集一覧</p>
+      <div class="divider"></div> 
+      <p class="text-xl">ブックマークした布教一覧</p>
     </div>
   </article>
 </div>
