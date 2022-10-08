@@ -2,6 +2,11 @@ crumb :root do
   link t('breadcrumbs.home'), root_path
 end
 
+crumb :mypage do
+  link t('breadcrumbs.mypage'), mypage_path
+  parent :root
+end
+
 crumb :requests do
   link t('breadcrumbs.requests'), requests_path
   parent :root

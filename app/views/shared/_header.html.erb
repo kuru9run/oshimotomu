@@ -11,9 +11,10 @@
           <li><%= link_to "ログイン", login_path %></li>
           <li><%= link_to "ユーザー登録", new_user_path %></li>
         <% end %>
-        <li><%= link_to "推し募集", requests_path %></li>
-        <li><%= link_to "布教", promotions_path %></li>
-        <li><%= link_to "みんなの推し変遷", favorites_path %></li>
+        <li><%= link_to t('menu.mypage'), mypage_path %></li>
+        <li><%= link_to t('menu.request'), requests_path %></li>
+        <li><%= link_to t('menu.promotion'), promotions_path %></li>
+        <li><%= link_to t('menu.transition'), favorites_path %></li>
       </ul>
     </div>
   </div>

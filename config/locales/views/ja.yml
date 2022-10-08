@@ -1,6 +1,12 @@
 ja:
+  menu:
+    mypage: 'マイページ'
+    request: '推し募集'
+    promotion: '布教'
+    transition: 'みんなの推し変遷'
   breadcrumbs:
     home: 'トップ'
+    mypage: 'マイページ'
     requests: '推し募集'
     new: '新規作成'
     promotions: '布教'
@@ -12,7 +18,9 @@ ja:
     logout: 'ログアウト'
     submit: '送信'
     delete: '削除'
-
+  mypage:
+    show:
+      title: 'マイページ'
   users:
     new:
       title: 'ユーザー登録'
