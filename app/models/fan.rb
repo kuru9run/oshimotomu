@@ -25,5 +25,5 @@ class Fan < ApplicationRecord
 
   validates :favorite_id, uniqueness: { scope: :user_id }
 
-  enum state: { now: 0, before: 1 }
+  enum state: { before: 0, now: 1 }
 end

@@ -21,6 +21,8 @@ ja:
         voice_actor: 声優
         artist: アーティスト
         idol: アイドル
+        athlete: スポーツ選手
+        youtuber: 動画配信者
     request:
       existence:
         person: 実在する人物
@@ -42,6 +44,8 @@ ja:
         voice_actor: 声優
         artist: アーティスト
         idol: アイドル
+        athlete: スポーツ選手
+        youtuber: 動画配信者
     promotion:
       existence:
         person: 実在する人物
@@ -63,6 +67,8 @@ ja:
         voice_actor: 声優
         artist: アーティスト
         idol: アイドル
+        athlete: スポーツ選手
+        youtuber: 動画配信者
   activerecord:
     models:
       user: 'ユーザー'
