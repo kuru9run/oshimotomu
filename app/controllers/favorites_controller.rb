@@ -1,4 +1,6 @@
 class FavoritesController < ApplicationController
+  skip_before_action :require_login
+
   def index
     @q = Favorite.ransack(params[:q])
     @favorites = @q.result(distinct: true).includes(:content)

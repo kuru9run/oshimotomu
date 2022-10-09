@@ -1,4 +1,6 @@
 class PromotionsController < ApplicationController
+  skip_before_action :require_login, only: %i[show index]
+
   def new
     @promotion = Promotion.new
     @content = Content.new

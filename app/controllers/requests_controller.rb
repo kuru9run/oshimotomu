@@ -1,4 +1,6 @@
 class RequestsController < ApplicationController
+  skip_before_action :require_login, only: %i[show index]
+  
   def index
     @requests = Request.all.includes(:user)
   end
