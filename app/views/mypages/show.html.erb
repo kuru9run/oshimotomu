@@ -16,19 +16,170 @@
           <% @before_favorites.each do |favorite| %>
             <%= render partial: 'before_favorite', locals: { favorite: favorite } %>
           <% end %>
+          <%= link_to '推し情報編集', new_fan_path, class: "btn" %>
         </div>
       </div>
     </div>
   <div class="divider"></div> 
   <p class="text-xl">投稿した推し募集一覧</p>
+  <% if @wrote_requests.any? %>
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th>推せる認定</th>
+            <th><%= Request.human_attribute_name(:created_at) %></th>
+            <th><%= Request.human_attribute_name(:title) %></th>
+            <th>回答数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @wrote_requests.each do |request| %>
+            <%= render partial: 'request_row', locals: { request: request } %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <div class="alert my-5">
+      <div>
+        <span>投稿した推し募集はまだありません</span>
+      </div>
+    </div>
+  <% end %>
   <div class="divider"></div> 
   <p class="text-xl">回答した推し募集一覧</p>
+  <% if @answered_requests.any? %>
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th>推せる認定</th>
+            <th><%= Request.human_attribute_name(:created_at) %></th>
+            <th><%= Request.human_attribute_name(:title) %></th>
+            <th>回答数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @answered_requests.each do |request| %>
+            <%= render partial: 'request_row', locals: { request: request } %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <div class="alert my-5">
+      <div>
+        <span>回答した推し募集はまだありません</span>
+      </div>
+    </div>
+  <% end %>
   <div class="divider"></div> 
   <p class="text-xl">投稿した布教一覧</p>
+  <% if @wrote_promotions.any? %>
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th></th>
+            <th><%= Promotion.human_attribute_name(:created_at) %></th>
+            <th><%= Promotion.human_attribute_name(:name) %></th>
+            <th>コメント数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @wrote_promotions.each do |promotion| %>
+            <%= render partial: 'promotion_row', locals: { promotion: promotion } %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <div class="alert my-5">
+      <div>
+        <span>投稿した布教はまだありません</span>
+      </div>
+    </div>
+  <% end %>
   <div class="divider"></div> 
   <p class="text-xl">コメントした布教一覧</p>
-  <div class="divider"></div> 
+  <% if @commented_promotions.any? %>
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th></th>
+            <th><%= Promotion.human_attribute_name(:created_at) %></th>
+            <th><%= Promotion.human_attribute_name(:name) %></th>
+            <th>コメント数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @commented_promotions.each do |promotion| %>
+            <%= render partial: 'promotion_row', locals: { promotion: promotion } %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <div class="alert my-5">
+      <div>
+        <span>コメントした布教はまだありません</span>
+      </div>
+    </div>
+  <% end %>
+  <div class="divider"></div>
   <p class="text-xl">ブックマークした推し募集一覧</p>
-  <div class="divider"></div> 
+  <% if current_user.request_bookmarks.any? %>
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th>推せる認定</th>
+            <th><%= Request.human_attribute_name(:created_at) %></th>
+            <th><%= Request.human_attribute_name(:title) %></th>
+            <th>回答数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_user.request_bookmarks.each do |bookmark| %>
+            <%= render partial: 'request_row', locals: { request: bookmark.request } %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <div class="alert my-5">
+      <div>
+        <span>ブックマークした推し募集はまだありません</span>
+      </div>
+    </div>
+  <% end %>
+  <div class="divider"></div>
   <p class="text-xl">ブックマークした布教一覧</p>
+  <% if current_user.promotion_bookmarks.any? %>
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th></th>
+            <th><%= Promotion.human_attribute_name(:created_at) %></th>
+            <th><%= Promotion.human_attribute_name(:name) %></th>
+            <th>コメント数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_user.promotion_bookmarks.each do |bookmark| %>
+            <%= render partial: 'promotion_row', locals: { promotion: bookmark.promotion } %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <div class="alert my-5">
+      <div>
+        <span>ブックマークした布教はまだありません</span>
+      </div>
+    </div>
+  <% end %>
 </div>

@@ -101,6 +101,7 @@ ja:
         decade: '年齢'
         gender: '性別'
         job: '職業'
+        created_at: '作成日時'
       answer:
         body: '回答内容'
       promotion:
@@ -111,5 +112,6 @@ ja:
         gender: '性別'
         job: '職業'
         content_id: '作品'
+        created_at: '作成日時'
       comment:
         body: 'コメント内容'
