@@ -1,3 +1,8 @@
+<p></p>
+<div data-controller="hello">
+  <input type="text">
+  <button data-action="click->hello#greet">Greet</button>
+</div>
 <div class="container mx-auto px-4 my-3">
   <% if current_user.fans.blank? %>
     <div class="alert my-5">
@@ -7,7 +12,6 @@
       </div>
     </div>
   <% end %>
-
   <article class="prose">
     <h2>現在の推し(任意、複数登録可)</h2>
     <div class="form-control">
