@@ -21,10 +21,10 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
     @request.user = current_user
     if @request.save
-      redirect_to requests_path, t('.success')
+      redirect_to requests_path, success: t('.success')
     else
-      flash[:danger] = t('.fail')
-      render :new
+      flash.now[:alert] = t('.fail')
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -37,7 +37,7 @@ class RequestsController < ApplicationController
     if @request.update(request_params)
       redirect_to request_path(@request)
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
