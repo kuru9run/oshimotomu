@@ -117,8 +117,6 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    jsbundling-rails (1.0.3)
-      railties (>= 6.0.0)
     json (2.6.2)
     jwt (2.5.0)
     kramdown (2.4.0)
@@ -298,7 +296,6 @@ DEPENDENCIES
   gretel
   importmap-rails
   jbuilder
-  jsbundling-rails
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4)

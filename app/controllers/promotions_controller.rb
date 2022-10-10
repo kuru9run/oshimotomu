@@ -19,6 +19,7 @@ class PromotionsController < ApplicationController
 
   def edit
     @promotion = Promotion.find(params[:id])
+    @content = Content.new
   end
 
   def update
