@@ -1,4 +1,4 @@
 // Entry point for the build script in your package.json
 import "@hotwired/turbo-rails"
 import "chartkick/chart.js"
-Turbo.session.drive = false
+import "./controllers"

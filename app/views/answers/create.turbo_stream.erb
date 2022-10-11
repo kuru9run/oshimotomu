@@ -1,0 +1,7 @@
+<%= turbo_stream.append 'answers' do %>
+  <%= render @answer %>
+<% end %>
+
+<%= turbo_stream.replace 'form' do %>
+  <%= render partial: 'form', locals: { request: @answer.request, answer: Answer.new } %>
+<% end %>

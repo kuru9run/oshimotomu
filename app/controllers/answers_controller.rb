@@ -1,10 +1,10 @@
 class AnswersController < ApplicationController
   def create
-    answer = current_user.answers.build(answer_params)
-    if answer.save
-      redirect_to request_path(answer.request)
+    @answer = current_user.answers.build(answer_params)
+    if @answer.save
+      # createテンプレートをレンダリング
     else
-      render 'requests#show'
+      render 'requests/show', status: :unprocessable_entity
     end
   end
 

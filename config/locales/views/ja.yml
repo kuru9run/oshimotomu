@@ -51,6 +51,9 @@ ja:
     create:
       success: '投稿しました'
       fail: '投稿に失敗しました'
+    update:
+      success: '編集内容を保存しました'
+      fail: '編集内容を保存できませんでした'
     destroy:
       success: '削除しました'
     edit:
@@ -66,6 +69,9 @@ ja:
     create:
       success: '投稿しました'
       fail: '投稿に失敗しました'
+    update:
+      success: '編集内容を保存しました'
+      fail: '編集内容を保存できませんでした'
     destroy:
       success: '削除しました'
     edit:

@@ -73,7 +73,6 @@ end
 
 # daisyUIを適用する
 gem 'cssbundling-rails'
-gem 'jsbundling-rails'
 
 gem 'sorcery'
 gem 'rails-i18n', '~> 7.0.0'
