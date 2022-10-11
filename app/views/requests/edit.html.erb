@@ -9,13 +9,13 @@
         <%= f.text_area :description, placeholder: "例：以前○○さんが好きだったので似ている雰囲気の人だと嬉しいです！", class: "textarea textarea-bordered h-24 w-full" %>
         <div class="divider">募集条件</div>
         <%= f.label :existence, class: "label" %>
-        <%= f.select :existence, Request.existences_i18n.invert.to_a, prompt: "選択してください" %>
+        <%= f.select :existence, Request.existences_i18n.invert, prompt: "選択してください" %>
         <%= f.label :decade, class: "label" %>
-        <%= f.select :decade, Request.decades_i18n.invert.to_a, prompt: "選択してください" %>
+        <%= f.select :decade, Request.decades_i18n.invert, prompt: "選択してください" %>
         <%= f.label :gender, class: "label" %>
-        <%= f.select :gender, Request.genders_i18n.invert.to_a, prompt: "選択してください" %>
+        <%= f.select :gender, Request.genders_i18n.invert, prompt: "選択してください" %>
         <%= f.label :job, class: "label" %>
-        <%= f.select :job, Request.jobs_i18n.invert.to_a, prompt: "選択してください" %>
+        <%= f.select :job, Request.jobs_i18n.invert, prompt: "選択してください" %>
         <div class="py-4">
           <%= f.submit t('.save'), class: "btn" %>
         </div>
