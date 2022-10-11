@@ -12,17 +12,17 @@
     <div class="form-control">
       <%= form_with model: @fan_now, local: true do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
-        <%= f.label :name, class: "label" %>
+        <%= f.label :name, Favorite.human_attribute_name(:name), class: "label" %>
         <%= f.text_field :name, class: "input input-bordered w-full" %>
-        <%= f.label :existence, class: "label" %>
+        <%= f.label :existence, Favorite.human_attribute_name(:existence), class: "label" %>
         <%= f.select :existence, Favorite.existences.keys.map {|k| [I18n.t("enums.favorite.existence.#{k}"), k]}, prompt: "選択してください" %>
-        <%= f.label :decade, class: "label" %>
+        <%= f.label :decade, Favorite.human_attribute_name(:decade), class: "label" %>
         <%= f.select :decade, Favorite.decades.keys.map {|k| [I18n.t("enums.favorite.decade.#{k}"), k]}, prompt: "選択してください" %>
-        <%= f.label :gender, class: "label" %>
+        <%= f.label :gender, Favorite.human_attribute_name(:gender), class: "label" %>
         <%= f.select :gender, Favorite.genders.keys.map {|k| [I18n.t("enums.favorite.gender.#{k}"), k]}, prompt: "選択してください" %>
-        <%= f.label :job, class: "label" %>
+        <%= f.label :job, Favorite.human_attribute_name(:job), class: "label" %>
         <%= f.select :job, Favorite.jobs.keys.map {|k| [I18n.t("enums.favorite.job.#{k}"), k]}, prompt: "選択してください" %>
-        <%= f.label :content_id, class: "label" %>
+        <%= f.label :content_id, Favorite.human_attribute_name(:content_id), class: "label" %>
         <%= f.collection_select :content_id, Content.select(:title).distinct, :id, :title, prompt: "※選択肢に無い作品は追加することができます" %>
         <label for="my-modal" class="btn modal-button">作品タイトル追加</label>
         <%= f.hidden_field :state, value: :now %>
@@ -39,17 +39,17 @@
     <div class="form-control">
       <%= form_with model: @fan_before, local: true do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
-        <%= f.label :name, class: "label" %>
+        <%= f.label :name, Favorite.human_attribute_name(:name), class: "label" %>
         <%= f.text_field :name, class: "input input-bordered w-full" %>
-        <%= f.label :existence, class: "label" %>
+        <%= f.label :existence, Favorite.human_attribute_name(:existence), class: "label" %>
         <%= f.select :existence, Favorite.existences.keys.map {|k| [I18n.t("enums.favorite.existence.#{k}"), k]}, prompt: "選択してください" %>
-        <%= f.label :decade, class: "label" %>
+        <%= f.label :decade, Favorite.human_attribute_name(:decade), class: "label" %>
         <%= f.select :decade, Favorite.decades.keys.map {|k| [I18n.t("enums.favorite.decade.#{k}"), k]}, prompt: "選択してください" %>
-        <%= f.label :gender, class: "label" %>
+        <%= f.label :gender, Favorite.human_attribute_name(:gender), class: "label" %>
         <%= f.select :gender, Favorite.genders.keys.map {|k| [I18n.t("enums.favorite.gender.#{k}"), k]}, prompt: "選択してください" %>
-        <%= f.label :job, class: "label" %>
+        <%= f.label :job, Favorite.human_attribute_name(:job), class: "label" %>
         <%= f.select :job, Favorite.jobs.keys.map {|k| [I18n.t("enums.favorite.job.#{k}"), k]}, prompt: "選択してください" %>
-        <%= f.label :content_id, class: "label" %>
+        <%= f.label :content_id, Favorite.human_attribute_name(:content_id), class: "label" %>
         <%= f.collection_select :content_id, Content.select(:title).distinct, :id, :title, prompt: "※選択肢に無い作品は追加することができます" %>
         <label for="my-modal" class="btn modal-button">作品タイトル追加</label>
         <%= f.hidden_field :state, value: :before %>
