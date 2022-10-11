@@ -26,7 +26,7 @@ class PromotionsController < ApplicationController
   def update
     @promotion = Promotion.find(params[:id])
     if @promotion.update(promotion_params)
-      redirect_to promotions_path, notice: t('.success')
+      redirect_to promotion_path(@promotion), notice: t('.success')
     else
       render :edit, status: :unprocessable_entity
     end
