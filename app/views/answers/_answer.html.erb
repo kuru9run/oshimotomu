@@ -1,6 +1,4 @@
-<%= turbo_frame_tag answer do %>
-  <div class="grid h-20 card bg-white rounded-box place-items-center"><%= answer.body %></div>
-  <% if logged_in? && current_user.own?(answer) %>
-    <%= button_to t('defaults.delete'), answer_path(answer), method: :delete %>
-  <% end %>
+<div class="grid h-20 card bg-white rounded-box place-items-center"><%= answer.body %></div>
+<% if logged_in? && current_user.own?(answer) %>
+  <%= button_to t('defaults.delete'), answer_path(answer), method: :delete %>
 <% end %>
