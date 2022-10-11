@@ -7,11 +7,11 @@
     <div class="grid card bg-white rounded-box">
       <p class="pl-4 pt-3">推し情報</p>
       <div class="mx-auto mb-3">
-        <p><%= "#{Promotion.human_attribute_name(:existence)}: #{@promotion.existence}" %></p>
-        <p><%= "#{Promotion.human_attribute_name(:decade)}: #{@promotion.decade}" %></p>
-        <p><%= "#{Promotion.human_attribute_name(:gender)}: #{@promotion.gender}" %></p>
-        <p><%= "#{Promotion.human_attribute_name(:job)}: #{@promotion.job}" %></p>
-        <p><%= "#{Promotion.human_attribute_name(:content_id)}: #{@promotion.content&.title}" %></p>
+        <p><%= "#{Promotion.human_attribute_name(:existence)}: #{@promotion.existence_i18n}" %></p>
+        <p><%= "#{Promotion.human_attribute_name(:decade)}: #{@promotion.decade_i18n}" %></p>
+        <p><%= "#{Promotion.human_attribute_name(:gender)}: #{@promotion.gender_i18n}" %></p>
+        <p><%= "#{Promotion.human_attribute_name(:job)}: #{@promotion.job_i18n}" %></p>
+        <p><%= "#{Promotion.human_attribute_name(:content_id)}: #{@promotion.content&.title_i18n}" %></p>
       </div>
     </div> 
     <% unless @promotion.description.blank? %>
@@ -19,7 +19,7 @@
         <p><%= @promotion.description %></p>
       </div> 
     <% end %>
-    <% if current_user.own?(@promotion) %>
+    <% if logged_in? && current_user.own?(@promotion) %>
       <%= link_to t('.edit'), edit_promotion_path %>
       <%= button_to t('.destroy'), promotion_path(@promotion), method: :delete %>
     <% end %>
