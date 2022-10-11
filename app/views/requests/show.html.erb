@@ -25,10 +25,14 @@
     <% end %>
   </div>
   <% if logged_in? %>
-    <%= render partial: 'answers/form', locals: { answer: @answer, request: @request } %>
+    <%= turbo_frame_tag 'form' do %>
+      <%= render partial: 'answers/form', locals: { answer: @answer, request: @request } %>
+    <% end %>
   <% end %>
   <% if @answers.any? %>
     <div class="divider"></div> 
-    <%= render @answers %>
+    <%= turbo_frame_tag 'answers' do %>
+      <%= render @answers %>
+    <% end %>
   <% end %>
 </div>

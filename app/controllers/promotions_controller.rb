@@ -11,7 +11,7 @@ class PromotionsController < ApplicationController
     @promotion = Promotion.new(promotion_params)
     @promotion.user = current_user
     if @promotion.save
-      redirect_to promotions_path, success: t('.success')
+      redirect_to promotions_path, notice: t('.success')
     else
       flash.now[:alert] = t('.fail')
       render :new, status: :unprocessable_entity
@@ -26,7 +26,7 @@ class PromotionsController < ApplicationController
   def update
     @promotion = Promotion.find(params[:id])
     if @promotion.update(promotion_params)
-      redirect_to promotions_path
+      redirect_to promotions_path, notice: t('.success')
     else
       render :edit, status: :unprocessable_entity
     end

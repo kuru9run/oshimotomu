@@ -21,7 +21,7 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
     @request.user = current_user
     if @request.save
-      redirect_to requests_path, success: t('.success')
+      redirect_to requests_path, notice: t('.success')
     else
       flash.now[:alert] = t('.fail')
       render :new, status: :unprocessable_entity
@@ -35,7 +35,7 @@ class RequestsController < ApplicationController
   def update
     @request = Request.find(params[:id])
     if @request.update(request_params)
-      redirect_to request_path(@request)
+      redirect_to request_path(@request), notice: t('.success')
     else
       render :edit, status: :unprocessable_entity
     end
