@@ -1,12 +1,10 @@
-<article class="prose">
-  <div class="card w-96 bg-neutral text-primary-content">
-    <div class="card-body">
-      <h2><%= link_to request.title, request_path(request), class: "card-title" %></h2>
-      <p><%= request.existence %></p>
-      <p><%= request.decade %></p>
-      <p><%= request.gender %></p>
-      <p><%= request.job %></p>
-      <p><%= request.user.name %></p>
-    </div>
+<div class="card w-96 bg-neutral text-primary-content m-3">
+  <div class="card-body">
+    <h2><%= link_to request.title, request_path(request), class: "card-title" %></h2>
+    <p><%= request.existence_i18n %></p>
+    <p><%= request.decade_i18n %></p>
+    <p><%= request.gender_i18n %></p>
+    <p><%= request.job_i18n %></p>
+    <p>by <%= request.user.name %></p>
   </div>
-</article>
+</div>

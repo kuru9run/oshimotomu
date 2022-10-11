@@ -8,10 +8,10 @@
     <div class="grid card bg-white rounded-box">
       <p class="pl-4 pt-3">募集条件</p>
       <div class="mx-auto mb-3">
-        <p><%= "#{Request.human_attribute_name(:existence)}: #{@request.existence}" %></p>
-        <p><%= "#{Request.human_attribute_name(:decade)}: #{@request.decade}" %></p>
-        <p><%= "#{Request.human_attribute_name(:gender)}: #{@request.gender}" %></p>
-        <p><%= "#{Request.human_attribute_name(:job)}: #{@request.job}" %></p>
+        <p><%= "#{Request.human_attribute_name(:existence)}: #{@request.existence_i18n}" %></p>
+        <p><%= "#{Request.human_attribute_name(:decade)}: #{@request.decade_i18n}" %></p>
+        <p><%= "#{Request.human_attribute_name(:gender)}: #{@request.gender_i18n}" %></p>
+        <p><%= "#{Request.human_attribute_name(:job)}: #{@request.job_i18n}" %></p>
       </div>
     </div> 
     <% unless @request.description.blank? %>
