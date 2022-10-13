@@ -11,8 +11,8 @@ class UsersController < ApplicationController
       auto_login(@user)
       redirect_to new_fan_path, notice: t('.success')
     else
-      flash.now[:danger] = t('.fail')
-      render :new
+      flash.now[:info] = t('.fail')
+      render :new, status: :unprocessable_entity
     end
   end
 

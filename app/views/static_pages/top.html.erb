@@ -1,9 +1,77 @@
-<div class="container mx-auto my-3">
-  <%= image_tag "logo_big.png" %>
-  <p>「誰か推せる人いないかな？」</p>
-  <p>「推しの良さをもっと広めたい！」</p>
-  <p>そんな思いに応えるためのサービスです。</p>
-  <%= link_to "推し募集を見てみる", requests_path, class: "btn my-2" %>
-  <%= link_to "布教を見てみる", promotions_path, class: "btn my-2" %>
-  <%= link_to "みんなの推し変遷を見てみる", favorites_path, class: "btn my-2" %>
-</div>
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="text-center mb-20">
+      <%= image_tag "logo_big.png", class: "mx-auto" %>
+      <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">新たな推しと出会い、素敵な推し活ライフを送りましょう！</p>
+      <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">既に推しがいる場合は、みんなに布教することができます。</p>
+      <div class="flex mt-6 justify-center">
+        <div class="w-16 h-1 rounded-full bg-primary inline-flex"></div>
+      </div>
+    </div>
+    <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+      <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-pink-100 text-primary mb-5 flex-shrink-0">
+          <%= image_tag 'icon_search.png' %>
+        </div>
+        <div class="flex-grow">
+          <h2 class="text-gray-900 text-lg title-font font-medium mb-3">「誰か推せる人いないかな？」</h2>
+          <p class="leading-relaxed text-base">あなた好みの推しがいないか「推し募集」機能で他のユーザーさんに聞いてみましょう！</p>
+          <div class="mt-3 text-primary inline-flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+            </svg>
+            <%= link_to "推し募集を見てみる", requests_path, class: "ml-2" %>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-pink-100 text-primary mb-5 flex-shrink-0">
+          <%= image_tag 'icon_loudspeaker.png' %>
+        </div>
+        <div class="flex-grow">
+          <h2 class="text-gray-900 text-lg title-font font-medium mb-3">「推しの良さをもっと広めたい！」</h2>
+          <p class="leading-relaxed text-base">あなたの推しを気に入ってくれるユーザーさんもいるはず。推しの魅力を伝えてみましょう！</p>
+          <div class="mt-3 text-primary inline-flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+            </svg>
+            <%= link_to "布教を見てみる", promotions_path, class: "ml-2" %>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-pink-100 text-primary mb-5 flex-shrink-0">
+          <%= image_tag 'icon_sad.png' %>
+        </div>
+        <div class="flex-grow">
+          <h2 class="text-gray-900 text-lg title-font font-medium mb-3">「推しが引退してしまって辛い…」</h2>
+          <p class="leading-relaxed text-base">次の推しを見つけた元同担が参考になるかも？元同担が現在誰推しなのかデータで見てみましょう！</p>
+          <div class="mt-3 text-primary inline-flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
+            </svg>
+            <%= link_to "みんなの推し変遷を見てみる", favorites_path, class: "ml-2" %>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class= "flex justify-center mt-16 content-center">
+      <% if logged_in? %>
+        <%= link_to 'マイページへ', mypage_path, class: "btn btn-primary text-lg mx-3" %>
+      <% else %>
+        <%= link_to 'ログイン', login_path, class: "btn btn-primary text-lg mx-3" %>
+        <%= link_to '新規登録', new_user_path, class: "btn btn-primary text-lg mx-3" %>
+      <% end %>
+    </div>
+  </div>
+</section>

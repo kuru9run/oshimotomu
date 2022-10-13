@@ -17,7 +17,7 @@ class FansController < ApplicationController
         redirect_to new_fan_path
       else
         flash.now[:danger] = t('.fail')
-        render :new
+        render :new, status: :unprocessable_entity
       end
     end
   end
