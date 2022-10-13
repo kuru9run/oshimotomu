@@ -84,7 +84,7 @@ ja:
         email: 'メールアドレス'
         avatar: 'アバター'
         password: 'パスワード'
-        password_confirmation: 'パスワード確認'
+        password_confirmation: 'パスワード（確認用）'
       favorite:
         name: '氏名'
         existence: '実在する人物／キャラクター'
