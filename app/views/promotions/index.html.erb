@@ -3,8 +3,8 @@
   <div class="form-control">
     <%= search_form_for @q do |f| %>
       <div class="input-group py-2">
-        <span class="bg-neutral"><%= f.label :name %></span>
-        <%= f.search_field :name_cont, class: "input input-primary w-3/4 max-w-xs", placeholder: "空欄でも検索できます" %>
+        <span class="bg-neutral"><%= f.label 'キーワード' %></span>
+        <%= f.search_field :name_or_description_cont, class: "input input-primary w-3/4 max-w-xs", placeholder: "空欄でも検索できます" %>
       </div>
       <div class="input-group py-2">
         <span class="bg-neutral"><%= f.label :existence %></span>
