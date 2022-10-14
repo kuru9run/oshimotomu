@@ -9,6 +9,27 @@
   <% end %>
 
   <h2 class="text-xl font-bold text-gray-600 mt-6">現在の推し(任意、複数登録可)</h2>
+  <% if @fans_now != nil %>
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th><%= Favorite.human_attribute_name(:name) %></th>
+            <th><%= Favorite.human_attribute_name(:existence) %></th>
+            <th><%= Favorite.human_attribute_name(:decade) %></th>
+            <th><%= Favorite.human_attribute_name(:gender) %></th>
+            <th><%= Favorite.human_attribute_name(:job) %></th>
+            <th><%= Content.human_attribute_name(:title) %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @fans_now.each do |fan| %>
+            <%= render partial: 'favorite_row', locals: { favorite: fan.favorite } %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
   <div class="form-control">
     <%= form_with model: @fan_now, local: true do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
@@ -31,10 +52,28 @@
       </div>
     <% end %>
   </div>
-  <% if @fans_now != nil %>
-    <%= render @fans_now %>
-  <% end %>
   <h2 class="text-xl font-bold text-gray-600 mt-6">以前の推し(任意、複数登録可)</h2>
+  <% if @fans_before != nil %>
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th><%= Favorite.human_attribute_name(:name) %></th>
+            <th><%= Favorite.human_attribute_name(:existence) %></th>
+            <th><%= Favorite.human_attribute_name(:decade) %></th>
+            <th><%= Favorite.human_attribute_name(:gender) %></th>
+            <th><%= Favorite.human_attribute_name(:job) %></th>
+            <th><%= Content.human_attribute_name(:title) %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @fans_before.each do |fan| %>
+            <%= render partial: 'favorite_row', locals: { favorite: fan.favorite } %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
   <div class="form-control">
     <%= form_with model: @fan_before, local: true do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
@@ -57,9 +96,6 @@
       </div>
     <% end %>
   </div>
-  <% if @fans_before != nil %>
-    <%= render @fans_before %>
-  <% end %>
   <!-- ↓モーダル中身--Put this part before </body> tag -->
   <input type="checkbox" id="my-modal" class="modal-toggle" />
   <div class="modal">
