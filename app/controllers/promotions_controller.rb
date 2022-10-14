@@ -46,7 +46,7 @@ class PromotionsController < ApplicationController
 
   def index
     @q = Promotion.ransack(params[:q])
-    @promotions = @q.result(distinct: true).includes(:user, :content)
+    @promotions = @q.result(distinct: true).includes(:user, :content).order(created_at: :desc)
   end
 
   private

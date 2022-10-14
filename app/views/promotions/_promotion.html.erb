@@ -1,6 +1,7 @@
 <div class="card w-80 bg-neutral text-primary-content m-3">
   <div class="card-body">
     <h2><%= link_to promotion.name, promotion_path(promotion), class: "card-title" %></h2>
+    <p class="self-end"><%= l(promotion.created_at, format: :long) %></p>
     <p><%= promotion.existence_i18n %></p>
     <p><%= promotion.decade_i18n %></p>
     <p><%= promotion.gender_i18n %></p>
