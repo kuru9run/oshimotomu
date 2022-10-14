@@ -8,7 +8,7 @@ class FansController < ApplicationController
   end
 
   def create
-    @content = Content.find_by(id: params[:content_id])
+    @content = Content.find_by(id: favorite_params[:content_id])
     @favorite = Favorite.find_or_create_by(name: favorite_params[:name], existence: favorite_params[:existence], decade: favorite_params[:decade], gender: favorite_params[:gender], job: favorite_params[:job], content_id: @content&.id)
     @fan = @favorite.fans.build(user_id: current_user.id)
     @fan[:state] = favorite_params[:state]
