@@ -105,7 +105,7 @@ ja:
       answer:
         body: '回答内容'
       promotion:
-        name: '推し氏名'
+        name: '氏名'
         description: '布教内容'
         existence: '区分'
         decade: '年齢'
