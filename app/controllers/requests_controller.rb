@@ -2,7 +2,8 @@ class RequestsController < ApplicationController
   skip_before_action :require_login, only: %i[show index]
   
   def index
-    @requests = Request.all.includes(:user)
+    @q = Request.ransack(params[:q])
+    @requests = @q.result(distinct: true).includes(:user).order(created_at: :desc)
   end
 
   def show
