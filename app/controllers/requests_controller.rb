@@ -3,7 +3,7 @@ class RequestsController < ApplicationController
   
   def index
     @q = Request.ransack(params[:q])
-    @requests = @q.result(distinct: true).includes(:user).order(created_at: :desc)
+    @requests = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def show
