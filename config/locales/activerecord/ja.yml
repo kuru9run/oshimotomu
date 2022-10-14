@@ -87,7 +87,7 @@ ja:
         password_confirmation: 'パスワード（確認用）'
       favorite:
         name: '氏名'
-        existence: '実在する人物／キャラクター'
+        existence: '区分'
         decade: '年齢'
         gender: '性別'
         job: '職業'
@@ -97,7 +97,7 @@ ja:
       request:
         title: '推し募集タイトル'
         description: '募集内容'
-        existence: '実在する人物／キャラクター'
+        existence: '区分'
         decade: '年齢'
         gender: '性別'
         job: '職業'
@@ -107,7 +107,7 @@ ja:
       promotion:
         name: '推し氏名'
         description: '布教内容'
-        existence: '実在する人物／キャラクター'
+        existence: '区分'
         decade: '年齢'
         gender: '性別'
         job: '職業'
