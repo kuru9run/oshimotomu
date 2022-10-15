@@ -17,4 +17,10 @@ class FavoritesController < ApplicationController
     fans_before_favorites_now = @favorite.fans.before.map { |fan| fan.user.fans.now.map { |n| n.favorite.name } }
     @chart_now = fans_before_favorites_now[0].group_by(&:itself).map { |g| [g[0], g[1].size] } if fans_before_favorites_now.size > 0
   end
+
+  def search
+    name = params[:name]
+    @suggests = Favorite.where('name LIKE ?', "%#{name}%")
+    @state = params[:state]
+  end
 end

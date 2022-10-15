@@ -1,0 +1,9 @@
+<%= turbo_frame_tag 'suggests_before' do %>
+  <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+    <% suggests.each do |suggest| %>
+      <%= turbo_frame_tag "input_before" do %>
+        <li><%= button_to suggest.name, input_fan_path(suggest.id) %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>

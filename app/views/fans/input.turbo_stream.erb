@@ -1,0 +1,9 @@
+<% if @request == "input_now" %>
+  <%= turbo_stream.replace 'now_form' do %>
+    <%= render partial: 'now_form', locals: { favorite: @favorite } %>
+  <% end %>
+<% elsif @request == "input_before" %>
+  <%= turbo_stream.replace 'before_form' do %>
+    <%= render partial: 'before_form', locals: { favorite: @favorite } %>
+  <% end %>
+<% end %>

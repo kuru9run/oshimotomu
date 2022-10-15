@@ -29,28 +29,40 @@
       </table>
     </div>
   <% end %>
-  <div class="form-control">
-    <%= form_with model: @fan_now, local: true do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      <%= f.label :name, Favorite.human_attribute_name(:name), class: "label" %>
-      <%= f.text_field :name, class: "input input-bordered w-full max-w-sm", placeholder: "山田花子" %>
-      <%= f.label :existence, Favorite.human_attribute_name(:existence), class: "label" %>
-      <%= f.select :existence, Favorite.existences_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
-      <%= f.label :decade, Favorite.human_attribute_name(:decade), class: "label" %>
-      <%= f.select :decade, Favorite.decades_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
-      <%= f.label :gender, Favorite.human_attribute_name(:gender), class: "label" %>
-      <%= f.select :gender, Favorite.genders_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
-      <%= f.label :job, Favorite.human_attribute_name(:job), class: "label" %>
-      <%= f.select :job, Favorite.jobs_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
-      <%= f.label :content_id, Favorite.human_attribute_name(:content_id), class: "label" %>
-      <%= f.collection_select :content_id, Content.select(:id, :title).distinct, :id, :title, {prompt: "※選択肢に無い作品は追加することができます"}, {class: "select select-bordered w-full max-w-sm"} %>
-      <label for="my-modal" class="btn modal-button">作品タイトル追加</label>
-      <%= f.hidden_field :state, value: :now %>
-      <div class="py-4">
-        <%= f.submit '推しを追加', class: "btn" %>
-      </div>
+  <%= form_with url: search_favorites_path do |s| %>
+    <%= s.text_field :name %>
+    <%= s.submit "検索", class: "btn" %>
+    <%= s.hidden_field :state, value: :now %>
+    <%= turbo_frame_tag 'suggests_now' do %>
+      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+        <li>item</li>
+      </ul>
     <% end %>
-  </div>
+  <% end %>
+  <%= turbo_frame_tag 'now_form' do %>
+    <div class="form-control">
+      <%= form_with model: @fan_now do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <%= f.label :name, Favorite.human_attribute_name(:name), class: "label" %>
+        <%= f.text_field :name, class: "input input-bordered w-full max-w-sm", placeholder: "山田花子" %>
+        <%= f.label :existence, Favorite.human_attribute_name(:existence), class: "label" %>
+        <%= f.select :existence, Favorite.existences_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
+        <%= f.label :decade, Favorite.human_attribute_name(:decade), class: "label" %>
+        <%= f.select :decade, Favorite.decades_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
+        <%= f.label :gender, Favorite.human_attribute_name(:gender), class: "label" %>
+        <%= f.select :gender, Favorite.genders_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
+        <%= f.label :job, Favorite.human_attribute_name(:job), class: "label" %>
+        <%= f.select :job, Favorite.jobs_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
+        <%= f.label :content_id, Favorite.human_attribute_name(:content_id), class: "label" %>
+        <%= f.collection_select :content_id, Content.select(:id, :title).distinct, :id, :title, {prompt: "※選択肢に無い作品は追加することができます"}, {class: "select select-bordered w-full max-w-sm"} %>
+        <label for="my-modal" class="btn modal-button">作品タイトル追加</label>
+        <%= f.hidden_field :state, value: :now %>
+        <div class="py-4">
+          <%= f.submit '推しを追加', class: "btn" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
   <h2 class="text-xl font-bold text-gray-600 mt-6">以前の推し(任意、複数登録可)</h2>
   <% if @fans_before != nil %>
     <div class="overflow-x-auto">
@@ -73,28 +85,40 @@
       </table>
     </div>
   <% end %>
-  <div class="form-control">
-    <%= form_with model: @fan_before, local: true do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      <%= f.label :name, Favorite.human_attribute_name(:name), class: "label" %>
-      <%= f.text_field :name, class: "input input-bordered w-full max-w-sm", placeholder: "山田花子" %>
-      <%= f.label :existence, Favorite.human_attribute_name(:existence), class: "label" %>
-      <%= f.select :existence, Favorite.existences_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
-      <%= f.label :decade, Favorite.human_attribute_name(:decade), class: "label" %>
-      <%= f.select :decade, Favorite.decades_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
-      <%= f.label :gender, Favorite.human_attribute_name(:gender), class: "label" %>
-      <%= f.select :gender, Favorite.genders_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
-      <%= f.label :job, Favorite.human_attribute_name(:job), class: "label" %>
-      <%= f.select :job, Favorite.jobs_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
-      <%= f.label :content_id, Favorite.human_attribute_name(:content_id), class: "label" %>
-      <%= f.collection_select :content_id, Content.select(:id, :title).distinct, :id, :title, {prompt: "※選択肢に無い作品は追加することができます"}, {class: "select select-bordered w-full max-w-sm"} %>
-      <label for="my-modal" class="btn modal-button">作品タイトル追加</label>
-      <%= f.hidden_field :state, value: :before %>
-      <div class="py-4">
-        <%= f.submit '推しを追加', class: "btn" %>
-      </div>
-    <% end %>
-  </div>
+  <%= form_with url: search_favorites_path do |s| %>
+    <%= s.text_field :name %>
+      <%= s.submit "検索", class: "btn" %>
+      <%= s.hidden_field :state, value: :before %>
+      <%= turbo_frame_tag 'suggests_before' do %>
+        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+          <li>item</li>
+        </ul>
+      <% end %>
+  <% end %>
+  <%= turbo_frame_tag 'before_form' do %>
+    <div class="form-control">
+      <%= form_with model: @fan_before do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <%= f.label :name, Favorite.human_attribute_name(:name), class: "label" %>
+        <%= f.text_field :name, class: "input input-bordered w-full max-w-sm", placeholder: "山田花子" %>
+        <%= f.label :existence, Favorite.human_attribute_name(:existence), class: "label" %>
+        <%= f.select :existence, Favorite.existences_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
+        <%= f.label :decade, Favorite.human_attribute_name(:decade), class: "label" %>
+        <%= f.select :decade, Favorite.decades_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
+        <%= f.label :gender, Favorite.human_attribute_name(:gender), class: "label" %>
+        <%= f.select :gender, Favorite.genders_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
+        <%= f.label :job, Favorite.human_attribute_name(:job), class: "label" %>
+        <%= f.select :job, Favorite.jobs_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
+        <%= f.label :content_id, Favorite.human_attribute_name(:content_id), class: "label" %>
+        <%= f.collection_select :content_id, Content.select(:id, :title).distinct, :id, :title, {prompt: "※選択肢に無い作品は追加することができます"}, {class: "select select-bordered w-full max-w-sm"} %>
+        <label for="my-modal" class="btn modal-button">作品タイトル追加</label>
+        <%= f.hidden_field :state, value: :before %>
+        <div class="py-4">
+          <%= f.submit '推しを追加', class: "btn" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
   <!-- ↓モーダル中身--Put this part before </body> tag -->
   <input type="checkbox" id="my-modal" class="modal-toggle" />
   <div class="modal">

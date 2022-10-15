@@ -1,0 +1,9 @@
+<% if @state == "now" %>
+  <%= turbo_stream.replace 'suggests_now' do %>
+    <%= render partial: 'suggests_now', locals: { suggests: @suggests, state: @state } %>
+  <% end %>
+<% elsif @state == "before" %>
+  <%= turbo_stream.replace 'suggests_before' do %>
+    <%= render partial: 'suggests_before', locals: { suggests: @suggests, state: @state } %>
+  <% end %>
+<% end %>

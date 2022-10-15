@@ -22,6 +22,13 @@ class FansController < ApplicationController
     end
   end
 
+  def input
+    @favorite = Favorite.find(params[:id])
+    @request = request.headers[:HTTP_TURBO_FRAME]
+  end
+
+  private
+
   def favorite_params
     params.require(:fan).permit(:name, :existence, :decade, :gender, :job, :content_id, :state)
   end
