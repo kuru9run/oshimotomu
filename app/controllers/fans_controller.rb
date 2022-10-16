@@ -12,7 +12,7 @@ class FansController < ApplicationController
     @favorite = Favorite.find_or_create_by(name: favorite_params[:name], existence: favorite_params[:existence], decade: favorite_params[:decade], gender: favorite_params[:gender], job: favorite_params[:job], content_id: @content&.id)
     @fan = @favorite.fans.build(user_id: current_user.id)
     @fan[:state] = favorite_params[:state]
-    if @favorite.save
+    if @favorite.persisted?
       if @fan.save
         redirect_to new_fan_path
       else
