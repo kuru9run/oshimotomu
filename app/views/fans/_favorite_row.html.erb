@@ -5,4 +5,5 @@
   <td><%= favorite.gender_i18n %></td>
   <td><%= favorite.job_i18n %></td>
   <td><%= favorite.content&.title %></td>
+  <td><%= button_to '削除', fan_path(fan), method: :delete %></td>
 </tr>

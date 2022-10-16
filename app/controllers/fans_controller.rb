@@ -22,6 +22,12 @@ class FansController < ApplicationController
     end
   end
 
+  def destroy
+    fan = Fan.find(params[:id])
+    fan.destroy!
+    redirect_to new_fan_path
+  end
+
   def input
     @favorite = Favorite.find(params[:id])
     @request = request.headers[:HTTP_TURBO_FRAME]
