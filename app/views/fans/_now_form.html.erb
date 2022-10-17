@@ -13,7 +13,7 @@
       <%= f.label :job, Favorite.human_attribute_name(:job), class: "label" %>
       <%= f.select :job, Favorite.jobs_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
       <%= f.label :content_id, Favorite.human_attribute_name(:content_id), class: "label" %>
-      <%= f.collection_select :content_id, Content.select(:id, :title).distinct, :id, :title, {prompt: "※選択肢に無い作品は追加することができます"}, {class: "select select-bordered w-full max-w-sm"} %>
+      <%= f.collection_select :content_id, Content.select(:id, :title).distinct.order(:title), :id, :title, {prompt: "※選択肢に無い作品は追加することができます"}, {class: "select select-bordered w-full max-w-sm"} %>
       <label for="now-modal" class="btn modal-button">作品タイトル追加</label>
       <%= f.hidden_field :state, value: :now %>
       <div class="py-4">
