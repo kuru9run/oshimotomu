@@ -16,13 +16,15 @@
     </div>
   <% end %>
   <%= form_with url: search_favorites_path do |s| %>
-    <%= s.text_field :name %>
+    <%= s.text_field :name, class: "input input-bordered w-full max-w-sm", placeholder: "氏名で検索できます" %>
     <%= s.submit "検索", class: "btn" %>
     <%= s.hidden_field :state, value: :now %>
     <%= turbo_frame_tag 'suggests_now' do %>
-      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-        <li>item</li>
-      </ul>
+      <div class="dropdown">
+        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+          <li>item</li>
+        </ul>
+      </div>
     <% end %>
   <% end %>
   <%= turbo_frame_tag 'now_form' do %>
@@ -37,14 +39,16 @@
     </div>
   <% end %>
   <%= form_with url: search_favorites_path do |s| %>
-    <%= s.text_field :name %>
-      <%= s.submit "検索", class: "btn" %>
-      <%= s.hidden_field :state, value: :before %>
-      <%= turbo_frame_tag 'suggests_before' do %>
+    <%= s.text_field :name, class: "input input-bordered w-full max-w-sm", placeholder: "氏名で検索できます" %>
+    <%= s.submit "検索", class: "btn" %>
+    <%= s.hidden_field :state, value: :before %>
+    <%= turbo_frame_tag 'suggests_before' do %>
+      <div class="dropdown">
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
           <li>item</li>
         </ul>
-      <% end %>
+      </div>
+    <% end %>
   <% end %>
   <%= turbo_frame_tag 'before_form' do %>
     <%= render partial: 'before_form', locals: { favorite: @fan_before.favorite, fan: @fan_before } %>
