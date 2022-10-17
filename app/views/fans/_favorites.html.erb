@@ -1,18 +1,20 @@
-<table class="table w-full">
-  <thead>
-  <tr>
-    <th><%= Favorite.human_attribute_name(:name) %></th>
-    <th><%= Favorite.human_attribute_name(:existence) %></th>
-    <th><%= Favorite.human_attribute_name(:decade) %></th>
-    <th><%= Favorite.human_attribute_name(:gender) %></th>
-    <th><%= Favorite.human_attribute_name(:job) %></th>
-    <th><%= Content.human_attribute_name(:title) %></th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
-    <% fans.each do |fan| %>
-      <%= render partial: 'favorite_row', locals: { favorite: fan.favorite, fan: fan } %>
-    <% end %>
-  </tbody>
-</table>
+<% if fans.any? %>
+  <table class="table w-full">
+    <thead>
+    <tr>
+      <th><%= Favorite.human_attribute_name(:name) %></th>
+      <th><%= Favorite.human_attribute_name(:existence) %></th>
+      <th><%= Favorite.human_attribute_name(:decade) %></th>
+      <th><%= Favorite.human_attribute_name(:gender) %></th>
+      <th><%= Favorite.human_attribute_name(:job) %></th>
+      <th><%= Content.human_attribute_name(:title) %></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+      <% fans.each do |fan| %>
+        <%= render partial: 'favorite_row', locals: { favorite: fan.favorite, fan: fan } %>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
