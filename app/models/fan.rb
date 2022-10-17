@@ -3,7 +3,7 @@
 # Table name: fans
 #
 #  id          :bigint           not null, primary key
-#  state       :integer          default("now"), not null
+#  state       :integer          default("before"), not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  favorite_id :bigint           not null

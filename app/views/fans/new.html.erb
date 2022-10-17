@@ -50,19 +50,12 @@
     <%= render partial: 'before_form', locals: { favorite: @fan_before.favorite, fan: @fan_before } %>
   <% end %>
   <!-- ↓モーダル中身--Put this part before </body> tag -->
-  <input type="checkbox" id="my-modal" class="modal-toggle" />
-  <div class="modal">
-    <div class="modal-box">
-      <%= form_with model: @content, local: true do |f| %>
-        <%= f.text_field :title, placeholder: '作品タイトルを入力してください', class: "input input-bordered w-full" %>
-        <%= f.submit '追加', class: "btn" %>
-        <%= f.hidden_field :route, value: new_fan_path %>
-      <% end %>
-      <div class="modal-action">
-        <label for="my-modal" class="btn">閉じる</label>
-      </div>
-    </div>
-  </div>
+  <%= turbo_frame_tag "now_modal" do %>
+    <%= render partial: 'contents/now_modal', locals: { content: Content.new, favorite_id: @fan_now.favorite_id } %>
+  <% end %>
+  <%= turbo_frame_tag "before_modal" do %>
+    <%= render partial: 'contents/before_modal', locals: { content: Content.new, favorite_id: @fan_before.favorite_id } %>
+  <% end %>
   <!-- ↑モーダル中身--Put this part before </body> tag -->
   <%= link_to '完了', mypage_path, class: "btn btn-primary btn-block" %>
 </div>

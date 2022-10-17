@@ -2,7 +2,6 @@ class FansController < ApplicationController
   def new
     @fan_now = Fan.new(state: :now)
     @fan_before = Fan.new(state: :before)
-    @content = Content.new
     @fans_now = current_user.fans.now.includes(:favorite)
     @fans_before = current_user.fans.before.includes(:favorite)
   end
@@ -17,7 +16,6 @@ class FansController < ApplicationController
     if @favorite.persisted?
       if @fan.save
         @request = request.headers[:HTTP_TURBO_FRAME]
-        #redirect_to new_fan_path
       else
         flash.now[:alert] = t('.fail')
         render :new, status: :unprocessable_entity
