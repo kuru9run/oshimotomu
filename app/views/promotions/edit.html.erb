@@ -16,26 +16,22 @@
         <%= f.select :gender, Promotion.genders_i18n.invert, { prompt: "選択してください" }, { class: "select select-bordered w-full max-w-sm" } %>
         <%= f.label :content_id, class: "label" %>
         <%= f.collection_select :content_id, Content.select(:id, :title).distinct, :id, :title, { prompt: "※選択肢に無い作品は追加することができます" }, { class: "select select-bordered w-full max-w-sm" } %>
-        <label for="my-modal" class="btn modal-button">作品タイトル追加</label>
+        <label for="content-modal" class="btn modal-button">作品タイトル追加</label>
+        <%= f.label :group_id, class: "label" %>
+        <%= f.collection_select :group_id, Group.select(:name).distinct.order(:name), :id, :name, { prompt: "※選択肢に無いグループは追加することができます" }, { class: "select select-bordered w-full max-w-sm" } %>
+        <label for="group-modal" class="btn modal-button">グループ名追加</label>
         <div class="py-4">
           <%= f.submit t('.save'), class: "btn" %>
         </div>
       <% end %>
     </div>
     <!-- ↓モーダル中身--Put this part before </body> tag -->
-    <input type="checkbox" id="my-modal" class="modal-toggle" />
-    <div class="modal">
-      <div class="modal-box">
-        <%= form_with model: @content, local: true do |f| %>
-          <%= f.text_field :title, placeholder: '作品タイトルを入力してください', class: "input input-bordered w-full" %>
-          <%= f.submit '追加', class: "btn" %>
-          <%= f.hidden_field :route, value: new_promotion_path %>
-        <% end %>
-        <div class="modal-action">
-          <label for="my-modal" class="btn">閉じる</label>
-        </div>
-      </div>
-    </div>
+    <%= turbo_frame_tag "content_modal" do %>
+      <%= render partial: 'contents/modal', locals: { content: Content.new } %>
+    <% end %>
+    <%= turbo_frame_tag "group_modal" do %>
+      <%= render partial: 'groups/modal', locals: { group: Group.new } %>
+    <% end %>
     <!-- ↑モーダル中身--Put this part before </body> tag -->
   </article>
 </div>
