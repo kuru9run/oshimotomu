@@ -54,17 +54,11 @@
     <%= render partial: 'before_form', locals: { favorite: @fan_before.favorite, fan: @fan_before } %>
   <% end %>
   <!-- ↓モーダル中身--Put this part before </body> tag -->
-  <%= turbo_frame_tag "now_modal" do %>
-    <%= render partial: 'contents/now_modal', locals: { content: Content.new, favorite_id: @fan_now.favorite_id } %>
+  <%= turbo_frame_tag "content_modal" do %>
+    <%= render partial: 'contents/modal', locals: { content: Content.new } %>
   <% end %>
-  <%= turbo_frame_tag "before_modal" do %>
-    <%= render partial: 'contents/before_modal', locals: { content: Content.new, favorite_id: @fan_before.favorite_id } %>
-  <% end %>
-  <%= turbo_frame_tag "now_group" do %>
-    <%= render partial: 'groups/now_group', locals: { group: Group.new, favorite_id: @fan_now.favorite_id } %>
-  <% end %>
-  <%= turbo_frame_tag "before_group" do %>
-    <%= render partial: 'groups/before_group', locals: { group: Group.new, favorite_id: @fan_before.favorite_id } %>
+  <%= turbo_frame_tag "group_modal" do %>
+    <%= render partial: 'groups/modal', locals: { group: Group.new } %>
   <% end %>
   <!-- ↑モーダル中身--Put this part before </body> tag -->
   <%= link_to '完了', mypage_path, class: "btn btn-primary btn-block" %>

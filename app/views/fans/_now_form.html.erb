@@ -12,10 +12,10 @@
       <%= f.select :gender, Favorite.genders_i18n.invert, {prompt: "選択してください"}, {class: "select select-bordered w-full max-w-sm"} %>
       <%= f.label :content_id, Favorite.human_attribute_name(:content_id), class: "label" %>
       <%= f.collection_select :content_id, Content.select(:id, :title).distinct.order(:title), :id, :title, {prompt: "※選択肢に無い作品は追加することができます"}, {class: "select select-bordered w-full max-w-sm"} %>
-      <label for="now-modal" class="btn modal-button">作品タイトル追加</label>
+      <label for="content-modal" class="btn modal-button">作品タイトル追加</label>
       <%= f.label :group_id, Favorite.human_attribute_name(:group_id), class: "label" %>
       <%= f.collection_select :group_id, Group.select(:id, :name).distinct.order(:name), :id, :name, {prompt: "※選択肢に無いグループは追加することができます"}, {class: "select select-bordered w-full max-w-sm"} %>
-      <label for="now-group" class="btn modal-button">グループ名追加</label>
+      <label for="group-modal" class="btn modal-button">グループ名追加</label>
       <%= f.hidden_field :state, value: :now %>
       <div class="py-4">
         <%= f.submit '推しを追加', class: "btn" %>

@@ -1,6 +1,5 @@
 class ContentsController < ApplicationController
   def create
-    @favorite = Favorite.find_by(id: params[:content][:favorite_id])
     @content = Content.new(content_params)
     @content.save
     @request = request.headers[:HTTP_TURBO_FRAME]
