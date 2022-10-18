@@ -53,6 +53,7 @@ ja:
       user: 'ユーザー'
       favorite: '推し'
       content: '作品'
+      group: 'グループ'
       request: '推し募集'
       answer: '回答'
       promotion: '布教'
@@ -73,6 +74,8 @@ ja:
         content_id: '作品'
       content:
         title: '作品タイトル'
+      group:
+        name: 'グループ名'
       request:
         title: '推し募集タイトル'
         description: '募集内容'
@@ -88,7 +91,7 @@ ja:
         existence: '区分'
         decade: '年齢'
         gender: '性別'
-        group: '所属グループ'
+        group_id: '所属グループ'
         content_id: '作品'
         created_at: '作成日時'
       comment:
