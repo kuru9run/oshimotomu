@@ -1,6 +1,5 @@
 <% breadcrumb :promotion_new %>
 <div class="container mx-auto px-4 my-3">
-  <article class="prose">
     <div class="form-control w-full">
       <%= form_with model: @promotion do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
@@ -18,6 +17,9 @@
         <%= f.label :content_id, class: "label" %>
         <%= f.collection_select :content_id, Content.select(:title).distinct, :id, :title, { prompt: "※選択肢に無い作品は追加することができます" }, { class: "select select-bordered w-full max-w-sm" } %>
         <label for="my-modal" class="btn modal-button">作品タイトル追加</label>
+        <%= f.label :group_id, class: "label" %>
+        <%= f.collection_select :group_id, Group.select(:name).distinct.order(:name), :id, :name, { prompt: "※選択肢に無いグループは追加することができます" }, { class: "select select-bordered w-full max-w-sm" } %>
+        <label for="group-modal" class="btn modal-button">グループ名追加</label>
         <div class="py-4">
           <%= f.submit '布教を投稿', class: "btn" %>
         </div>
@@ -37,6 +39,8 @@
         </div>
       </div>
     </div>
+    <%= turbo_frame_tag "group_modal" do %>
+      <%= render partial: 'groups/group_modal', locals: { group: Group.new, favorite_id: nil } %>
+    <% end %>
     <!-- ↑モーダル中身--Put this part before </body> tag -->
-  </article>
 </div>

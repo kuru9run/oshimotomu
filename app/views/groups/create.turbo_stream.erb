@@ -12,4 +12,8 @@
   <%= turbo_stream.replace 'before_group' do %>
     <%= render partial: 'before_group', locals: { group: Group.new, favorite_id: @favorite&.id } %>
   <% end %>
+<% else %>
+  <%= turbo_stream.update 'group_modal' do %>
+    <%= render partial: 'group_modal', locals: { group: Group.new, favorite_id: nil } %>
+  <% end %>
 <% end %>
