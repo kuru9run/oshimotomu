@@ -7,7 +7,7 @@
 https://www.figma.com/file/yx6Ks5LfpCuKDECLkD1qof/oshimotomu?node-id=0%3A1
 
 ## ER図
-![ER図](https://user-images.githubusercontent.com/81852866/195089311-fe0fa9ee-5655-4810-a95c-0492077ed8fc.png)
+![ER図](https://user-images.githubusercontent.com/81852866/196312020-05588631-350c-4650-b033-570737829192.png)
 
 ## ■メインのターゲットユーザー
 20〜30代前半の女性<br>
