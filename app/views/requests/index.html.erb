@@ -18,10 +18,6 @@
         <span class="bg-neutral"><%= f.label :gender %></span>
         <%= f.select :gender_eq, Request.genders_i18n.invert.map {|k, v| [k, Request.genders[v]]}, {include_blank: '指定しない'}, {class: "select select-primary w-3/4 max-w-xs"} %>
       </div>
-      <div class="input-group py-2">
-        <span class="bg-neutral"><%= f.label :job %></span>
-        <%= f.select :job_eq, Request.jobs_i18n.invert.map {|k, v| [k, Request.jobs[v]]}, {include_blank: '指定しない'}, {class: "select select-primary w-3/4 max-w-xs"} %>
-      </div>
       <%= f.submit class: "btn py-2" %>
     <% end %>
   </div>

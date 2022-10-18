@@ -8,7 +8,7 @@ class FansController < ApplicationController
 
   def create
     @content = Content.find_by(id: favorite_params[:content_id])
-    @favorite = Favorite.find_or_create_by(name: favorite_params[:name], existence: favorite_params[:existence], decade: favorite_params[:decade], gender: favorite_params[:gender], job: favorite_params[:job], content_id: @content&.id)
+    @favorite = Favorite.find_or_create_by(name: favorite_params[:name], existence: favorite_params[:existence], decade: favorite_params[:decade], gender: favorite_params[:gender], content_id: @content&.id)
     @fan = @favorite.fans.build(user_id: current_user.id)
     @fan[:state] = favorite_params[:state]
     @fans_now = current_user.fans.now.includes(:favorite)
@@ -37,6 +37,6 @@ class FansController < ApplicationController
   private
 
   def favorite_params
-    params.require(:fan).permit(:name, :existence, :decade, :gender, :job, :content_id, :state)
+    params.require(:fan).permit(:name, :existence, :decade, :gender, :content_id, :state)
   end
 end

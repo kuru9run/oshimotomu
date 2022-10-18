@@ -22,12 +22,17 @@
 # end
 
 # 10.times do |n|
-#   Favorite.create!(
+#   Group.create!(
+#     name: Faker::Kpop.unique.iii_groups
+#   )
+# end
+
+# Group.all.each do |group|
+#   group.favorites.create!(
 #     name: Faker::Name.unique.name,
 #     existence: 0,
 #     decade: rand(0..7),
 #     gender: rand(0..1),
-#     job: rand(1..6),
 #   )
 # end
 
@@ -41,13 +46,13 @@
 # end
 
 # User.all.each do |user|
-#   before = rand(1..20)
+#   before = rand(1..Favorite.last.id)
 #   user.fans.create!(
 #     favorite_id: before,
 #     state: 0
 #   )
 #   user.fans.create!(
-#     favorite_id: Array(1..20).slice(before),
+#     favorite_id: Array(1..Favorite.last.id).slice(before),
 #     state: 1
 #   )
 # end

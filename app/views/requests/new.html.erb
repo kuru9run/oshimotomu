@@ -15,8 +15,6 @@
         <%= f.select :decade, Request.decades_i18n.invert, prompt: "選択してください" %>
         <%= f.label :gender, class: "label" %>
         <%= f.select :gender, Request.genders_i18n.invert, prompt: "選択してください" %>
-        <%= f.label :job, class: "label" %>
-        <%= f.select :job, Request.jobs_i18n.invert, prompt: "選択してください" %>
         <div class="py-4">
           <%= f.submit '推し募集を投稿', class: "btn" %>
         </div>

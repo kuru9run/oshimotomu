@@ -14,8 +14,6 @@
         <%= f.select :decade, Promotion.decades_i18n.invert, prompt: "選択してください" %>
         <%= f.label :gender, class: "label" %>
         <%= f.select :gender, Promotion.genders_i18n.invert, prompt: "選択してください" %>
-        <%= f.label :job, class: "label" %>
-        <%= f.select :job, Promotion.jobs_i18n.invert, prompt: "選択してください" %>
         <%= f.label :content_id, class: "label" %>
         <%= f.collection_select :content_id, Content.select(:id, :title).distinct, :id, :title, prompt: "※選択肢に無い作品は追加することができます" %>
         <label for="my-modal" class="btn modal-button">作品タイトル追加</label>

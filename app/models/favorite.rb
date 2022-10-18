@@ -26,8 +26,9 @@ class Favorite < ApplicationRecord
   has_many :fans, dependent: :destroy
   has_many :users, through: :fans
   belongs_to :content, optional: true
+  belongs_to :group, optional: true
 
-  validates :name, uniqueness: { scope: [:existence, :gender, :job, :content_id] }
+  validates :name, uniqueness: { scope: [:existence, :gender, :group_id, :content_id] }
   validates :decade, presence: true
   validates :existence, presence: true
   validates :gender, presence: true

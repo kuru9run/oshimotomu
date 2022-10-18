@@ -16,13 +16,6 @@ ja:
       gender:
         male: 男性
         female: 女性
-      job: 
-        actor: 俳優
-        voice_actor: 声優
-        artist: アーティスト
-        idol: アイドル
-        athlete: スポーツ選手
-        youtuber: 動画配信者
     request:
       existence:
         person: 実在する人物
@@ -39,13 +32,6 @@ ja:
       gender:
         male: 男性
         female: 女性
-      job: 
-        actor: 俳優
-        voice_actor: 声優
-        artist: アーティスト
-        idol: アイドル
-        athlete: スポーツ選手
-        youtuber: 動画配信者
     promotion:
       existence:
         person: 実在する人物
@@ -62,13 +48,6 @@ ja:
       gender:
         male: 男性
         female: 女性
-      job: 
-        actor: 俳優
-        voice_actor: 声優
-        artist: アーティスト
-        idol: アイドル
-        athlete: スポーツ選手
-        youtuber: 動画配信者
   activerecord:
     models:
       user: 'ユーザー'
@@ -90,7 +69,7 @@ ja:
         existence: '区分'
         decade: '年齢'
         gender: '性別'
-        job: '職業'
+        group_id: '所属グループ'
         content_id: '作品'
       content:
         title: '作品タイトル'
@@ -100,7 +79,6 @@ ja:
         existence: '区分'
         decade: '年齢'
         gender: '性別'
-        job: '職業'
         created_at: '作成日時'
       answer:
         body: '回答内容'
@@ -110,7 +88,7 @@ ja:
         existence: '区分'
         decade: '年齢'
         gender: '性別'
-        job: '職業'
+        group: '所属グループ'
         content_id: '作品'
         created_at: '作成日時'
       comment:
