@@ -1,24 +1,22 @@
 <% breadcrumb :request_new %>
 <div class="container mx-auto px-4 my-3">
-  <article class="prose">
-    <div class="form-control w-full">
-      <%= form_with model: @request, local: true do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
-        <%= f.label :title, Request.human_attribute_name(:title), class: "label" %>
-        <%= f.text_field :title, placeholder: '例：顔が良い若手俳優', class: "input input-bordered w-full" %>
-        <%= f.label :description, Request.human_attribute_name(:description), class: "label" %>
-        <%= f.text_area :description, placeholder: "例：以前○○さんが好きだったので似ている雰囲気の人だと嬉しいです！", class: "textarea textarea-bordered h-24 w-full" %>
-        <div class="divider">条件を指定したい場合は以下も選択してください（任意）</div>
-        <%= f.label :existence, class: "label" %>
-        <%= f.select :existence, Request.existences_i18n.invert, { prompt: "選択してください" }, { class: "select select-bordered w-full max-w-sm" } %>
-        <%= f.label :decade, class: "label" %>
-        <%= f.select :decade, Request.decades_i18n.invert, { prompt: "選択してください" }, { class: "select select-bordered w-full max-w-sm" } %>
-        <%= f.label :gender, class: "label" %>
-        <%= f.select :gender, Request.genders_i18n.invert, { prompt: "選択してください" }, { class: "select select-bordered w-full max-w-sm" } %>
-        <div class="py-4">
-          <%= f.submit '推し募集を投稿', class: "btn" %>
-        </div>
-      <% end %>
-    </div>
-  </article>
+  <div class="form-control w-full">
+    <%= form_with model: @request, local: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :title, Request.human_attribute_name(:title), class: "label" %>
+      <%= f.text_field :title, placeholder: '例：顔が良い若手俳優', class: "input input-bordered w-full" %>
+      <%= f.label :description, Request.human_attribute_name(:description), class: "label" %>
+      <%= f.text_area :description, placeholder: "例：以前○○さんが好きだったので似ている雰囲気の人だと嬉しいです！", class: "textarea textarea-bordered h-24 w-full" %>
+      <div class="divider">条件を指定したい場合は以下も選択してください（任意）</div>
+      <%= f.label :existence, class: "label" %>
+      <%= f.select :existence, Request.existences_i18n.invert, { prompt: "選択してください" }, { class: "select select-bordered w-full max-w-sm" } %>
+      <%= f.label :decade, class: "label" %>
+      <%= f.select :decade, Request.decades_i18n.invert, { prompt: "選択してください" }, { class: "select select-bordered w-full max-w-sm" } %>
+      <%= f.label :gender, class: "label" %>
+      <%= f.select :gender, Request.genders_i18n.invert, { prompt: "選択してください" }, { class: "select select-bordered w-full max-w-sm" } %>
+      <div class="py-4">
+        <%= f.submit '推し募集を投稿', class: "btn" %>
+      </div>
+    <% end %>
+  </div>
 </div>
