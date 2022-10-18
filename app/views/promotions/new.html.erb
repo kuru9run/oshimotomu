@@ -14,12 +14,8 @@
       <%= f.select :decade, Promotion.decades_i18n.invert, { prompt: "選択してください" }, { class: "select select-bordered w-full max-w-sm" } %>
       <%= f.label :gender, class: "label" %>
       <%= f.select :gender, Promotion.genders_i18n.invert, { prompt: "選択してください" }, { class: "select select-bordered w-full max-w-sm" } %>
-      <%= f.label :content_id, class: "label" %>
-      <%= f.collection_select :content_id, Content.select(:title).distinct, :id, :title, { prompt: "※選択肢に無い作品は追加することができます" }, { class: "select select-bordered w-full max-w-sm" } %>
-      <label for="content-modal" class="btn modal-button">作品タイトル追加</label>
-      <%= f.label :group_id, class: "label" %>
-      <%= f.collection_select :group_id, Group.select(:name).distinct.order(:name), :id, :name, { prompt: "※選択肢に無いグループは追加することができます" }, { class: "select select-bordered w-full max-w-sm" } %>
-      <label for="group-modal" class="btn modal-button">グループ名追加</label>
+      <%= render partial: 'contents/select', locals: { f: f } %>
+      <%= render partial: 'groups/select', locals: { f: f } %>
       <div class="py-4">
         <%= f.submit '布教を投稿', class: "btn" %>
       </div>
