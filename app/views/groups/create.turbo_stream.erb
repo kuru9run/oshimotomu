@@ -1,0 +1,15 @@
+<% if @request == 'now_group' %>
+  <%= turbo_stream.replace 'now_form' do %>
+    <%= render partial: 'fans/now_form', locals: { favorite: @favorite } %>
+  <% end %>
+  <%= turbo_stream.replace 'now_group' do %>
+    <%= render partial: 'now_group', locals: { group: Group.new, favorite_id: @favorite&.id } %>
+  <% end %>
+<% elsif @request == 'before_group' %>
+  <%= turbo_stream.replace 'before_form' do %>
+    <%= render partial: 'fans/before_form', locals: { favorite: @favorite } %>
+  <% end %>
+  <%= turbo_stream.replace 'before_group' do %>
+    <%= render partial: 'before_group', locals: { group: Group.new, favorite_id: @favorite&.id } %>
+  <% end %>
+<% end %>

@@ -60,6 +60,12 @@
   <%= turbo_frame_tag "before_modal" do %>
     <%= render partial: 'contents/before_modal', locals: { content: Content.new, favorite_id: @fan_before.favorite_id } %>
   <% end %>
+  <%= turbo_frame_tag "now_group" do %>
+    <%= render partial: 'groups/now_group', locals: { group: Group.new, favorite_id: @fan_now.favorite_id } %>
+  <% end %>
+  <%= turbo_frame_tag "before_group" do %>
+    <%= render partial: 'groups/before_group', locals: { group: Group.new, favorite_id: @fan_before.favorite_id } %>
+  <% end %>
   <!-- ↑モーダル中身--Put this part before </body> tag -->
   <%= link_to '完了', mypage_path, class: "btn btn-primary btn-block" %>
 </div>

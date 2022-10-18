@@ -1,0 +1,15 @@
+<%= turbo_frame_tag "now_group" do %>
+  <input type="checkbox" id="now-group" class="modal-toggle" />
+  <div class="modal">
+    <div class="modal-box">
+      <%= form_with model: group, local: true do |f| %>
+        <%= f.text_field :name, placeholder: 'グループ名を入力してください', class: "input input-bordered w-full" %>
+        <%= f.submit '追加', class: "btn" %>
+        <%= f.hidden_field :favorite_id, value: favorite_id %>
+      <% end %>
+      <div class="modal-action">
+        <label for="now-group" class="btn">閉じる</label>
+      </div>
+    </div>
+  </div>
+<% end %>
