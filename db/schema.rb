@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_18_014100) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_18_020104) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,11 +56,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_014100) do
     t.integer "existence", null: false
     t.integer "decade", null: false
     t.integer "gender", null: false
-    t.integer "job"
     t.bigint "content_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "group_id"
     t.index ["content_id"], name: "index_favorites_on_content_id"
+    t.index ["group_id"], name: "index_favorites_on_group_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -86,12 +87,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_014100) do
     t.integer "existence"
     t.integer "decade"
     t.integer "gender"
-    t.integer "job"
     t.bigint "content_id"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "group_id"
     t.index ["content_id"], name: "index_promotions_on_content_id"
+    t.index ["group_id"], name: "index_promotions_on_group_id"
     t.index ["user_id"], name: "index_promotions_on_user_id"
   end
 
@@ -112,7 +114,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_014100) do
     t.integer "existence"
     t.integer "decade"
     t.integer "gender"
-    t.integer "job"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_requests_on_user_id"
@@ -136,9 +137,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_014100) do
   add_foreign_key "fans", "favorites"
   add_foreign_key "fans", "users"
   add_foreign_key "favorites", "contents"
+  add_foreign_key "favorites", "groups"
   add_foreign_key "promotion_bookmarks", "promotions"
   add_foreign_key "promotion_bookmarks", "users"
   add_foreign_key "promotions", "contents"
+  add_foreign_key "promotions", "groups"
   add_foreign_key "promotions", "users"
   add_foreign_key "request_bookmarks", "requests"
   add_foreign_key "request_bookmarks", "users"
