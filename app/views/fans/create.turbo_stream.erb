@@ -1,9 +1,15 @@
 <% if @request == "now_form" %>
-  <%= turbo_stream.replace 'favorites_now' do %>
+  <%= turbo_stream.update 'favorites_now' do %>
     <%= render partial: 'favorites', locals: { fans: @fans_now } %>
   <% end %>
+  <%= turbo_stream.update 'now_form' do %>
+    <%= render partial: 'form', locals: { favorite: Favarite.new, state: :now } %>
+  <% end %>
 <% elsif @request == "before_form" %>
-  <%= turbo_stream.replace 'favorites_before' do %>
+  <%= turbo_stream.update 'favorites_before' do %>
     <%= render partial: 'favorites', locals: { fans: @fans_before } %>
+  <% end %>
+  <%= turbo_stream.update 'before_form' do %>
+    <%= render partial: 'form', locals: { favorite: Favarite.new, state: :before } %>
   <% end %>
 <% end %>
