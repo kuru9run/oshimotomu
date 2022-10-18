@@ -1,0 +1,15 @@
+<%= turbo_frame_tag "now_modal" do %>
+  <input type="checkbox" id="now-modal" class="modal-toggle" />
+  <div class="modal">
+    <div class="modal-box">
+      <%= form_with model: content, local: true do |f| %>
+        <%= f.text_field :title, placeholder: '作品タイトルを入力してください', class: "input input-bordered w-full" %>
+        <%= f.submit '追加', class: "btn" %>
+        <%= f.hidden_field :favorite_id, value: favorite_id %>
+      <% end %>
+      <div class="modal-action">
+        <label for="now-modal" class="btn">閉じる</label>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,12 +1,9 @@
 class ContentsController < ApplicationController
   def create
+    @favorite = Favorite.find_by(id: params[:content][:favorite_id])
     @content = Content.new(content_params)
-    if @content.save
-      redirect_to params[:content][:route]
-    else
-      flash.now[:alert] = '作品タイトルを保存できませんでした'
-      render 'fans/new'
-    end
+    @content.save
+    @request = request.headers[:HTTP_TURBO_FRAME]
   end
 
   def destroy

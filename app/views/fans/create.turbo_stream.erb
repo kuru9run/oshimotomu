@@ -1,0 +1,9 @@
+<% if @request == "now_form" %>
+  <%= turbo_stream.replace 'favorites_now' do %>
+    <%= render partial: 'favorites', locals: { fans: @fans_now } %>
+  <% end %>
+<% elsif @request == "before_form" %>
+  <%= turbo_stream.replace 'favorites_before' do %>
+    <%= render partial: 'favorites', locals: { fans: @fans_before } %>
+  <% end %>
+<% end %>

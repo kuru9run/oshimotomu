@@ -1,0 +1,4 @@
+<%= turbo_frame_tag "content_select" do %>
+  <%= f.collection_select :content_id, Content.select(:id, :title).distinct, :id, :title, {prompt: "※選択肢に無い作品は追加することができます"}, {class: "select select-bordered w-full max-w-sm"} %>
+  <label for="my-modal" class="btn modal-button">作品タイトル追加</label>
+<% end %>
