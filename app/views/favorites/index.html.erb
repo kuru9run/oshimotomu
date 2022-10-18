@@ -4,19 +4,19 @@
     <%= search_form_for @q do |f| %>
       <div class="input-group py-2">
         <span class="bg-neutral"><%= f.label :name %></span>
-        <%= f.search_field :name_cont, class: "input input-primary w-3/4 max-w-xs", placeholder: "空欄でも検索できます" %>
+        <%= f.search_field :name_cont, class: "input input-bordered w-3/4 max-w-xs", placeholder: "空欄でも検索できます" %>
       </div>
       <div class="input-group py-2">
         <span class="bg-neutral"><%= f.label :existence %></span>
-        <%= f.select :existence_eq, Favorite.existences_i18n.invert.map {|k, v| [k, Favorite.existences[v]]}, {include_blank: '指定しない'}, {class: "select select-primary w-3/4 max-w-xs"} %>
+        <%= f.select :existence_eq, Favorite.existences_i18n.invert.map {|k, v| [k, Favorite.existences[v]]}, {include_blank: '指定しない'}, {class: "select select-bordered w-3/4 max-w-xs"} %>
       </div>
       <div class="input-group py-2">
         <span class="bg-neutral"><%= f.label :decade %></span>
-        <%= f.select :decade_eq, Favorite.decades_i18n.invert.map {|k, v| [k, Favorite.decades[v]]}, {include_blank: '指定しない'}, {class: "select select-primary w-3/4 max-w-xs"} %>
+        <%= f.select :decade_eq, Favorite.decades_i18n.invert.map {|k, v| [k, Favorite.decades[v]]}, {include_blank: '指定しない'}, {class: "select select-bordered w-3/4 max-w-xs"} %>
       </div>
       <div class="input-group py-2">
         <span class="bg-neutral"><%= f.label :gender %></span>
-        <%= f.select :gender_eq, Favorite.genders_i18n.invert.map {|k, v| [k, Favorite.genders[v]]}, {include_blank: '指定しない'}, {class: "select select-primary w-3/4 max-w-xs"} %>
+        <%= f.select :gender_eq, Favorite.genders_i18n.invert.map {|k, v| [k, Favorite.genders[v]]}, {include_blank: '指定しない'}, {class: "select select-bordered w-3/4 max-w-xs"} %>
       </div>
       <%= f.submit class: "btn py-2" %>
     <% end %>
