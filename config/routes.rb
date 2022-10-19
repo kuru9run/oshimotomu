@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
   end
   resources :contents, only: %i[create destroy]
+  resources :groups, only: %i[create destroy]
   resources :requests, shallow: true do
     resources :answers, only: %i[create destroy]
   end

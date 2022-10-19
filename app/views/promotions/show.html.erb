@@ -10,7 +10,7 @@
         <p><%= "#{Promotion.human_attribute_name(:existence)}: #{@promotion.existence_i18n}" %></p>
         <p><%= "#{Promotion.human_attribute_name(:decade)}: #{@promotion.decade_i18n}" %></p>
         <p><%= "#{Promotion.human_attribute_name(:gender)}: #{@promotion.gender_i18n}" %></p>
-        <p><%= "#{Promotion.human_attribute_name(:job)}: #{@promotion.job_i18n}" %></p>
+        <p><%= "#{Promotion.human_attribute_name(:group_id)}: #{@promotion.group&.name}" %></p>
         <p><%= "#{Promotion.human_attribute_name(:content_id)}: #{@promotion.content&.title}" %></p>
       </div>
     </div> 
