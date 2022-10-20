@@ -52,6 +52,6 @@ class PromotionsController < ApplicationController
   private
 
   def promotion_params
-    params.require(:promotion).permit(:name, :description, :existence, :decade, :gender, :content_id)
+    params.require(:promotion).permit(:name, :description, :existence, :decade, :gender, :content_id, :group_id)
   end
 end
