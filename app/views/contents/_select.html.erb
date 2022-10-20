@@ -1,3 +1,5 @@
-<%= f.label :content_id, Favorite.human_attribute_name(:content_id), class: "label" %>
-<%= f.collection_select :content_id, Content.select(:id, :title).distinct.order(:title), :id, :title, {prompt: "※選択肢に無い作品は追加することができます"}, {class: "select select-bordered w-full max-w-sm"} %>
-<label for="content-modal" class="btn modal-button">作品タイトル追加</label>
+<div data-select-target="contentSelect">
+  <%= f.label :content_id, Favorite.human_attribute_name(:content_id), class: "label" %>
+  <%= f.collection_select :content_id, Content.select(:id, :title).distinct.order(:title), :id, :title, {prompt: "※選択肢に無い作品は追加することができます"}, {class: "select-box-contents select select-bordered w-full max-w-sm"} %>
+  <label for="content-modal" class="btn modal-button">作品タイトル追加</label>
+</div>

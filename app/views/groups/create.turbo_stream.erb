@@ -1,3 +1,7 @@
 <%= turbo_stream.update 'group_modal' do %>
   <%= render partial: 'modal', locals: { group: Group.new } %>
 <% end %>
+
+<%= turbo_stream.append_all '.select-box-groups' do %>
+  <option value=<%= @group.id %>><%= @group.name %></option>
+<% end %>
