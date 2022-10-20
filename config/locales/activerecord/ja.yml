@@ -70,8 +70,8 @@ ja:
         existence: '区分'
         decade: '年齢'
         gender: '性別'
-        group_id: '所属グループ'
-        content_id: '作品'
+        group_id: 'グループ名（所属している場合）'
+        content_id: '作品タイトル'
       content:
         title: '作品タイトル'
       group:
@@ -91,8 +91,8 @@ ja:
         existence: '区分'
         decade: '年齢'
         gender: '性別'
-        group_id: '所属グループ'
-        content_id: '作品'
+        group_id: 'グループ名（所属している場合）'
+        content_id: '作品タイトル'
         created_at: '作成日時'
       comment:
         body: 'コメント内容'
