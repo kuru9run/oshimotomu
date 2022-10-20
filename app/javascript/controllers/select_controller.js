@@ -5,8 +5,12 @@ export default class extends Controller {
   static targets = [ "groupSelect", "contentSelect" ]
 
   connect() {
-    this.groupSelectTarget.style.display = "none"
-    this.contentSelectTarget.style.display = "none"
+    if (location.pathname.includes('edit')) {
+      this.rendering()
+    } else {
+      this.groupSelectTarget.style.display = "none"
+      this.contentSelectTarget.style.display = "none"
+    }
   }
 
   rendering_now() {
