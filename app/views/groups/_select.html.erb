@@ -1,3 +1,3 @@
 <%= f.label :group_id, Favorite.human_attribute_name(:group_id), class: "label" %>
-<%= f.collection_select :group_id, Group.select(:id, :name).distinct.order(:name), :id, :name, {prompt: "※選択肢に無いグループは追加することができます"}, {class: "select select-bordered w-full max-w-sm"} %>
+<%= f.collection_select :group_id, Group.select(:id, :name).distinct.order(:name), :id, :name, {prompt: "※選択肢に無いグループは追加することができます"}, {id: "select_box_group", class: "select select-bordered w-full max-w-sm"} %>
 <label for="group-modal" class="btn modal-button">グループ名追加</label>
