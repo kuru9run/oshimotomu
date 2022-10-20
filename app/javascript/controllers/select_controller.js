@@ -30,4 +30,15 @@ export default class extends Controller {
       this.contentSelectTarget.style.display = "block"
     }
   }
+
+  rendering() {
+    const selected = document.getElementById("selectedExistence")
+    if (selected.value == 'person') {
+      this.groupSelectTarget.style.display = "block"
+      this.contentSelectTarget.style.display = "none"
+    } else if (selected.value == 'character') {
+      this.groupSelectTarget.style.display = "none"
+      this.contentSelectTarget.style.display = "block"
+    }
+  }
 }
