@@ -22,7 +22,9 @@
     <% end %>
   </div>
   <% if @requests.count > 0 %>
-    <%= render @requests %>
+    <div class="flex flex-wrap">
+      <%= render @requests %>
+    </div>
   <% else %>
     <div class="alert my-5">
       <div>

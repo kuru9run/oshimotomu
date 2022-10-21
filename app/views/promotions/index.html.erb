@@ -23,7 +23,9 @@
   </div>
   <%= link_to '布教を作成', new_promotion_path, class: 'btn mt-5' %>
   <% if @promotions.count > 0 %>
-    <%= render @promotions %>
+    <div class="flex flex-wrap">
+      <%= render @promotions %>
+    </div>
   <% else %>
     <div class="alert my-5">
       <div>

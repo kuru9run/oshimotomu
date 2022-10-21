@@ -22,7 +22,9 @@
     <% end %>
   </div>
   <% if @favorites.count > 0 %>
-    <%= render @favorites %>
+    <div class="flex flex-wrap">
+      <%= render @favorites %>
+    </div>
   <% else %>
     <div class="alert my-5">
       <div>
@@ -32,12 +34,14 @@
     </div>
   <% end %>
   <%= paginate @favorites %>
-  <p>人気の推し</p>
-  ここに縦長カードで表示したい
   <% if logged_in? %>
     <p>あなたの現在の推し</p>
-    <%= render @my_favorite_now %>
+    <div class="flex flex-wrap">
+      <%= render @my_favorite_now %>
+    </div>
     <p>あなたの以前の推し</p>
-    <%= render @my_favorite_before %>
+    <div class="flex flex-wrap">
+      <%= render @my_favorite_before %>
+    </div>
   <% end %>
 </div>
