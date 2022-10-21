@@ -10,7 +10,7 @@
     </div>
     <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
       <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
-        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-pink-100 text-primary mb-5 flex-shrink-0">
+        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-pink-200 text-primary mb-5 flex-shrink-0">
           <%= image_tag 'icon_search.png' %>
         </div>
         <div class="flex-grow">
@@ -28,7 +28,7 @@
         </div>
       </div>
       <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
-        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-pink-100 text-primary mb-5 flex-shrink-0">
+        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-pink-200 text-primary mb-5 flex-shrink-0">
           <%= image_tag 'icon_loudspeaker.png' %>
         </div>
         <div class="flex-grow">
@@ -46,7 +46,7 @@
         </div>
       </div>
       <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
-        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-pink-100 text-primary mb-5 flex-shrink-0">
+        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-pink-200 text-primary mb-5 flex-shrink-0">
           <%= image_tag 'icon_sad.png' %>
         </div>
         <div class="flex-grow">
@@ -67,10 +67,10 @@
     </div>
     <div class= "flex justify-center mt-16 content-center">
       <% if logged_in? %>
-        <%= link_to 'マイページへ', mypage_path, class: "btn btn-primary text-lg mx-3" %>
+        <%= link_to 'マイページへ', mypage_path, class: "btn text-lg mx-3" %>
       <% else %>
-        <%= link_to 'ログイン', login_path, class: "btn btn-primary text-lg mx-3" %>
-        <%= link_to '新規登録', new_user_path, class: "btn btn-primary text-lg mx-3" %>
+        <%= link_to 'ログイン', login_path, class: "btn text-lg mx-3" %>
+        <%= link_to '新規登録', new_user_path, class: "btn text-lg mx-3" %>
       <% end %>
     </div>
   </div>
