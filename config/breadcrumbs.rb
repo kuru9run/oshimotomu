@@ -43,7 +43,7 @@ crumb :favorites do
 end
 
 crumb :favorite_show do |favorite|
-  link "#{favorite.name}さん", favorite_path(favorite)
+  link "#{favorite.name}さんファンの推し変遷", favorite_path(favorite)
   parent :favorites
 end
 
