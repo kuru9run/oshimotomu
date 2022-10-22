@@ -1,10 +1,10 @@
 <div class="card w-96 border text-primary-content m-3">
   <div class="card-body">
     <span><%= render partial: 'shared/avatar', locals: { user: request.user } %><%= request.user.name %></span>
-    <div class="self-end"><%= l(request.created_at, format: :long) %></div>
+    <p class="self-end"><%= l(request.created_at, format: :long) %></p>
     <h2><%= link_to "【求】#{request.title}", request_path(request), class: "card-title" %></h2>
-    <p class="text-sky-500">#<%= request.existence_i18n %></p>
-    <p class="text-sky-500">#<%= request.decade_i18n %></p>
-    <p class="text-sky-500">#<%= request.gender_i18n %></p>
+    <p class="text-sky-500">#<%= request.existence_i18n unless request.existence.nil? %></p>
+    <p class="text-sky-500">#<%= request.decade_i18n unless request.decade.nil? %></p>
+    <p class="text-sky-500">#<%= request.gender_i18n unless request.gender.nil? %></p>
   </div>
 </div>
