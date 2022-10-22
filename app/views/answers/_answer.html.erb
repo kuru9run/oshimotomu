@@ -1,4 +1,13 @@
-<div class="grid h-20 card bg-white rounded-box place-items-center"><%= answer.body %></div>
+<div class="divider"></div>
+<div class="rounded-box items-center">
+  <div class="my-3">
+    <span><%= render partial: 'shared/avatar', locals: { user: answer.user } %></span><%= answer.user.name %>
+    <p class="text-right"><%= l(answer.created_at, format: :long) %></p>
+  </div>
+  <div class="m-5">
+    <%= answer.body %>
+  </div>
+</div>
 <% if logged_in? && current_user.own?(answer) %>
   <%= button_to t('defaults.delete'), answer_path(answer), method: :delete %>
 <% end %>

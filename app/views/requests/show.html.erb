@@ -1,21 +1,23 @@
 <% breadcrumb :request_show, @request %>
 <div class="flex items-center justify-center p-12">
   <div class="mx-auto w-full max-w-[550px]">
-    <p class="text-xl"><%= @request.title %></p>
-    <div class="text-right"><span><%= render partial: 'shared/avatar', locals: { user: @request.user } %></span><%= @request.user.name %></div>
+    <p class="text-xl text-center font-bold text-neutral"><%= @request.title %></p>
+    <div class="text-right my-3">
+      <span><%= render partial: 'shared/avatar', locals: { user: @request.user } %></span><%= @request.user.name %>
+    </div>
     <% unless @favorites_before_string.blank? %>
       <p class="text-right"><%= "元#{@favorites_before_string}推し" %></p>
     <% end %>
     <p class="text-sm text-right"><%= l(@request.created_at, format: :long) %></p>
     <div class="grid card rounded-box border-neutral border-4">
-      <p class="mx-auto my-4 text-lg">募集条件</p>
+      <p class="mx-auto my-4 text-lg text-neutral">募集条件</p>
       <div class="mx-auto mb-3">
         <p><%= "・#{@request.existence_i18n}" %></p>
         <p><%= "・#{@request.decade_i18n}" %></p>
         <p><%= "・#{@request.gender_i18n}" %></p>
       </div>
       <% unless @request.description.blank? %>
-        <p class="mx-auto py-4 text-lg">募集内容詳細</p>
+        <p class="mx-auto py-4 text-lg text-neutral">募集内容詳細</p>
         <div class="mx-auto mb-3">
           <p><%= @request.description %></p>
         </div>
@@ -34,8 +36,7 @@
     <% end %>
     <%= turbo_frame_tag 'answers' do %>
       <% if @answers.any? %>
-        <div class="divider"></div> 
-          <%= render @answers %>
+        <%= render @answers %>
       <% end %>
     <% end %>
   </div>

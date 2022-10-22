@@ -1,11 +1,13 @@
 <% breadcrumb :promotion_show, @promotion %>
 <div class="flex items-center justify-center p-12">
   <div class="mx-auto w-full max-w-[550px]">
-    <p class="text-xl"><%= @promotion.name %>さん</p>
-    <div class="text-right"><span><%= render partial: 'shared/avatar', locals: { user: @promotion.user } %></span><%= @promotion.user.name %></div>
+    <p class="text-xl text-center font-bold text-neutral"><%= @promotion.name %>さんの布教</p>
+    <div class="text-right my-3">
+      <span><%= render partial: 'shared/avatar', locals: { user: @promotion.user } %></span><%= @promotion.user.name %>
+    </div>
     <p class="text-sm text-right"><%= l(@promotion.created_at, format: :long) %></p>
     <div class="grid card border-neutral border-4 rounded-box">
-      <p class="mx-auto py-4 text-lg">推し情報</p>
+      <p class="mx-auto py-4 text-lg text-neutral">推し情報</p>
       <div class="mx-auto mb-3">
         <p><%= "・#{@promotion.group&.name}所属" if @promotion.group %></p>
         <p><%= "・「#{@promotion.content&.title}」のキャラクター" if @promotion.content %></p>
@@ -13,7 +15,7 @@
         <p><%= "・#{@promotion.gender_i18n}" if @promotion.gender %></p>
       </div>
       <% unless @promotion.description.blank? %>
-        <p class="mx-auto py-4 text-lg">布教内容詳細</p>
+        <p class="mx-auto py-4 text-lg text-neutral">推しポイント詳細</p>
         <div class="mx-auto mb-3">
           <p><%= @promotion.description %></p>
         </div> 
@@ -32,7 +34,6 @@
     <% end %>
     <%= turbo_frame_tag 'comments' do %>
       <% if @comments.any? %>
-        <div class="divider"></div> 
         <%= render @comments %>
       <% end %>
     <% end %>

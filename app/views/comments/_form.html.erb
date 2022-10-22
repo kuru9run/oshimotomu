@@ -1,5 +1,7 @@
-<%= form_with model: [promotion, comment] do |f| %>
-  <%= f.label :body %>
-  <%= f.text_area :body, placeholder: '例：気になってきたのでおすすめの楽曲も教えてほしいです！', class: "textarea textarea-bordered h-24 w-full" %>
-  <%= f.submit t('defaults.submit'), class: "btn" %>
-<% end %>
+<div class="my-4">
+  <%= form_with model: [promotion, comment] do |f| %>
+    <%= f.label :body, class: "text-neutral" %>
+    <%= f.text_area :body, placeholder: '例：気になってきたのでおすすめの楽曲も教えてほしいです！', class: "textarea textarea-bordered border-4 border-neutral h-24 w-full" %>
+    <%= f.submit t('defaults.submit'), class: "btn" %>
+  <% end %>
+</div>
