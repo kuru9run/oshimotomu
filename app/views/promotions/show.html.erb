@@ -1,38 +1,39 @@
 <% breadcrumb :promotion_show, @promotion %>
-<div class="container mx-auto px-4 my-3">
-  <div class="flex flex-col w-full">
+<div class="flex items-center justify-center p-12">
+  <div class="mx-auto w-full max-w-[550px]">
     <p class="text-xl"><%= @promotion.name %>さん</p>
     <p><%= @promotion.user.name %></p>
     <p class="text-sm text-right"><%= l(@promotion.created_at, format: :long) %></p>
-    <div class="grid card bg-white rounded-box">
-      <p class="pl-4 pt-3">推し情報</p>
+    <div class="grid card border-4 rounded-box">
+      <p class="mx-auto py-4 text-lg">推し情報</p>
       <div class="mx-auto mb-3">
-        <p><%= "#{Promotion.human_attribute_name(:existence)}: #{@promotion.existence_i18n}" %></p>
-        <p><%= "#{Promotion.human_attribute_name(:decade)}: #{@promotion.decade_i18n}" %></p>
-        <p><%= "#{Promotion.human_attribute_name(:gender)}: #{@promotion.gender_i18n}" %></p>
-        <p><%= "#{Promotion.human_attribute_name(:group_id)}: #{@promotion.group&.name}" %></p>
-        <p><%= "#{Promotion.human_attribute_name(:content_id)}: #{@promotion.content&.title}" %></p>
+        <p><%= "・#{@promotion.existence_i18n}" %></p>
+        <p><%= "・#{@promotion.decade_i18n}" %></p>
+        <p><%= "・#{@promotion.gender_i18n}" %></p>
+        <p><%= "・#{@promotion.group&.name}" %></p>
+        <p><%= "・#{@promotion.content&.title}" %></p>
       </div>
+      <% unless @promotion.description.blank? %>
+        <p class="mx-auto py-4 text-lg">推し情報</p>
+        <div class="mx-auto mb-3">
+          <p><%= @promotion.description %></p>
+        </div> 
+      <% end %>
     </div> 
-    <% unless @promotion.description.blank? %>
-      <div class="grid card bg-white rounded-box place-items-center mt-2">
-        <p><%= @promotion.description %></p>
-      </div> 
-    <% end %>
     <% if logged_in? && current_user.own?(@promotion) %>
       <%= link_to t('.edit'), edit_promotion_path %>
       <%= button_to t('.destroy'), promotion_path(@promotion), method: :delete %>
     <% end %>
+    <% if logged_in? %>
+      <%= turbo_frame_tag 'form' do %>
+        <%= render partial: 'comments/form', locals: { comment: @comment, promotion: @promotion } %>
+      <% end %>
+    <% end %>
+    <%= turbo_frame_tag 'comments' do %>
+      <% if @comments.any? %>
+        <div class="divider"></div> 
+        <%= render @comments %>
+      <% end %>
+    <% end %>
   </div>
-  <% if logged_in? %>
-    <%= turbo_frame_tag 'form' do %>
-      <%= render partial: 'comments/form', locals: { comment: @comment, promotion: @promotion } %>
-    <% end %>
-  <% end %>
-  <%= turbo_frame_tag 'comments' do %>
-    <% if @comments.any? %>
-      <div class="divider"></div> 
-      <%= render @comments %>
-    <% end %>
-  <% end %>
 </div>

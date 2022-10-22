@@ -1,37 +1,38 @@
 <% breadcrumb :request_show, @request %>
-<div class="container mx-auto px-4 my-3">
-  <div class="flex flex-col w-full">
+<div class="flex items-center justify-center p-12">
+  <div class="mx-auto w-full max-w-[550px]">
     <p class="text-xl"><%= @request.title %></p>
     <p><%= @request.user.name %></p>
     <p><%= @favorites_before.first&.name %></p>
     <p class="text-sm text-right"><%= l(@request.created_at, format: :long) %></p>
-    <div class="grid card bg-white rounded-box">
-      <p class="pl-4 pt-3">募集条件</p>
+    <div class="grid card rounded-box border-4">
+      <p class="mx-auto my-4 text-lg">募集条件</p>
       <div class="mx-auto mb-3">
-        <p><%= "#{Request.human_attribute_name(:existence)}: #{@request.existence_i18n}" %></p>
-        <p><%= "#{Request.human_attribute_name(:decade)}: #{@request.decade_i18n}" %></p>
-        <p><%= "#{Request.human_attribute_name(:gender)}: #{@request.gender_i18n}" %></p>
+        <p><%= "・#{@request.existence_i18n}" %></p>
+        <p><%= "・#{@request.decade_i18n}" %></p>
+        <p><%= "・#{@request.gender_i18n}" %></p>
       </div>
+      <% unless @request.description.blank? %>
+        <p class="mx-auto py-4 text-lg">募集内容詳細</p>
+        <div class="mx-auto mb-3">
+          <p><%= @request.description %></p>
+        </div>
+      <% end %>
     </div> 
-    <% unless @request.description.blank? %>
-      <div class="grid card bg-white rounded-box place-items-center mt-2">
-        <p><%= @request.description %></p>
-      </div> 
-    <% end %>
     <% if current_user&.own?(@request) %>
       <%= link_to t('.edit'), edit_request_path %>
       <%= button_to t('.destroy'), request_path(@request), method: :delete %>
     <% end %>
+    <% if logged_in? %>
+      <%= turbo_frame_tag 'form' do %>
+        <%= render partial: 'answers/form', locals: { answer: @answer, request: @request } %>
+      <% end %>
+    <% end %>
+    <%= turbo_frame_tag 'answers' do %>
+      <% if @answers.any? %>
+        <div class="divider"></div> 
+          <%= render @answers %>
+      <% end %>
+    <% end %>
   </div>
-  <% if logged_in? %>
-    <%= turbo_frame_tag 'form' do %>
-      <%= render partial: 'answers/form', locals: { answer: @answer, request: @request } %>
-    <% end %>
-  <% end %>
-  <%= turbo_frame_tag 'answers' do %>
-    <% if @answers.any? %>
-      <div class="divider"></div> 
-        <%= render @answers %>
-    <% end %>
-  <% end %>
 </div>
