@@ -1,31 +1,33 @@
 <% breadcrumb :promotion_show, @promotion %>
 <div class="flex items-center justify-center p-12">
   <div class="mx-auto w-full max-w-[550px]">
-    <p class="text-xl text-center font-bold text-neutral"><%= @promotion.name %>さんの布教</p>
-    <div class="text-right my-3">
-      <span><%= render partial: 'shared/avatar', locals: { user: @promotion.user } %></span><%= @promotion.user.name %>
-    </div>
-    <p class="text-sm text-right"><%= l(@promotion.created_at, format: :long) %></p>
-    <div class="grid card border-neutral border-4 rounded-box">
-      <p class="mx-auto py-4 text-lg text-neutral">推し情報</p>
-      <div class="mx-auto mb-3">
-        <p><%= "・#{@promotion.group&.name}所属" if @promotion.group %></p>
-        <p><%= "・「#{@promotion.content&.title}」のキャラクター" if @promotion.content %></p>
-        <p><%= "・#{@promotion.decade_i18n}" if @promotion.decade %></p>
-        <p><%= "・#{@promotion.gender_i18n}" if @promotion.gender %></p>
+    <div class="border-2 px-8 pt-8 pb-3 rounded-lg">
+      <p class="text-xl text-center font-bold text-neutral"><%= @promotion.name %>さんの布教</p>
+      <div class="my-3">
+        <span><%= render partial: 'shared/avatar', locals: { user: @promotion.user } %></span><%= @promotion.user.name %>
       </div>
-      <% unless @promotion.description.blank? %>
-        <p class="mx-auto py-4 text-lg text-neutral">推しポイント詳細</p>
+      <p class="text-sm text-right"><%= l(@promotion.created_at, format: :long) %></p>
+      <div class="grid card rounded-box">
+        <p class="mx-auto py-4 text-lg text-neutral">推し情報</p>
         <div class="mx-auto mb-3">
-          <p><%= @promotion.description %></p>
-        </div> 
-      <% end %>
-    </div> 
-    <div class="flex">
-      <% if logged_in? && current_user.own?(@promotion) %>
-        <%= link_to t('.edit'), edit_promotion_path, class: "px-3" %>
-        <%= button_to t('.destroy'), promotion_path(@promotion), method: :delete, class: "px-3" %>
-      <% end %>
+          <p><%= "・#{@promotion.group&.name}所属" if @promotion.group %></p>
+          <p><%= "・「#{@promotion.content&.title}」のキャラクター" if @promotion.content %></p>
+          <p><%= "・#{@promotion.decade_i18n}" if @promotion.decade %></p>
+          <p><%= "・#{@promotion.gender_i18n}" if @promotion.gender %></p>
+        </div>
+        <% unless @promotion.description.blank? %>
+          <p class="mx-auto py-4 text-lg text-neutral">推しポイント詳細</p>
+          <div class="mx-auto mb-3">
+            <p><%= @promotion.description %></p>
+          </div> 
+        <% end %>
+      </div> 
+      <div class="flex">
+        <% if logged_in? && current_user.own?(@promotion) %>
+          <%= link_to t('.edit'), edit_promotion_path, class: "px-3" %>
+          <%= button_to t('.destroy'), promotion_path(@promotion), method: :delete, class: "px-3" %>
+        <% end %>
+      </div>
     </div>
     <% if logged_in? %>
       <%= turbo_frame_tag 'form' do %>

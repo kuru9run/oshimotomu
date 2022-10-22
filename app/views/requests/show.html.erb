@@ -1,33 +1,35 @@
 <% breadcrumb :request_show, @request %>
 <div class="flex items-center justify-center p-12">
   <div class="mx-auto w-full max-w-[550px]">
-    <p class="text-xl text-center font-bold text-neutral"><%= @request.title %></p>
-    <div class="text-right my-3">
-      <span><%= render partial: 'shared/avatar', locals: { user: @request.user } %></span><%= @request.user.name %>
-    </div>
-    <% unless @favorites_before_string.blank? %>
-      <p class="text-right"><%= "元#{@favorites_before_string}推し" %></p>
-    <% end %>
-    <p class="text-sm text-right"><%= l(@request.created_at, format: :long) %></p>
-    <div class="grid card rounded-box border-neutral border-4">
-      <p class="mx-auto my-4 text-lg text-neutral">募集条件</p>
-      <div class="mx-auto mb-3">
-        <p><%= "・#{@request.existence_i18n}" %></p>
-        <p><%= "・#{@request.decade_i18n}" %></p>
-        <p><%= "・#{@request.gender_i18n}" %></p>
+    <div class="border-2 px-8 pt-8 pb-3 rounded-lg">
+      <p class="text-xl text-center font-bold text-neutral">【求】<%= @request.title %></p>
+      <div class="my-3">
+        <span><%= render partial: 'shared/avatar', locals: { user: @request.user } %></span><%= @request.user.name %>
       </div>
-      <% unless @request.description.blank? %>
-        <p class="mx-auto py-4 text-lg text-neutral">募集内容詳細</p>
+      <% unless @favorites_before_string.blank? %>
+        <p class="text-right"><%= "元#{@favorites_before_string}推し" %></p>
+      <% end %>
+      <p class="text-sm text-right"><%= l(@request.created_at, format: :long) %></p>
+      <div class="grid card rounded-box">
+        <p class="mx-auto my-4 text-lg text-neutral">募集条件</p>
         <div class="mx-auto mb-3">
-          <p><%= @request.description %></p>
+          <p><%= "・#{@request.existence_i18n}" %></p>
+          <p><%= "・#{@request.decade_i18n}" %></p>
+          <p><%= "・#{@request.gender_i18n}" %></p>
         </div>
-      <% end %>
-    </div> 
-    <div class="flex">
-      <% if logged_in? && current_user.own?(@request) %>
-        <%= link_to t('.edit'), edit_request_path, class: "px-3" %>
-        <%= button_to t('.destroy'), request_path(@request), method: :delete, class: "px-3" %>
-      <% end %>
+        <% unless @request.description.blank? %>
+          <p class="mx-auto py-4 text-lg text-neutral">募集内容詳細</p>
+          <div class="mx-auto mb-3">
+            <p><%= @request.description %></p>
+          </div>
+        <% end %>
+      </div> 
+      <div class="flex">
+        <% if logged_in? && current_user.own?(@request) %>
+          <%= link_to t('.edit'), edit_request_path, class: "px-3" %>
+          <%= button_to t('.destroy'), request_path(@request), method: :delete, class: "px-3" %>
+        <% end %>
+      </div>
     </div>
     <% if logged_in? %>
       <%= turbo_frame_tag 'form' do %>

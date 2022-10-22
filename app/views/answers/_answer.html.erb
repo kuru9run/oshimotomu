@@ -2,7 +2,7 @@
 <div class="rounded-box items-center">
   <div class="my-3">
     <span><%= render partial: 'shared/avatar', locals: { user: answer.user } %></span><%= answer.user.name %>
-    <p class="text-right"><%= l(answer.created_at, format: :long) %></p>
+    <p class="text-right text-sm"><%= l(answer.created_at, format: :long) %></p>
   </div>
   <div class="m-5">
     <%= answer.body %>
