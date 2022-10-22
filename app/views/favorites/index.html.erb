@@ -1,25 +1,13 @@
 <% breadcrumb :favorites %>
 <div class="container mx-auto px-4 my-3">
   <h1 class="text-center text-2xl font-bold text-gray-600 mb-6"><%= t('.title') %></h1>
-  <div class="form-control">
+  <div class="flex flex-row">
     <%= search_form_for @q do |f| %>
-      <div class="input-group py-2">
-        <span class="bg-neutral"><%= f.label :name %></span>
-        <%= f.search_field :name_cont, class: "input input-bordered w-3/4 max-w-xs", placeholder: "空欄でも検索できます" %>
-      </div>
-      <div class="input-group py-2">
-        <span class="bg-neutral"><%= f.label :existence %></span>
-        <%= f.select :existence_eq, Favorite.existences_i18n.invert.map {|k, v| [k, Favorite.existences[v]]}, {include_blank: '指定しない'}, {class: "select select-bordered w-3/4 max-w-xs"} %>
-      </div>
-      <div class="input-group py-2">
-        <span class="bg-neutral"><%= f.label :decade %></span>
-        <%= f.select :decade_eq, Favorite.decades_i18n.invert.map {|k, v| [k, Favorite.decades[v]]}, {include_blank: '指定しない'}, {class: "select select-bordered w-3/4 max-w-xs"} %>
-      </div>
-      <div class="input-group py-2">
-        <span class="bg-neutral"><%= f.label :gender %></span>
-        <%= f.select :gender_eq, Favorite.genders_i18n.invert.map {|k, v| [k, Favorite.genders[v]]}, {include_blank: '指定しない'}, {class: "select select-bordered w-3/4 max-w-xs"} %>
-      </div>
-      <%= f.submit class: "btn py-2" %>
+      <%= f.search_field :name_cont, class: "input input-bordered w-48 m-2", placeholder: "キーワード" %>
+      <%= f.select :existence_eq, Favorite.existences_i18n.invert.map {|k, v| [k, Favorite.existences[v]]}, {include_blank: '実在／キャラクター'}, {class: "select select-bordered w-48 m-2"} %>
+      <%= f.select :decade_eq, Favorite.decades_i18n.invert.map {|k, v| [k, Favorite.decades[v]]}, {include_blank: '年齢'}, {class: "select select-bordered w-48 m-2"} %>
+      <%= f.select :gender_eq, Favorite.genders_i18n.invert.map {|k, v| [k, Favorite.genders[v]]}, {include_blank: '性別'}, {class: "select select-bordered w-48 m-2"} %>
+      <%= f.submit class: "btn my-2" %>
     <% end %>
   </div>
   <% if @favorites.count > 0 %>
