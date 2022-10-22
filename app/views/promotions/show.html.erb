@@ -2,28 +2,29 @@
 <div class="flex items-center justify-center p-12">
   <div class="mx-auto w-full max-w-[550px]">
     <p class="text-xl"><%= @promotion.name %>さん</p>
-    <p><%= @promotion.user.name %></p>
+    <div class="text-right"><span><%= render partial: 'shared/avatar', locals: { user: @promotion.user } %></span><%= @promotion.user.name %></div>
     <p class="text-sm text-right"><%= l(@promotion.created_at, format: :long) %></p>
-    <div class="grid card border-4 rounded-box">
+    <div class="grid card border-neutral border-4 rounded-box">
       <p class="mx-auto py-4 text-lg">推し情報</p>
       <div class="mx-auto mb-3">
-        <p><%= "・#{@promotion.existence_i18n}" %></p>
-        <p><%= "・#{@promotion.decade_i18n}" %></p>
-        <p><%= "・#{@promotion.gender_i18n}" %></p>
-        <p><%= "・#{@promotion.group&.name}" %></p>
-        <p><%= "・#{@promotion.content&.title}" %></p>
+        <p><%= "・#{@promotion.group&.name}所属" if @promotion.group %></p>
+        <p><%= "・「#{@promotion.content&.title}」のキャラクター" if @promotion.content %></p>
+        <p><%= "・#{@promotion.decade_i18n}" if @promotion.decade %></p>
+        <p><%= "・#{@promotion.gender_i18n}" if @promotion.gender %></p>
       </div>
       <% unless @promotion.description.blank? %>
-        <p class="mx-auto py-4 text-lg">推し情報</p>
+        <p class="mx-auto py-4 text-lg">布教内容詳細</p>
         <div class="mx-auto mb-3">
           <p><%= @promotion.description %></p>
         </div> 
       <% end %>
     </div> 
-    <% if logged_in? && current_user.own?(@promotion) %>
-      <%= link_to t('.edit'), edit_promotion_path %>
-      <%= button_to t('.destroy'), promotion_path(@promotion), method: :delete %>
-    <% end %>
+    <div class="flex">
+      <% if logged_in? && current_user.own?(@promotion) %>
+        <%= link_to t('.edit'), edit_promotion_path, class: "px-3" %>
+        <%= button_to t('.destroy'), promotion_path(@promotion), method: :delete, class: "px-3" %>
+      <% end %>
+    </div>
     <% if logged_in? %>
       <%= turbo_frame_tag 'form' do %>
         <%= render partial: 'comments/form', locals: { comment: @comment, promotion: @promotion } %>

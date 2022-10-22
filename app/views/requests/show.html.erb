@@ -2,10 +2,12 @@
 <div class="flex items-center justify-center p-12">
   <div class="mx-auto w-full max-w-[550px]">
     <p class="text-xl"><%= @request.title %></p>
-    <p><%= @request.user.name %></p>
-    <p><%= @favorites_before.first&.name %></p>
+    <div class="text-right"><span><%= render partial: 'shared/avatar', locals: { user: @request.user } %></span><%= @request.user.name %></div>
+    <% unless @favorites_before_string.blank? %>
+      <p class="text-right"><%= "元#{@favorites_before_string}推し" %></p>
+    <% end %>
     <p class="text-sm text-right"><%= l(@request.created_at, format: :long) %></p>
-    <div class="grid card rounded-box border-4">
+    <div class="grid card rounded-box border-neutral border-4">
       <p class="mx-auto my-4 text-lg">募集条件</p>
       <div class="mx-auto mb-3">
         <p><%= "・#{@request.existence_i18n}" %></p>
@@ -19,10 +21,12 @@
         </div>
       <% end %>
     </div> 
-    <% if current_user&.own?(@request) %>
-      <%= link_to t('.edit'), edit_request_path %>
-      <%= button_to t('.destroy'), request_path(@request), method: :delete %>
-    <% end %>
+    <div class="flex">
+      <% if logged_in? && current_user.own?(@request) %>
+        <%= link_to t('.edit'), edit_request_path, class: "px-3" %>
+        <%= button_to t('.destroy'), request_path(@request), method: :delete, class: "px-3" %>
+      <% end %>
+    </div>
     <% if logged_in? %>
       <%= turbo_frame_tag 'form' do %>
         <%= render partial: 'answers/form', locals: { answer: @answer, request: @request } %>

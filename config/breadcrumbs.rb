@@ -18,7 +18,7 @@ crumb :request_new do
 end
 
 crumb :request_show do |request|
-  link request.title, request_path(request)
+  link "【求】#{request.title}", request_path(request)
   parent :requests
 end
 
@@ -33,7 +33,7 @@ crumb :promotion_new do
 end
 
 crumb :promotion_show do |promotion|
-  link "#{promotion.name}さん", promotion_path(promotion)
+  link "#{promotion.name}さんの布教", promotion_path(promotion)
   parent :promotions
 end
 
