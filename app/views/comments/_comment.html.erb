@@ -9,5 +9,7 @@
   </div>
 </div>
 <% if logged_in? && current_user.own?(comment) %>
-  <%= button_to t('defaults.delete'), comment_path(comment), method: :delete %>
+  <%= button_to comment_path(comment), method: :delete do %>
+    <i class="fa-regular fa-trash-can"></i>
+  <% end %>
 <% end %>
