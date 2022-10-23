@@ -17,7 +17,7 @@
   <% end %>
   <%= form_with url: search_favorites_path do |s| %>
     <%= s.text_field :name, class: "input input-bordered w-full max-w-sm", placeholder: "氏名で検索(例：山田)" %>
-    <%= s.submit "検索", class: "btn" %>
+    <%= s.submit "検索", class: "btn m-2" %>
     <%= s.hidden_field :state, value: :now %>
     <%= turbo_frame_tag 'suggests_now' do %>
       <div class="dropdown">
@@ -39,7 +39,7 @@
   <% end %>
   <%= form_with url: search_favorites_path do |s| %>
     <%= s.text_field :name, class: "input input-bordered w-full max-w-sm", placeholder: "氏名で検索(例：山田)" %>
-    <%= s.submit "検索", class: "btn" %>
+    <%= s.submit "検索", class: "btn m-2" %>
     <%= s.hidden_field :state, value: :before %>
     <%= turbo_frame_tag 'suggests_before' do %>
       <div class="dropdown">

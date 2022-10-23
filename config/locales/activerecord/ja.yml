@@ -67,7 +67,7 @@ ja:
         password_confirmation: 'パスワード（確認用）'
       favorite:
         name: '氏名'
-        existence: '区分'
+        existence: '実在／キャラクター'
         decade: '年齢'
         gender: '性別'
         group_id: 'グループ名（所属している場合）'
@@ -79,7 +79,7 @@ ja:
       request:
         title: '推し募集タイトル'
         description: '募集内容'
-        existence: '区分'
+        existence: '実在／キャラクター'
         decade: '年齢'
         gender: '性別'
         created_at: '作成日時'
@@ -88,7 +88,7 @@ ja:
       promotion:
         name: '氏名'
         description: '推しポイント詳細'
-        existence: '区分'
+        existence: '実在／キャラクター'
         decade: '年齢'
         gender: '性別'
         group_id: 'グループ名（所属している場合）'
