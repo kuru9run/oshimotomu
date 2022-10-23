@@ -35,9 +35,9 @@
       <table class="table w-full">
         <thead>
           <tr>
-            <th>推せる認定</th>
-            <th><%= Request.human_attribute_name(:created_at) %></th>
+            <!--<th>推せる認定</th>-->
             <th><%= Request.human_attribute_name(:title) %></th>
+            <th><%= Request.human_attribute_name(:created_at) %></th>
             <th>回答数</th>
           </tr>
         </thead>
@@ -62,9 +62,9 @@
       <table class="table w-full">
         <thead>
           <tr>
-            <th>推せる認定</th>
-            <th><%= Request.human_attribute_name(:created_at) %></th>
+            <!--<th>推せる認定</th>-->
             <th><%= Request.human_attribute_name(:title) %></th>
+            <th><%= Request.human_attribute_name(:created_at) %></th>
             <th>回答数</th>
           </tr>
         </thead>
@@ -89,9 +89,8 @@
       <table class="table w-full">
         <thead>
           <tr>
-            <th></th>
-            <th><%= Promotion.human_attribute_name(:created_at) %></th>
             <th><%= Promotion.human_attribute_name(:name) %></th>
+            <th><%= Promotion.human_attribute_name(:created_at) %></th>
             <th>コメント数</th>
           </tr>
         </thead>
@@ -110,16 +109,14 @@
     </div>
   <% end %>
   <div class="divider"></div> 
-<!--
   <p class="text-xl">コメントした布教一覧</p>
   <% if @commented_promotions.any? %>
     <div class="overflow-x-auto">
       <table class="table w-full">
         <thead>
           <tr>
-            <th></th>
-            <th><%= Promotion.human_attribute_name(:created_at) %></th>
             <th><%= Promotion.human_attribute_name(:name) %></th>
+            <th><%= Promotion.human_attribute_name(:created_at) %></th>
             <th>コメント数</th>
           </tr>
         </thead>
@@ -137,6 +134,7 @@
       </div>
     </div>
   <% end %>
+<!--
   <div class="divider"></div>
   <p class="text-xl">ブックマークした推し募集一覧</p>
   <% if current_user.request_bookmarks.any? %>
