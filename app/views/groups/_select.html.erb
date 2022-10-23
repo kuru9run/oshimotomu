@@ -1,5 +1,5 @@
 <div data-select-target="groupSelect">
   <%= f.label :group_id, Favorite.human_attribute_name(:group_id), class: "label" %>
   <%= f.collection_select :group_id, Group.select(:id, :name).distinct.order(:name), :id, :name, {prompt: "※選択肢に無いグループは追加することができます"}, {class: "select-box-groups select select-bordered w-full max-w-sm" } %>
-  <label for="group-modal" class="btn modal-button">グループ名追加</label>
+  <label for="group-modal" class="btn modal-button m-2">グループ名追加</label>
 </div>

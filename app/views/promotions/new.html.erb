@@ -1,19 +1,19 @@
 <% breadcrumb :promotion_new %>
-<div class="container mx-auto px-4 my-3">
-  <div class="form-control w-full" data-controller="select">
+<div class="flex items-center justify-center p-12">
+  <div class="form-control w-full max-w-[550px]" data-controller="select">
     <%= form_with model: @promotion do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :name, Promotion.human_attribute_name(:name), class: "label" %>
       <%= f.text_field :name, placeholder: '山田たろう', class: "input input-bordered w-full" %>
       <%= f.label :description, Promotion.human_attribute_name(:description), class: "label" %>
-      <%= f.text_area :description, placeholder: "例：2018年のライブが素晴らしいです。サブスクでも観られます！", class: "textarea textarea-bordered h-24 w-full" %>
-      <div class="divider">詳細情報を登録すると検索してもらいやすくなります（任意）</div>
+      <%= f.text_area :description, placeholder: "例：2018年のライブが素晴らしいです。サブスクでも観られます！", class: "textarea textarea-bordered h-48 w-full" %>
+      <p>--詳細情報を登録すると検索してもらいやすくなります（任意）--</p>
       <%= f.label :existence, class: "label" %>
-      <%= f.select :existence, Promotion.existences_i18n.invert, { prompt: "選択してください" }, { class: "select select-bordered w-full max-w-sm", id: "selectedExistence", data: { action: "change->select#rendering" } } %>
+      <%= f.select :existence, Promotion.existences_i18n.invert, { prompt: "選択してください" }, { class: "select select-bordered w-full", id: "selectedExistence", data: { action: "change->select#rendering" } } %>
       <%= f.label :decade, class: "label" %>
-      <%= f.select :decade, Promotion.decades_i18n.invert, { prompt: "選択してください" }, { class: "select select-bordered w-full max-w-sm" } %>
+      <%= f.select :decade, Promotion.decades_i18n.invert, { prompt: "選択してください" }, { class: "select select-bordered w-full" } %>
       <%= f.label :gender, class: "label" %>
-      <%= f.select :gender, Promotion.genders_i18n.invert, { prompt: "選択してください" }, { class: "select select-bordered w-full max-w-sm" } %>
+      <%= f.select :gender, Promotion.genders_i18n.invert, { prompt: "選択してください" }, { class: "select select-bordered w-full" } %>
       <%= render partial: 'contents/select', locals: { f: f } %>
       <%= render partial: 'groups/select', locals: { f: f } %>
       <div class="py-4">

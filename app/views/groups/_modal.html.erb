@@ -3,7 +3,7 @@
   <div class="modal-box">
     <%= form_with model: group, local: true do |f| %>
       <%= f.text_field :name, placeholder: 'グループ名を入力してください', class: "input input-bordered w-full" %>
-      <%= f.submit '追加', class: "btn" %>
+      <%= f.submit '追加', class: "btn my-3" %>
     <% end %>
     <div class="modal-action">
       <label for="group-modal" class="btn">閉じる</label>

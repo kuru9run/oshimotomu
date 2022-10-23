@@ -1,15 +1,15 @@
 <% if fans.any? %>
   <table class="table w-full">
     <thead>
-    <tr>
-      <th><%= Favorite.human_attribute_name(:name) %></th>
-      <th><%= Favorite.human_attribute_name(:existence) %></th>
-      <th><%= Favorite.human_attribute_name(:decade) %></th>
-      <th><%= Favorite.human_attribute_name(:gender) %></th>
-      <th><%= Group.human_attribute_name(:name) %></th>
-      <th><%= Content.human_attribute_name(:title) %></th>
-      <th>削除</th>
-    </tr>
+      <tr>
+        <th><%= Favorite.human_attribute_name(:name) %></th>
+        <th><%= Favorite.human_attribute_name(:existence) %></th>
+        <th><%= Favorite.human_attribute_name(:decade) %></th>
+        <th><%= Favorite.human_attribute_name(:gender) %></th>
+        <th><%= Group.human_attribute_name(:name) %></th>
+        <th><%= Content.human_attribute_name(:title) %></th>
+        <th>削除</th>
+      </tr>
     </thead>
     <tbody>
       <% fans.each do |fan| %>
