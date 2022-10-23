@@ -26,9 +26,14 @@
       </div> 
       <div class="flex">
         <% if logged_in? && current_user.own?(@request) %>
-          <%= link_to t('.edit'), edit_request_path, class: "px-3" %>
-          <%= button_to t('.destroy'), request_path(@request), method: :delete, class: "px-3" %>
+          <%= link_to edit_request_path, class: "px-3" do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+          <%= button_to request_path(@request), method: :delete, class: "px-3" do %>
+            <i class="fa-regular fa-trash-can"></i>
+          <% end %>
         <% end %>
+        <a href="https://twitter.com/intent/tweet?text=<%= @request.user.name %>さんが推しを募集しています！%0a【求】<%= @request.title %>%0a<%= request_url(@request) %> &hashtags=推し求む,推し不在さんおいで" target="_blank"><i class="fa-brands fa-twitter text-sky-500 mx-1"></i><span class="text-sm text-sky-500">Twitterでシェア</span></a>
       </div>
     </div>
     <% if logged_in? %>
