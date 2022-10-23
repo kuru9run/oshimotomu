@@ -18,7 +18,7 @@ crumb :request_new do
 end
 
 crumb :request_show do |request|
-  link request.title, request_path(request)
+  link "#{request.title}", request_path(request)
   parent :requests
 end
 
@@ -33,7 +33,7 @@ crumb :promotion_new do
 end
 
 crumb :promotion_show do |promotion|
-  link "#{promotion.name}さん", promotion_path(promotion)
+  link "#{promotion.name}さんの布教", promotion_path(promotion)
   parent :promotions
 end
 
@@ -43,7 +43,7 @@ crumb :favorites do
 end
 
 crumb :favorite_show do |favorite|
-  link "#{favorite.name}さん", favorite_path(favorite)
+  link "#{favorite.name}さんファンの推し変遷", favorite_path(favorite)
   parent :favorites
 end
 

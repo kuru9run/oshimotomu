@@ -1,9 +1,10 @@
 <% breadcrumb :favorite_show, @favorite %>
+<h1 class="text-center text-2xl font-bold text-gray-600 mb-6"><%= @favorite.name %>さんファンの推し変遷</h1>
 <div class="p-4">
-  <p class="text-xl text-center font-bold">以前<%= @favorite.name %>さん推し → 現在の推しは？</p>
-  <%= pie_chart @chart_now %>
+  <p class="text-xl text-center font-bold"><%= @favorite.name %>さんファンの<span class="text-secondary">以前の推し</span></p>
+  <%= pie_chart @chart_before %>
 </div>
 <div class="p-4">
-  <p class="text-xl text-center font-bold">現在<%= @favorite.name %>さん推し ← 以前の推しは？</p>
-  <%= pie_chart @chart_before %>
+  <p class="text-xl text-center font-bold">元<%= @favorite.name %>さんファンの<span class="text-primary">現在の推し</span></p>
+  <%= pie_chart @chart_now %>
 </div>

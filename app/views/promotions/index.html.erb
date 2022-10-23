@@ -1,29 +1,20 @@
 <% breadcrumb :promotions %>
 <div class="container mx-auto px-4 my-3">
-  <div class="form-control">
+  <h1 class="text-center text-2xl font-bold text-gray-600 mb-6"><%= t('.title') %></h1>
+  <div class="flex flex-row">
     <%= search_form_for @q do |f| %>
-      <div class="input-group py-2">
-        <span class="bg-neutral"><%= f.label 'キーワード' %></span>
-        <%= f.search_field :name_or_description_cont, class: "input input-bordered w-3/4 max-w-xs", placeholder: "空欄でも検索できます" %>
-      </div>
-      <div class="input-group py-2">
-        <span class="bg-neutral"><%= f.label :existence %></span>
-        <%= f.select :existence_eq, Promotion.existences_i18n.invert.map {|k, v| [k, Promotion.existences[v]]}, {include_blank: '指定しない'}, {class: "select select-bordered w-3/4 max-w-xs"} %>
-      </div>
-      <div class="input-group py-2">
-        <span class="bg-neutral"><%= f.label :decade %></span>
-        <%= f.select :decade_eq, Promotion.decades_i18n.invert.map {|k, v| [k, Promotion.decades[v]]}, {include_blank: '指定しない'}, {class: "select select-bordered w-3/4 max-w-xs"} %>
-      </div>
-      <div class="input-group py-2">
-        <span class="bg-neutral"><%= f.label :gender %></span>
-        <%= f.select :gender_eq, Promotion.genders_i18n.invert.map {|k, v| [k, Promotion.genders[v]]}, {include_blank: '指定しない'}, {class: "select select-bordered w-3/4 max-w-xs"} %>
-      </div>
-      <%= f.submit class: "btn py-2" %>
+      <%= f.search_field :name_or_description_cont, class: "input input-bordered w-48 m-2", placeholder: "キーワード" %>
+      <%= f.select :existence_eq, Promotion.existences_i18n.invert.map {|k, v| [k, Promotion.existences[v]]}, {include_blank: '実在／キャラクター'}, {class: "select select-bordered w-48 m-2"} %>
+      <%= f.select :decade_eq, Promotion.decades_i18n.invert.map {|k, v| [k, Promotion.decades[v]]}, {include_blank: '年齢'}, {class: "select select-bordered w-48 m-2"} %>
+      <%= f.select :gender_eq, Promotion.genders_i18n.invert.map {|k, v| [k, Promotion.genders[v]]}, {include_blank: '性別'}, {class: "select select-bordered w-48 m-2"} %>
+      <%= f.submit class: "btn my-2" %>
     <% end %>
   </div>
   <%= link_to '布教を作成', new_promotion_path, class: 'btn mt-5' %>
   <% if @promotions.count > 0 %>
-    <%= render @promotions %>
+    <div class="flex flex-wrap">
+      <%= render @promotions %>
+    </div>
   <% else %>
     <div class="alert my-5">
       <div>
@@ -33,6 +24,4 @@
     </div>
   <% end %>
   <%= paginate @promotions %>
-  <p>好みに合う布教はありませんでしたか？</p>
-  <%= link_to '推し募集を作成', new_request_path, class: "btn" %>
 </div>

@@ -1,6 +1,5 @@
 <tr>
-  <th></th>
+  <td><%= link_to promotion.name, promotion_path(promotion), class: "text-lg underline" %></td>
   <td><%= l(promotion.created_at, format: :long) %></td>
-  <td><%= promotion.name %></td>
   <td><%= promotion.comments.count %></td>
 </tr>

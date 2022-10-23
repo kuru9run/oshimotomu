@@ -84,10 +84,10 @@ ja:
         gender: '性別'
         created_at: '作成日時'
       answer:
-        body: '回答内容'
+        body: '募集への回答'
       promotion:
         name: '氏名'
-        description: '布教内容'
+        description: '推しポイント詳細'
         existence: '区分'
         decade: '年齢'
         gender: '性別'
@@ -95,4 +95,4 @@ ja:
         content_id: '作品タイトル'
         created_at: '作成日時'
       comment:
-        body: 'コメント内容'
+        body: '布教へのコメント'

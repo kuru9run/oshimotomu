@@ -1,10 +1,10 @@
-<div class="card w-80 bg-neutral text-primary-content m-3">
-  <div class="card-body">
-    <h2><%= link_to favorite.name, favorite_path(favorite), class: "card-title" %></h2>
-    <p><%= favorite.existence_i18n %></p>
-    <p><%= favorite.decade_i18n %></p>
-    <p><%= favorite.gender_i18n %></p>
-    <p><%= favorite.group&.name %></p>
-    <p><%= favorite.content&.title %></p>
+<div class="card w-96 border text-primary-content m-3">
+  <div class="card-body">      
+    <h2><%= link_to "#{favorite.name}さんファンの推し変遷", favorite_path(favorite), class: "card-title underline" %></h2>
+    <p class="text-sky-500"><%= "##{favorite.existence_i18n}" unless favorite.group.nil? %></p>
+    <p class="text-sky-500"><%= "##{favorite.group.name}所属" unless favorite.group.nil? %></p>
+    <p class="text-sky-500"><%= "#「#{favorite.content.title}」のキャラクター" unless favorite.content.nil? %></p>
+    <p class="text-sky-500"><%= "##{favorite.decade_i18n}" unless favorite.decade.nil? %></p>
+    <p class="text-sky-500"><%= "##{favorite.gender_i18n}" unless favorite.gender.nil? %></p>
   </div>
 </div>

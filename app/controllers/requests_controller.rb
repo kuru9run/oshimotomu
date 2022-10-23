@@ -9,7 +9,11 @@ class RequestsController < ApplicationController
   def show
     @request = Request.find(params[:id])
     fans_before = @request.user.fans.where(state: :before)
-    @favorites_before = fans_before.map { |fan| fan.favorite }
+    @favorites_before_string = ""
+    fans_before.each_with_index do |fan, i|
+      @favorites_before_string += fan.favorite.name
+      @favorites_before_string += "、" if (i + 1) < fans_before.size
+    end
     @answers = @request.answers
     @answer = Answer.new 
   end
@@ -22,7 +26,7 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
     @request.user = current_user
     if @request.save
-      redirect_to requests_path, notice: t('.success')
+      redirect_to request_path(@request), notice: t('.success')
     else
       flash.now[:alert] = t('.fail')
       render :new, status: :unprocessable_entity

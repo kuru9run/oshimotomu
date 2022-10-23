@@ -79,3 +79,6 @@ ja:
     show:
       edit: '編集'
       destroy: '削除'
+  favorites:
+    index:
+      title: 'みんなの推し変遷'
