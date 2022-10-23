@@ -24,13 +24,17 @@
   <% end %>
   <%= paginate @favorites %>
   <% if logged_in? %>
-    <p>あなたの現在の推し</p>
-    <div class="flex flex-wrap">
-      <%= render @my_favorite_now %>
-    </div>
-    <p>あなたの以前の推し</p>
-    <div class="flex flex-wrap">
-      <%= render @my_favorite_before %>
-    </div>
+    <% if @my_favorite_now.any? %>
+      <p class="text-lg">あなたの現在の推し</p>
+      <div class="flex flex-wrap">
+        <%= render @my_favorite_now %>
+      </div>
+    <% end %>
+    <% if @my_favorite_before.any? %>
+      <p class="text-lg">あなたの以前の推し</p>
+      <div class="flex flex-wrap">
+        <%= render @my_favorite_before %>
+      </div>
+    <% end %>
   <% end %>
 </div>

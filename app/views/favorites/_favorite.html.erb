@@ -1,6 +1,6 @@
 <div class="card w-96 border text-primary-content m-3">
   <div class="card-body">      
-    <h2><%= link_to "#{favorite.name}さんファンの推し変遷", favorite_path(favorite), class: "card-title" %></h2>
+    <h2><%= link_to "#{favorite.name}さんファンの推し変遷", favorite_path(favorite), class: "card-title underline" %></h2>
     <p class="text-sky-500"><%= "##{favorite.existence_i18n}" unless favorite.group.nil? %></p>
     <p class="text-sky-500"><%= "##{favorite.group.name}所属" unless favorite.group.nil? %></p>
     <p class="text-sky-500"><%= "#「#{favorite.content.title}」のキャラクター" unless favorite.content.nil? %></p>

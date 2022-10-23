@@ -2,7 +2,7 @@
   <div class="card-body">      
     <span><%= render partial: 'shared/avatar', locals: { user: promotion.user } %><%= promotion.user.name %></span>
     <p class="self-end"><%= l(promotion.created_at, format: :long) %></p>
-    <h2><%= link_to "#{promotion.name}さんの布教", promotion_path(promotion), class: "card-title" %></h2>
+    <h2><%= link_to "#{promotion.name}さんの布教", promotion_path(promotion), class: "card-title underline" %></h2>
     <p class="text-sky-500"><%= "##{promotion.group.name}所属" unless promotion.group.nil? %></p>
     <p class="text-sky-500"><%= "#「#{promotion.content.title}」のキャラクター" unless promotion.content.nil? %></p>
     <p class="text-sky-500"><%= "##{promotion.decade_i18n}" unless promotion.decade.nil? %></p>
