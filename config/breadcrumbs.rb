@@ -18,7 +18,7 @@ crumb :request_new do
 end
 
 crumb :request_show do |request|
-  link "【求】#{request.title}", request_path(request)
+  link "#{request.title}", request_path(request)
   parent :requests
 end
 

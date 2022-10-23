@@ -2,7 +2,7 @@
 <div class="flex items-center justify-center p-12">
   <div class="mx-auto w-full max-w-[550px]">
     <div class="border-2 px-8 pt-8 pb-3 rounded-lg">
-      <p class="text-xl text-center font-bold text-neutral">【求】<%= @request.title %></p>
+      <p class="text-xl text-center font-bold text-neutral"><%= @request.title %></p>
       <div class="my-3">
         <span><%= render partial: 'shared/avatar', locals: { user: @request.user } %></span><%= @request.user.name %>
       </div>
@@ -13,9 +13,9 @@
       <div class="grid card rounded-box">
         <p class="mx-auto my-4 text-lg text-neutral">募集条件</p>
         <div class="mx-auto mb-3">
-          <p><%= "・#{@request.existence_i18n}" %></p>
-          <p><%= "・#{@request.decade_i18n}" %></p>
-          <p><%= "・#{@request.gender_i18n}" %></p>
+          <p>区分：<%= @request.existence ? "#{@request.existence_i18n}" : "指定なし" %></p>
+          <p>年齢：<%= @request.decade ? "#{@request.decade_i18n}" : "指定なし" %></p>
+          <p>性別：<%= @request.gender ? "#{@request.gender_i18n}" : "指定なし" %></p>
         </div>
         <% unless @request.description.blank? %>
           <p class="mx-auto py-4 text-lg text-neutral">募集内容詳細</p>
