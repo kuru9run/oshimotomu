@@ -26,8 +26,8 @@
         <% if logged_in? && current_user.own?(@promotion) %>
           <%= link_to t('.edit'), edit_promotion_path, class: "px-3" %>
           <%= button_to t('.destroy'), promotion_path(@promotion), method: :delete, class: "px-3" %>
-        <a href="https://twitter.com/intent/tweet?text=<%= @promotion.user.name %>さんが<%= @promotion.name %>さんを布教しています！%0a<%= promotion_url(@promotion) %> &hashtags=推し求む,推し不在さんおいで" target="_blank"><i class="fa-brands fa-twitter text-sky-500"></i></a>
         <% end %>
+        <a href="https://twitter.com/intent/tweet?text=<%= @promotion.user.name %>さんが<%= @promotion.name %>さんを布教しています！%0a<%= promotion_url(@promotion) %> &hashtags=推し求む,推し不在さんおいで" target="_blank"><i class="fa-brands fa-twitter text-sky-500 mx-1"></i><span class="text-sm text-sky-500">Twitterでシェア</span></a>
       </div>
     </div>
     <% if logged_in? %>
