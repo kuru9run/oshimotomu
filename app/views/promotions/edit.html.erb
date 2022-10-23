@@ -1,5 +1,5 @@
-<div class="container mx-auto px-4 my-3">
-  <div class="form-control max-w-lg" data-controller="select">
+<div class="flex items-center justify-center p-12">
+  <div class="form-control w-full max-w-[550px]" data-controller="select">
     <%= form_with model: @promotion do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :name, class: "label" %>
