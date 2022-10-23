@@ -5,9 +5,11 @@
     <p class="text-right text-sm"><%= l(comment.created_at, format: :long) %></p>
   </div>
   <div class="m-5">
-    <%= comment.body %>
+    <%= simple_format comment.body %>
   </div>
 </div>
 <% if logged_in? && current_user.own?(comment) %>
-  <%= button_to t('defaults.delete'), comment_path(comment), method: :delete %>
+  <%= button_to comment_path(comment), method: :delete do %>
+    <i class="fa-regular fa-trash-can"></i>
+  <% end %>
 <% end %>

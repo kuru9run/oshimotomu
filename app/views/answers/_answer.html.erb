@@ -5,9 +5,11 @@
     <p class="text-right text-sm"><%= l(answer.created_at, format: :long) %></p>
   </div>
   <div class="m-5">
-    <%= answer.body %>
+    <%= simple_format answer.body %>
   </div>
 </div>
 <% if logged_in? && current_user.own?(answer) %>
-  <%= button_to t('defaults.delete'), answer_path(answer), method: :delete %>
+  <%= button_to answer_path(answer), method: :delete do %>
+    <i class="fa-regular fa-trash-can"></i>
+  <% end %>
 <% end %>

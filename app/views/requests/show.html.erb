@@ -1,5 +1,5 @@
 <% breadcrumb :request_show, @request %>
-<div class="flex items-center justify-center py-12">
+<div class="flex items-center justify-center py-12 px-4">
   <div class="mx-auto w-full max-w-[550px]">
     <div class="border-2 px-8 pt-8 pb-3 rounded-lg">
       <p class="text-xl text-center font-bold text-neutral"><%= @request.title %></p>
@@ -20,7 +20,7 @@
         <% unless @request.description.blank? %>
           <p class="mx-auto py-4 text-lg text-neutral">募集内容詳細</p>
           <div class="mx-auto mb-3">
-            <p><%= @request.description %></p>
+            <%= simple_format @request.description %>
           </div>
         <% end %>
       </div> 
