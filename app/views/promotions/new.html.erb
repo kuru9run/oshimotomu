@@ -1,6 +1,6 @@
 <% breadcrumb :promotion_new %>
 <div class="flex items-center justify-center p-12 px-4">
-  <div class="form-control w-full max-w-[550px]" data-controller="select">
+  <div class="form-control w-full max-w-2xl" data-controller="select">
     <%= form_with model: @promotion do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :name, Promotion.human_attribute_name(:name), class: "label" %>

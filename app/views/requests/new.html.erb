@@ -1,6 +1,6 @@
 <% breadcrumb :request_new %>
 <div class="flex items-center justify-center p-12 px-4">
-  <div class="form-control w-full max-w-[550px]">
+  <div class="form-control w-full max-w-2xl">
     <%= form_with model: @request, local: true do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :title, Request.human_attribute_name(:title), class: "label" %>
