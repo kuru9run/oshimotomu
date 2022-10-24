@@ -13,7 +13,7 @@ class PromotionsController < ApplicationController
     Promotion.transaction do
       @promotion.save!
       unless params[:promotion][:embed_url].blank?
-        embed = @promotion.embeds.build(identifier: params[:promotion][:embed_url], )
+        embed = @promotion.embeds.build(identifier: params[:promotion][:embed_url])
         embed.save!
       end
     end
@@ -32,13 +32,11 @@ class PromotionsController < ApplicationController
     @promotion = Promotion.find(params[:id])
     Promotion.transaction do
       @promotion.update!(promotion_params)
-      embed_url = params[:promotion][:embed_url]
-      embed = @promotion.embeds&.first
-      if embed_url.blank?
-        embed&.destroy!
-      elsif embed&.identifier != embed_url
-        embed_new = @promotion.embeds.build(identifier: embed_url)
-        embed_new.save!
+      #とりあえず埋め込み動画あったら全削除してから保存する
+      @promotion.embeds&.destroy_all
+      unless params[:promotion][:embed_url].blank?
+        embed = @promotion.embeds.build(identifier: params[:promotion][:embed_url])
+        embed.save!
       end
     end
     redirect_to promotion_path(@promotion), notice: t('.success')

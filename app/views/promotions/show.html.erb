@@ -22,8 +22,8 @@
           </div> 
         <% end %>
         <% if @promotion.embeds.any? %>
+          <p class="mx-auto py-4 text-lg text-neutral">おすすめ動画</p>
           <% @promotion.embeds.each do |embed| %>
-            <p class="mx-auto py-4 text-lg text-neutral">おすすめ動画</p>
             <div class="w-full mx-auto mb-3">
               <iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/<%= embed.youtube_id %>" frameborder="0" class="w-full aspect-video"></iframe>
             </div>
