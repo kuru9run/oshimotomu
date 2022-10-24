@@ -20,4 +20,8 @@ class Embed < ApplicationRecord
     validates :embeddable_id, presence: true
     validates :embeddable_type, presence: true
   end
+
+  def youtube_id
+    identifier.split('/').last
+  end
 end
