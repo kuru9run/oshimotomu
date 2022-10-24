@@ -32,6 +32,7 @@ class Promotion < ApplicationRecord
   belongs_to :group, optional: true
   has_many :comments, dependent: :destroy
   has_many :promotion_bookmarks, dependent: :destroy
+  has_many :embeds, as: :embeddable
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :description, length: { maximum: 65_535 }
