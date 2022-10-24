@@ -23,8 +23,9 @@
         <% end %>
         <% if @promotion.embeds.any? %>
           <% @promotion.embeds.each do |embed| %>
-            <div class="mx-auto mb-3">
-              <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/<%= embed.youtube_id %>" frameborder="0"></iframe>
+            <p class="mx-auto py-4 text-lg text-neutral">おすすめ動画</p>
+            <div class="w-full mx-auto mb-3">
+              <iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/<%= embed.youtube_id %>" frameborder="0" class="w-full aspect-video"></iframe>
             </div>
           <% end %>
         <% end %>
