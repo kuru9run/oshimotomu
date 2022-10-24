@@ -22,6 +22,6 @@ class Embed < ApplicationRecord
   end
 
   def youtube_id
-    identifier.split('/').last
+    identifier.split('/').last.gsub('watch?v=', '')
   end
 end
