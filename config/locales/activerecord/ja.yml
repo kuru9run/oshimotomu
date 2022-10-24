@@ -86,7 +86,7 @@ ja:
       answer:
         body: '募集への回答'
       promotion:
-        name: '氏名'
+        name: '推し氏名'
         description: '推しポイント詳細'
         existence: '実在／キャラクター'
         decade: '年齢'

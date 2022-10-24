@@ -22,6 +22,7 @@
 class Answer < ApplicationRecord
   belongs_to :user
   belongs_to :request
+  has_many :embeds, as: :embeddable, dependent: :destroy
 
   validates :body, presence: true, length: { maximum: 65_535 }
 end

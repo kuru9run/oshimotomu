@@ -10,12 +10,17 @@ class PromotionsController < ApplicationController
     @content = Content.find_by(id: promotion_params[:content_id])
     @promotion = Promotion.new(promotion_params)
     @promotion.user = current_user
-    if @promotion.save
-      redirect_to promotion_path(@promotion), notice: t('.success')
-    else
-      flash.now[:alert] = t('.fail')
-      render :new, status: :unprocessable_entity
+    Promotion.transaction do
+      @promotion.save!
+      unless params[:promotion][:embed_url].blank?
+        embed = @promotion.embeds.build(identifier: params[:promotion][:embed_url])
+        embed.save!
+      end
     end
+    redirect_to promotion_path(@promotion), notice: t('.success')
+    rescue => e
+    flash.now[:alert] = t('.fail')
+    render :new, status: :unprocessable_entity
   end
 
   def edit
@@ -25,11 +30,19 @@ class PromotionsController < ApplicationController
 
   def update
     @promotion = Promotion.find(params[:id])
-    if @promotion.update(promotion_params)
-      redirect_to promotion_path(@promotion), notice: t('.success')
-    else
-      render :edit, status: :unprocessable_entity
+    Promotion.transaction do
+      @promotion.update!(promotion_params)
+      #とりあえず埋め込み動画あったら全削除してから保存する
+      @promotion.embeds&.destroy_all
+      unless params[:promotion][:embed_url].blank?
+        embed = @promotion.embeds.build(identifier: params[:promotion][:embed_url])
+        embed.save!
+      end
     end
+    redirect_to promotion_path(@promotion), notice: t('.success')
+    rescue => e
+    flash.now[:alert] = t('.fail')
+    render :edit, status: :unprocessable_entity
   end
 
   def destroy

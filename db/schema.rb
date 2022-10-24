@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_18_020104) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_23_234720) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +39,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_020104) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_contents_on_title", unique: true
+  end
+
+  create_table "embeds", force: :cascade do |t|
+    t.string "identifier"
+    t.string "embeddable_type"
+    t.bigint "embeddable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["embeddable_type", "embeddable_id"], name: "index_embeds_on_embeddable"
   end
 
   create_table "fans", force: :cascade do |t|
