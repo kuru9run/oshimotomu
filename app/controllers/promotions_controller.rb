@@ -30,11 +30,21 @@ class PromotionsController < ApplicationController
 
   def update
     @promotion = Promotion.find(params[:id])
-    if @promotion.update(promotion_params)
-      redirect_to promotion_path(@promotion), notice: t('.success')
-    else
-      render :edit, status: :unprocessable_entity
+    Promotion.transaction do
+      @promotion.update!(promotion_params)
+      embed_url = params[:promotion][:embed_url]
+      embed = @promotion.embeds&.first
+      if embed_url.blank?
+        embed&.destroy!
+      elsif embed&.identifier != embed_url
+        embed_new = @promotion.embeds.build(identifier: embed_url)
+        embed_new.save!
+      end
     end
+    redirect_to promotion_path(@promotion), notice: t('.success')
+    rescue => e
+    flash.now[:alert] = t('.fail')
+    render :edit, status: :unprocessable_entity
   end
 
   def destroy
