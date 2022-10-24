@@ -11,18 +11,18 @@
       <% end %>
       <p class="text-sm text-right"><%= l(@request.created_at, format: :long) %></p>
       <div class="grid card rounded-box">
-        <p class="mx-auto my-4 text-lg text-neutral">募集条件</p>
-        <div class="mx-auto mb-3">
-          <p>区分：<%= @request.existence ? "#{@request.existence_i18n}" : "指定なし" %></p>
-          <p>年齢：<%= @request.decade ? "#{@request.decade_i18n}" : "指定なし" %></p>
-          <p>性別：<%= @request.gender ? "#{@request.gender_i18n}" : "指定なし" %></p>
-        </div>
         <% unless @request.description.blank? %>
           <p class="mx-auto py-4 text-lg text-neutral">募集内容詳細</p>
           <div class="mx-auto mb-3">
             <%= simple_format @request.description %>
           </div>
         <% end %>
+        <p class="mx-auto my-4 text-lg text-neutral">募集条件</p>
+        <div class="mx-auto mb-3">
+          <p>区分：<%= @request.existence ? "#{@request.existence_i18n}" : "指定なし" %></p>
+          <p>年齢：<%= @request.decade ? "#{@request.decade_i18n}" : "指定なし" %></p>
+          <p>性別：<%= @request.gender ? "#{@request.gender_i18n}" : "指定なし" %></p>
+        </div>
       </div> 
       <div class="flex">
         <% if logged_in? && current_user.own?(@request) %>
