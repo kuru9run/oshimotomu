@@ -3,5 +3,5 @@
 <% end %>
 
 <%= turbo_stream.append_all '.select-box-groups' do %>
-  <option value=<%= @group.id %>><%= @group.name %></option>
+  <option selected="selected" value=<%= @group.id %>><%= @group.name %></option>
 <% end %>
