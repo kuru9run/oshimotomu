@@ -3,5 +3,5 @@
 <% end %>
 
 <%= turbo_stream.append_all '.select-box-contents' do %>
-  <option value=<%= @content.id %>><%= @content.title %></option>
+  <option selected="selected" value=<%= @content.id %>><%= @content.title %></option>
 <% end %>
