@@ -1,13 +1,40 @@
-# 求：推し
+![logo_big](https://user-images.githubusercontent.com/81852866/201279472-76e2ffc2-0fb6-4eaf-be56-734d08f39d42.png)
+
+## ■ サービスURL
+https://oshimotomu.fly.dev/
+
 ## ■ サービス概要
 推しがいない人には新たな推しとの出会いを提供し、
 既に推しがいる人には布教の場を提供するサービスです。
 
-## 画面遷移図
+## ■ 画面遷移図
 https://www.figma.com/file/yx6Ks5LfpCuKDECLkD1qof/oshimotomu?node-id=0%3A1
 
-## ER図
+## ■ ER図
 ![ER図](https://user-images.githubusercontent.com/81852866/197425759-030555ce-72fb-4203-bc9f-38b5d7e116df.png)
+
+## ■ 使用技術
+### フロントエンド
+- HTML/CSS
+- CSSフレームワーク
+  - tailwind CSS
+  - daisyUI
+- Hotwire(Rails)
+  - Turbo Drive
+  - Turbo Frames
+  - Turbo Streams
+  - Stimulus
+### バックエンド
+- Ruby3.1.2
+- Rails7.0.4
+  > 主要なgem
+    - sorcery(認証)
+    - ransack(検索)
+    - kaminari(ページネーション)
+    - chartkick(円グラフ)
+### インフラ
+- fly.io
+- postgreSQL
 
 ## ■メインのターゲットユーザー
 20〜30代前半の女性<br>
@@ -56,11 +83,3 @@ https://www.figma.com/file/yx6Ks5LfpCuKDECLkD1qof/oshimotomu?node-id=0%3A1
 きっかけは、友人の推していたアイドルが活動休止してしばらく経った後、友人から「誰かにハマりたいんだけどいい人いない？」と聞かれたことことでした。私の母も同じアイドルを推しておりましたが、最近では特定の推しというのはいないようで、以前のように熱心にライブ映像を見るようなことはありません。<br>
 恐らく私の身近な範囲だけではなく、推しに向けていた情熱のやり場を失ったことのある人は他にも大勢いるだろうと予想しました。<br>
 そのような方が新たな推しに出会い、より毎日を楽しく過ごすための助けとなるようなサービスになれば嬉しいと思い、このサービスを企画しました。
-<br>
-
-## ■スケジュール
-企画〜技術調査：9/20〆切<br>
-README〜ER図作成：9/20〆切<br>
-メイン機能実装：9/21 - 10/18<br>
-β版をRUNTEQ内リリース（MVP）：10/19〆切<br>
-本番リリース：11/2
