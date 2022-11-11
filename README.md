@@ -29,9 +29,9 @@ https://www.figma.com/file/yx6Ks5LfpCuKDECLkD1qof/oshimotomu?node-id=0%3A1
 - Rails7.0.4
   <details>
     <summary>主要なgem</summary>
-      ・sorcery(認証)
-      ・ransack(検索)
-      ・kaminari(ページネーション)
+      ・sorcery(認証)<br>
+      ・ransack(検索)<br>
+      ・kaminari(ページネーション)<br>
       ・chartkick(円グラフ)
    </details>
 ### インフラ
