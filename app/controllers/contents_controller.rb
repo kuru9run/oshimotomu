@@ -5,9 +5,6 @@ class ContentsController < ApplicationController
     @request = request.headers[:HTTP_TURBO_FRAME]
   end
 
-  def destroy
-  end
-
   private
 
   def content_params

@@ -1,9 +1,9 @@
 class PromotionsController < ApplicationController
   skip_before_action :require_login, only: %i[show index]
+  before_action :set_promotion, only: %i[edit update destroy]
 
   def new
     @promotion = Promotion.new
-    @content = Content.new
   end
 
   def create
@@ -23,13 +23,9 @@ class PromotionsController < ApplicationController
     render :new, status: :unprocessable_entity
   end
 
-  def edit
-    @promotion = Promotion.find(params[:id])
-    @content = Content.new
-  end
+  def edit; end
 
   def update
-    @promotion = Promotion.find(params[:id])
     Promotion.transaction do
       @promotion.update!(promotion_params)
       #とりあえず埋め込み動画あったら全削除してから保存する
@@ -46,7 +42,6 @@ class PromotionsController < ApplicationController
   end
 
   def destroy
-    @promotion = Promotion.find(params[:id])
     @promotion.destroy!
     redirect_to promotions_path
   end
@@ -66,5 +61,9 @@ class PromotionsController < ApplicationController
 
   def promotion_params
     params.require(:promotion).permit(:name, :description, :existence, :decade, :gender, :content_id, :group_id)
+  end
+
+  def set_promotion
+    @promotion = current_user.promotions.find(params[:id])
   end
 end

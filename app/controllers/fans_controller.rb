@@ -24,9 +24,8 @@ class FansController < ApplicationController
   end
 
   def destroy
-    fan = Fan.find(params[:id])
+    fan = current_user.fan.find(params[:id])
     favorite = fan.favorite
-    debugger
     fan.destroy!
     favorite.fans.destroy_all unless favorite.fans.any?
     redirect_to new_fan_path
