@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
       @favorites_before_string += fan.favorite.name
       @favorites_before_string += "、" if (i + 1) < fans_before.size
     end
-    @answers = @request.answers
+    @answers = @request.answers.includes(:user)
     @answer = Answer.new 
   end
 
