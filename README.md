@@ -27,11 +27,13 @@ https://www.figma.com/file/yx6Ks5LfpCuKDECLkD1qof/oshimotomu?node-id=0%3A1
 ### バックエンド
 - Ruby3.1.2
 - Rails7.0.4
-  > 主要なgem
-    - sorcery(認証)
-    - ransack(検索)
-    - kaminari(ページネーション)
-    - chartkick(円グラフ)
+  <details>
+    <summary>主要なgem</summary>
+      - sorcery(認証)
+      - ransack(検索)
+      - kaminari(ページネーション)
+      - chartkick(円グラフ)
+   </details>
 ### インフラ
 - fly.io
 - postgreSQL
