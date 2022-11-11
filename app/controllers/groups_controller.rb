@@ -5,9 +5,6 @@ class GroupsController < ApplicationController
     @request = request.headers[:HTTP_TURBO_FRAME]
   end
 
-  def destroy
-  end
-
   private
 
   def group_params

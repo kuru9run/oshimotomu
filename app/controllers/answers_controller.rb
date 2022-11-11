@@ -9,7 +9,7 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    answer = Answer.find(params[:id])
+    answer = current_user.answers.find(params[:id])
     answer.destroy!
     redirect_to request_path(answer.request)
   end

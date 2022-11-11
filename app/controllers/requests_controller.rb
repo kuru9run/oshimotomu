@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
   skip_before_action :require_login, only: %i[show index]
-  
+  before_action :set_request, only: %i[edit update destroy]
+
   def index
     @q = Request.ransack(params[:q])
     @requests = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
@@ -33,12 +34,9 @@ class RequestsController < ApplicationController
     end
   end
 
-  def edit
-    @request = Request.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @request = Request.find(params[:id])
     if @request.update(request_params)
       redirect_to request_path(@request), notice: t('.success')
     else
@@ -47,8 +45,7 @@ class RequestsController < ApplicationController
   end
 
   def destroy
-    request = Request.find(params[:id])
-    request.destroy!
+    @request.destroy!
     redirect_to requests_path
   end
 
@@ -56,5 +53,9 @@ class RequestsController < ApplicationController
 
   def request_params
     params.require(:request).permit(:title, :description, :existence, :decade, :gender)
+  end
+
+  def set_request
+    @request = current_user.requests.find(params[:id])
   end
 end
