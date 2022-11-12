@@ -2,7 +2,6 @@ class ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
     @content.save
-    @request = request.headers[:HTTP_TURBO_FRAME]
   end
 
   private
