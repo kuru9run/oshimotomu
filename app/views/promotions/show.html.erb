@@ -18,7 +18,7 @@
         <% unless @promotion.description.blank? %>
           <p class="mx-auto py-4 text-lg text-neutral">推しポイント詳細</p>
           <div class="mx-auto mb-3">
-            <%= simple_format @promotion.description %>
+            <%= safe_join @promotion.description.split("\n"), tag(:br) %>
           </div> 
         <% end %>
         <% if @promotion.embeds.any? %>
