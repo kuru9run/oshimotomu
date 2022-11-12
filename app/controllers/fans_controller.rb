@@ -2,8 +2,8 @@ class FansController < ApplicationController
   def new
     @fan_now = Fan.new(state: :now)
     @fan_before = Fan.new(state: :before)
-    @fans_now = current_user.fans.now.includes(:favorite)
-    @fans_before = current_user.fans.before.includes(:favorite)
+    @fans_now = current_user.fans.now.includes(favorite: [:group,:content])
+    @fans_before = current_user.fans.before.includes(favorite: [:group,:content])
   end
 
   def create
