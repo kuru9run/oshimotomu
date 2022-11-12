@@ -1,6 +1,6 @@
 <div class="flex justify-center h-screen w-screen items-center">
   <div class="w-full md:w-1/2 flex flex-col items-center">
-    <h1 class="text-center text-2xl font-bold text-gray-600 mb-6"><%= t('.title') %></h1>
+    <h1 class="text-center text-2xl font-bold text-primary mb-6"><%= t('.title') %></h1>
     <div class="w-3/4 mb-6">
       <%= form_with model: @user, local: true do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
