@@ -48,7 +48,7 @@ class PromotionsController < ApplicationController
 
   def show
     @promotion = Promotion.find(params[:id])
-    @comments = @promotion.comments
+    @comments = @promotion.comments.includes(:user)
     @comment = Comment.new
   end
 
