@@ -47,7 +47,7 @@ class RequestsController < ApplicationController
 
   def destroy
     @request.destroy!
-    redirect_to requests_path
+    redirect_to requests_path, notice: t('.success')
   end
 
   private

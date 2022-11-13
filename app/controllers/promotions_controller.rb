@@ -43,7 +43,7 @@ class PromotionsController < ApplicationController
 
   def destroy
     @promotion.destroy!
-    redirect_to promotions_path
+    redirect_to promotions_path, notice: t('.success')
   end
 
   def show
