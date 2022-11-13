@@ -41,6 +41,7 @@ class RequestsController < ApplicationController
     if @request.update(request_params)
       redirect_to request_path(@request), notice: t('.success')
     else
+      flash.now[:alert] = t('.fail')
       render :edit, status: :unprocessable_entity
     end
   end
