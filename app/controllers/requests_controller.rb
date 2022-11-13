@@ -9,7 +9,7 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find(params[:id])
-    fans_before = @request.user.fans.where(state: :before)
+    fans_before = @request.user.fans.before
     # 元○○推し
     @favorites_before_string = ""
     fans_before.each_with_index do |fan, i|

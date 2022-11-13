@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     if @comment.save
       # createテンプレートをレンダリング
     else
-      render 'promotions#show'
+      render 'promotions/show', status: :unprocessable_entity
     end
   end
 
