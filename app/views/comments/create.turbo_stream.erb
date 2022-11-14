@@ -1,7 +1,9 @@
-<%= turbo_stream.append 'comments' do %>
-  <%= render @comment %>
-<% end %>
+<% if @comment.persisted? %>
+  <%= turbo_stream.append 'comments' do %>
+    <%= render @comment %>
+  <% end %>
 
-<%= turbo_stream.replace 'form' do %>
-  <%= render partial: 'form', locals: { promotion: @comment.promotion, comment: Comment.new } %>
+  <%= turbo_stream.replace 'form' do %>
+    <%= render partial: 'form', locals: { promotion: @comment.promotion, comment: Comment.new } %>
+  <% end %>
 <% end %>

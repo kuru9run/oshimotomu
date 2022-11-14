@@ -1,11 +1,8 @@
 class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
-    if @comment.save
-      # createテンプレートをレンダリング
-    else
-      render 'promotions/show', status: :unprocessable_entity
-    end
+    @comment.save
+    # createテンプレートをレンダリング
   end
 
   def destroy

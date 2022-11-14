@@ -1,11 +1,8 @@
 class AnswersController < ApplicationController
   def create
     @answer = current_user.answers.build(answer_params)
-    if @answer.save
-      # createテンプレートをレンダリング
-    else
-      render 'requests/show', status: :unprocessable_entity
-    end
+    @answer.save
+    # createテンプレートをレンダリング
   end
 
   def destroy
