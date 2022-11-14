@@ -1,7 +1,13 @@
 class ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
-    @content.save
+    if @content.save
+      flash.now[:success] = t('.success')
+    else
+      flash.now[:alert] = t('.fail')
+    end
+    @flash = flash
+    # createテンプレートをレンダリング
   end
 
   private

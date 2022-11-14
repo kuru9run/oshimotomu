@@ -90,3 +90,7 @@ ja:
   favorites:
     index:
       title: 'みんなの推し変遷'
+  contents:
+    create:
+      success: '作品タイトルを追加しました'
+      fail: '作品タイトルを追加できませんでした'
