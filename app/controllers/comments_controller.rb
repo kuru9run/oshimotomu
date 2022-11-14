@@ -1,7 +1,12 @@
 class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
-    @comment.save
+    if @comment.save
+      flash.now[:success] = t('.success')
+    else
+      flash.now[:alert] = t('.fail')
+    end
+    @flash = flash
     # createテンプレートをレンダリング
   end
 

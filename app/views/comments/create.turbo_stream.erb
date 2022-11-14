@@ -7,3 +7,7 @@
     <%= render partial: 'form', locals: { promotion: @comment.promotion, comment: Comment.new } %>
   <% end %>
 <% end %>
+
+<%= turbo_stream.replace 'flash' do %>
+  <%= render partial: 'shared/flash_message', locals: { flash: @flash } %>
+<% end %>
