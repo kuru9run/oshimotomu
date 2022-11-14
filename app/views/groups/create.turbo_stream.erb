@@ -2,6 +2,8 @@
   <%= render partial: 'modal', locals: { group: Group.new } %>
 <% end %>
 
-<%= turbo_stream.append_all '.select-box-groups' do %>
-  <option selected="selected" value=<%= @group.id %>><%= @group.name %></option>
+<% if @group.persisted? %>
+  <%= turbo_stream.append_all '.select-box-groups' do %>
+    <option selected="selected" value=<%= @group.id %>><%= @group.name %></option>
+  <% end %>
 <% end %>

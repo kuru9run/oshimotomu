@@ -2,6 +2,8 @@
   <%= render partial: 'modal', locals: { content: Content.new } %>
 <% end %>
 
-<%= turbo_stream.append_all '.select-box-contents' do %>
-  <option selected="selected" value=<%= @content.id %>><%= @content.title %></option>
+<% if @content.persisted? %>
+  <%= turbo_stream.append_all '.select-box-contents' do %>
+    <option selected="selected" value=<%= @content.id %>><%= @content.title %></option>
+  <% end %>
 <% end %>
