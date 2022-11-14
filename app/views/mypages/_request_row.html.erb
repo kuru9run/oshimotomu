@@ -2,5 +2,5 @@
   <!--<th>未</th>-->
   <td><%= link_to request.title, request_path(request), class: "text-lg underline" %></td>
   <td><%= l(request.created_at, format: :long) %></td>
-  <td>0</td>
+  <td><%= request.answers.count %></td>
 </tr>
