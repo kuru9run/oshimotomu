@@ -7,3 +7,7 @@
     <option selected="selected" value=<%= @group.id %>><%= @group.name %></option>
   <% end %>
 <% end %>
+
+<%= turbo_stream.replace 'flash' do %>
+  <%= render partial: 'shared/flash_message', locals: { flash: @flash } %>
+<% end %>

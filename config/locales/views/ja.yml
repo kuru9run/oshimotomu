@@ -94,3 +94,7 @@ ja:
     create:
       success: '作品タイトルを追加しました'
       fail: '作品タイトルを追加できませんでした'
+  groups:
+    create:
+      success: 'グループ名を追加しました'
+      fail: 'グループ名を追加できませんでした'

@@ -1,7 +1,13 @@
 class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
-    @group.save
+    if @group.save
+      flash.now[:success] = t('.success')
+    else
+      flash.now[:alert] = t('.fail')
+    end
+    @flash = flash
+    # createテンプレートをレンダリング
   end
 
   private
