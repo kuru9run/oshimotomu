@@ -1,9 +1,14 @@
 class AnswersController < ApplicationController
   def create
     @answer = current_user.answers.build(answer_params)
-    @answer.save
+    if @answer.save
+      flash.now[:success] = t('.success')
+    else
+      flash.now[:alert] = t('.fail')
+    end
+    @flash = flash
     # createテンプレートをレンダリング
-  end
+    end
 
   def destroy
     answer = current_user.answers.find(params[:id])

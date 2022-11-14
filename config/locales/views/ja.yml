@@ -61,6 +61,10 @@ ja:
     show:
       edit: '編集'
       destroy: '削除'
+  answers:
+    create:
+      success: '回答を投稿しました'
+      fail: '回答を投稿できませんでした'
   promotions:
     index:
       title: '布教 一覧'
@@ -79,6 +83,10 @@ ja:
     show:
       edit: '編集'
       destroy: '削除'
+  comments:
+    create:
+      success: 'コメントを投稿しました'
+      fail: 'コメントを投稿できませんでした'
   favorites:
     index:
       title: 'みんなの推し変遷'
