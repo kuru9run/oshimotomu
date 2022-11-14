@@ -7,7 +7,7 @@
       </div>
     </div>
   <% end %>
-  <h2 class="text-xl font-bold text-gray-600 mt-6">現在の推し(任意、複数登録可)</h2>
+  <h2 class="text-xl font-bold text-primary mt-6">現在の推し(任意、複数登録可)</h2>
   <% if @fans_now != nil %>
     <div class="overflow-x-auto">
       <%= turbo_frame_tag 'favorites_now' do %>
@@ -29,7 +29,7 @@
   <%= turbo_frame_tag 'now_form' do %>
     <%= render partial: 'form', locals: { favorite: @fan_now.favorite, fan: @fan_now, state: :now } %>
   <% end %>
-  <h2 class="text-xl font-bold text-gray-600 mt-6">以前の推し(任意、複数登録可)</h2>
+  <h2 class="text-xl font-bold text-secondary mt-6">以前の推し(任意、複数登録可)</h2>
   <% if @fans_before != nil %>
     <div class="overflow-x-auto">
       <%= turbo_frame_tag 'favorites_before' do %>

@@ -43,12 +43,12 @@ class PromotionsController < ApplicationController
 
   def destroy
     @promotion.destroy!
-    redirect_to promotions_path
+    redirect_to promotions_path, notice: t('.success')
   end
 
   def show
     @promotion = Promotion.find(params[:id])
-    @comments = @promotion.comments
+    @comments = @promotion.comments.includes(:user)
     @comment = Comment.new
   end
 

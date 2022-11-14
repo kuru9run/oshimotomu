@@ -9,7 +9,8 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find(params[:id])
-    fans_before = @request.user.fans.where(state: :before)
+    fans_before = @request.user.fans.before
+    # 元○○推し
     @favorites_before_string = ""
     fans_before.each_with_index do |fan, i|
       @favorites_before_string += fan.favorite.name
@@ -40,13 +41,14 @@ class RequestsController < ApplicationController
     if @request.update(request_params)
       redirect_to request_path(@request), notice: t('.success')
     else
+      flash.now[:alert] = t('.fail')
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @request.destroy!
-    redirect_to requests_path
+    redirect_to requests_path, notice: t('.success')
   end
 
   private

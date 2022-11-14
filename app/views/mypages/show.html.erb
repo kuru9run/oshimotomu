@@ -54,6 +54,7 @@
         <span>投稿した推し募集はまだありません</span>
       </div>
     </div>
+    <%= link_to '推し募集を作成', new_request_path, class: "btn" %>
   <% end %>
   <div class="divider"></div> 
   <p class="text-xl">回答した推し募集一覧</p>
@@ -81,6 +82,7 @@
         <span>回答した推し募集はまだありません</span>
       </div>
     </div>
+    <%= link_to '推し募集一覧へ', requests_path, class: "btn" %>
   <% end %>
   <div class="divider"></div> 
   <p class="text-xl">投稿した布教一覧</p>
@@ -107,6 +109,7 @@
         <span>投稿した布教はまだありません</span>
       </div>
     </div>
+    <%= link_to '布教を作成', new_promotion_path, class: "btn" %>
   <% end %>
   <div class="divider"></div> 
   <p class="text-xl">コメントした布教一覧</p>
@@ -133,8 +136,9 @@
         <span>コメントした布教はまだありません</span>
       </div>
     </div>
+    <%= link_to '布教一覧へ', promotions_path, class: "btn" %>
   <% end %>
-<!--
+<!--ブックマーク機能ができたら実装
   <div class="divider"></div>
   <p class="text-xl">ブックマークした推し募集一覧</p>
   <% if current_user.request_bookmarks.any? %>

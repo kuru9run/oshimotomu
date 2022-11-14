@@ -1,6 +1,6 @@
 <% breadcrumb :requests %>
 <div class="container mx-auto px-4 my-3">
-  <h1 class="text-center text-2xl font-bold text-gray-600 mb-6"><%= t('.title') %></h1>
+  <h1 class="text-center text-2xl font-bold text-primary mb-6"><%= t('.title') %></h1>
   <div class="flex flex-row">
     <%= search_form_for @q do |f| %>
       <%= f.search_field :title_or_description_cont, class: "input input-bordered w-48 m-2", placeholder: "キーワード" %>
