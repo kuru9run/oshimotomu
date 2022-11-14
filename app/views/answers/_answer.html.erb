@@ -9,7 +9,7 @@
   </div>
 </div>
 <% if logged_in? && current_user.own?(answer) %>
-  <%= button_to answer_path(answer), method: :delete do %>
+  <%= button_to answer_path(answer), method: :delete, data: { turbo_confirm: t('defaults.message.delete_confirm') } do %>
     <i class="fa-regular fa-trash-can"></i>
   <% end %>
 <% end %>

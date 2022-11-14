@@ -35,7 +35,7 @@
           <%= link_to edit_promotion_path, class: "px-3" do %>
             <i class="fa-solid fa-pen-to-square"></i>
           <% end %>
-          <%= button_to promotion_path(@promotion), method: :delete, class: "px-3" do %>
+          <%= button_to promotion_path(@promotion), method: :delete, data: { turbo_confirm: t('defaults.message.delete_confirm') }, class: "px-3" do %>
             <i class="fa-regular fa-trash-can"></i>
           <% end %>
         <% end %>

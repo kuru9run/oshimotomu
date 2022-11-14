@@ -20,6 +20,7 @@ ja:
     delete: '削除'
     message:
       require_login: 'ログインしてください'
+      delete_confirm: '削除してよろしいですか？'
   mypage:
     show:
       title: 'マイページ'
