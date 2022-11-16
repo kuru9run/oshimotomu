@@ -5,8 +5,8 @@ class FavoritesController < ApplicationController
     @q = Favorite.ransack(params[:q])
     @favorites = @q.result(distinct: true).includes(:content, :group).order(created_at: :desc).page(params[:page])
     if logged_in?
-      @my_favorite_now = current_user.fans.now.map { |fan| fan.favorite }
-      @my_favorite_before = current_user.fans.before.map { |fan| fan.favorite }
+      @my_favorite_now = current_user.fans.includes(favorite: %i[content group]).now.map(&:favorite)
+      @my_favorite_before = current_user.fans.includes(favorite: %i[content group]).before.map(&:favorite)
     end
   end
 

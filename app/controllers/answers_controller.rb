@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
     end
     @flash = flash
     # createテンプレートをレンダリング
-    end
+  end
 
   def destroy
     answer = current_user.answers.find(params[:id])
