@@ -14,7 +14,7 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.find(params[:id])
     # 現役ファンの過去の推し
     fans_now_favorites_before = []
-    @favorite.fans.includes(:user).now.each { |fan| fan.user.fans.before.each { |b| fans_now_favorites_before.push(b.favorite) } }
+    @favorite.fans.now.each { |fan| fan.user.fans.before.each { |b| fans_now_favorites_before.push(b.favorite) } }
     @chart_before = fans_now_favorites_before.group_by(&:itself).map{ |key, value| [key.name, value.count] }.to_h if fans_now_favorites_before.size > 0
     # 過去ファンの今の推し
     fans_before_favorites_now = []
