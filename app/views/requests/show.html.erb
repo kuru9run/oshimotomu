@@ -6,8 +6,8 @@
       <div class="my-3">
         <span><%= render partial: 'shared/avatar', locals: { user: @request.user } %></span><%= @request.user.name %>
       </div>
-      <% unless @favorites_before_string.blank? %>
-        <p class="text-right"><%= "元#{@favorites_before_string}推し" %></p>
+      <% unless @favorites_before_name.blank? %>
+        <p class="text-right"><%= "元#{@favorites_before_name}推し" %></p>
       <% end %>
       <p class="text-sm text-right"><%= l(@request.created_at, format: :long) %></p>
       <div class="grid card rounded-box">

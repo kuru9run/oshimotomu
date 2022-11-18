@@ -9,13 +9,9 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find(params[:id])
-    fans_before = @request.user.fans.before
     # 元○○推し
-    @favorites_before_string = ""
-    fans_before.each_with_index do |fan, i|
-      @favorites_before_string += fan.favorite.name
-      @favorites_before_string += "、" if (i + 1) < fans_before.size
-    end
+    favorites_before_name = @request.user.fans.includes(:favorite).before.map { |fan| fan.favorite.name }
+    @favorites_before_name = favorites_before_name.join('、')
     @answers = @request.answers.includes(:user)
     @answer = Answer.new 
   end
