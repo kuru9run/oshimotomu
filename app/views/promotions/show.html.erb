@@ -21,11 +21,17 @@
             <%= safe_join @promotion.description.split("\n"), tag(:br) %>
           </div> 
         <% end %>
-        <% if @promotion.embeds.any? %>
-          <p class="mx-auto py-4 text-lg text-neutral">おすすめ動画</p>
-          <% @promotion.embeds.each do |embed| %>
+        <% if @promotion.embeds.youtube.any? %>
+          <% @promotion.embeds.youtube.each do |embed| %>
             <div class="w-full mx-auto mb-3">
               <iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/<%= embed.youtube_id %>" frameborder="0" class="w-full aspect-video"></iframe>
+            </div>
+          <% end %>
+        <% elsif @promotion.embeds.twitter.any? %>
+          <% @promotion.embeds.twitter.each do |embed| %>
+            <div class="w-full mx-auto mb-3">
+              <blockquote class="twitter-tweet"><a href=<%= embed.identifier %>></a></blockquote>
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
           <% end %>
         <% end %>

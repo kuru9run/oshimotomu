@@ -23,7 +23,13 @@ class PromotionsController < ApplicationController
     render :new, status: :unprocessable_entity
   end
 
-  def edit; end
+  def edit
+    if @promotion.embeds.youtube.any?
+      @youtube = true
+    elsif @promotion.embeds.twitter.any?
+      @twitter = true
+    end
+  end
 
   def update
     Promotion.transaction do
