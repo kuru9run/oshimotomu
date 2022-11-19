@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_023028) do
     t.bigint "embeddable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "embeddable_media"
+    t.integer "embeddable_media", default: 0, null: false
     t.index ["embeddable_type", "embeddable_id"], name: "index_embeds_on_embeddable"
   end
 

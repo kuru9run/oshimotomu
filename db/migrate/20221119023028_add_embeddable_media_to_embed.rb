@@ -1,5 +1,5 @@
 class AddEmbeddableMediaToEmbed < ActiveRecord::Migration[7.0]
   def change
-    add_column :embeds, :embeddable_media, :integer
+    add_column :embeds, :embeddable_media, :integer, default: 0, null: false
   end
 end

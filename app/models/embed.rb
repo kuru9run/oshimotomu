@@ -3,7 +3,7 @@
 # Table name: embeds
 #
 #  id               :bigint           not null, primary key
-#  embeddable_media :integer
+#  embeddable_media :integer          default("youtube"), not null
 #  embeddable_type  :string
 #  identifier       :string
 #  created_at       :datetime         not null
