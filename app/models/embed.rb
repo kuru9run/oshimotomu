@@ -2,12 +2,13 @@
 #
 # Table name: embeds
 #
-#  id              :bigint           not null, primary key
-#  embeddable_type :string
-#  identifier      :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  embeddable_id   :bigint
+#  id               :bigint           not null, primary key
+#  embeddable_media :integer          default("youtube"), not null
+#  embeddable_type  :string
+#  identifier       :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  embeddable_id    :bigint
 #
 # Indexes
 #
@@ -15,6 +16,8 @@
 #
 class Embed < ApplicationRecord
   belongs_to :embeddable, polymorphic: true
+
+  enum embeddable_media: { youtube: 0, twitter: 1 }
 
   with_options on: %i[create update] do
     validates :embeddable_id, presence: true

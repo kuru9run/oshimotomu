@@ -14,10 +14,15 @@
       <%= render partial: 'groups/select', locals: { f: f } %>
       <%= f.label :description, class: "label" %>
       <%= f.text_area :description, placeholder: "例：2018年のライブが素晴らしいです。サブスクでも観られます！", class: "textarea textarea-bordered h-48 w-full" %>
-      <label>
-        <i class="fa-brands fa-youtube text-red-500"></i><span class="text-sm">おすすめ動画（任意）</span>
+      <%= f.radio_button :embed_media, 'youtube', checked: @youtube %>
+      <label class="mr-3">
+        <i class="fa-brands fa-youtube text-red-500"></i><span class="text-sm">YouTube動画</span>
       </label>
-      <%= f.text_field :embed_url, placeholder: 'YouTube動画URL（例：https://youtu.be/oshimotomu）', class: "input input-bordered w-full", value: @promotion.embeds&.first&.identifier %>
+      <%= f.radio_button :embed_media, 'twitter', checked: @twitter %>
+      <label>
+        <i class="fa-brands fa-twitter text-sky-500"></i><span class="text-sm">Twitter投稿</span>
+      </label>
+      <%= f.text_field :embed_url, placeholder: '埋め込みたい投稿のURLを記載してください', class: "input input-bordered w-full", value: @promotion.embeds&.first&.identifier %>
       <div class="py-4">
         <%= f.submit t('.save'), class: "btn" %>
       </div>
