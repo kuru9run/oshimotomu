@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head prefix="og: https://ogp.me/ns#">
+    <title>Oshimotomu</title>
+    <meta property="og:url" content=<%= request.url %> />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content=<%= yield(:og_title) %> />
+    <meta property="og:site_name" content=<%= t('defaults.application') %> />
+    <meta property="og:image" content="https://oshimotomu.fly.dev/assets/logo_big-b07b74c1bbf3918879a742a0f448cff02e7b31292f13148b63c7fa2d1b34e22b.png" />
+    <meta property="og:discription" content='推しを見つける。布教する。' />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- 「twitter:title」「twitter:description」「twitter:image」はogで設定しているためなくてもOK-->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KNEZZ6SX4B"></script>
     <script>
@@ -10,7 +19,6 @@
       gtag('config', 'G-KNEZZ6SX4B');
     </script>
     <!-- Google tag (gtag.js) -->
-    <title>Oshimotomu</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
