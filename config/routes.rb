@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
+  get 'images/ogp.png', to: 'shares#generate', as: 'ogp_generate'
   resources :fans, only: %i[new create destroy] do
     member do
       post 'input'

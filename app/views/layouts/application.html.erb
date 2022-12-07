@@ -4,9 +4,9 @@
     <title>Oshimotomu</title>
     <meta property="og:url" content=<%= request.url %> />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content=<%= yield(:og_title) %> />
+    <meta property="og:title" content=<%= content_for?(:og_title) ? yield(:og_title) : '' %> />
     <meta property="og:site_name" content=<%= t('defaults.application') %> />
-    <meta property="og:image" content="https://oshimotomu.fly.dev/assets/logo_big-b07b74c1bbf3918879a742a0f448cff02e7b31292f13148b63c7fa2d1b34e22b.png" />
+    <meta property="og:image" content=<%= content_for?(:image_url) ? yield(:image_url) : 'https://oshimotomu.fly.dev/assets/images/ogp_default.png' %> name="ogpImage" />
     <meta property="og:discription" content='推しを見つける。布教する。' />
     <meta name="twitter:card" content="summary_large_image" />
     <!-- 「twitter:title」「twitter:description」「twitter:image」はogで設定しているためなくてもOK-->
