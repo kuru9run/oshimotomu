@@ -47,7 +47,7 @@
             <i class="fa-regular fa-trash-can"></i>
           <% end %>
         <% end %>
-        <%= link_to "https://twitter.com/share?url=#{ request.url }&text=#{ @promotion.user.name }さんが#{ @promotion.name }さんを布教しています！&hashtags=推し求む,推し不在さんおいで", target: '_blank', class: "text-sm text-sky-500" do %>
+        <%= link_to "https://twitter.com/share?url=#{ request.url }&text=#{ URI.encode_www_form_component(@promotion.user.name) }さんが#{ URI.encode_www_form_component(@promotion.name) }さんを布教しています！&hashtags=推し求む,推し不在さんおいで", target: '_blank', class: "text-sm text-sky-500" do %>
           <i class="fa-brands fa-twitter text-sky-500 mx-1"></i>Twitterでシェア
         <% end %>
       </div>
