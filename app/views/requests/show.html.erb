@@ -1,3 +1,5 @@
+<% content_for(:og_title, t('.title')) %>
+<% content_for(:image_url, ogp_generate_url(model: @request.class.name, id: @request.id)) %>
 <% breadcrumb :request_show, @request %>
 <div class="flex items-center justify-center py-12 px-4">
   <div class="mx-auto w-full max-w-2xl">
@@ -33,7 +35,9 @@
             <i class="fa-regular fa-trash-can"></i>
           <% end %>
         <% end %>
-        <a href="https://twitter.com/intent/tweet?text=<%= @request.user.name %>さんが推しを募集しています！%0a【求】<%= @request.title %>%0a<%= request_url(@request) %> &hashtags=推し求む,推し不在さんおいで" target="_blank"><i class="fa-brands fa-twitter text-sky-500 mx-1"></i><span class="text-sm text-sky-500">Twitterでシェア</span></a>
+        <%= link_to "https://twitter.com/share?url=#{ request.url }&text=#{ URI.encode_www_form_component(@request.user.name) }さんが推しを募集しています！%0a【求】#{ URI.encode_www_form_component(@request.title) }&hashtags=推し求む,推し不在さんおいで", target: '_blank', class: "text-sm text-sky-500" do %>
+          <i class="fa-brands fa-twitter text-sky-500 mx-1"></i>Twitterでシェア
+        <% end %>
       </div>
     </div>
     <% if logged_in? %>

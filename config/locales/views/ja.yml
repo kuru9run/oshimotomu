@@ -21,7 +21,10 @@ ja:
     message:
       require_login: 'ログインしてください'
       delete_confirm: '削除してよろしいですか？'
-  mypage:
+  static_pages:
+    top:
+      title: 'TOP'
+  mypages:
     show:
       title: 'マイページ'
   users:
@@ -60,6 +63,7 @@ ja:
     edit:
       save: '編集内容を保存'
     show:
+      title: '推し募集詳細'
       edit: '編集'
       destroy: '削除'
   answers:
@@ -82,6 +86,7 @@ ja:
     edit:
       save: '編集内容を保存'
     show:
+      title: '布教詳細'
       edit: '編集'
       destroy: '削除'
   comments:
