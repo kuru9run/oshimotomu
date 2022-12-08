@@ -5,8 +5,10 @@ class GenerateOgpImage
   TEXT_POSITION_TITLE = '0.0'.freeze
   COLOR_CODE = '#592960'.freeze
   FONT_SIZE_TITLE = 48
-  INDENTION_COUNT = 15
-  ROW_LIMIT = 20
+  # 1行あたり16文字まで
+  INDENTION_COUNT = 16
+  # 6行まで出力
+  ROW_LIMIT = 6
 
   def initialize(post)
     @model = post.class.name
@@ -15,8 +17,6 @@ class GenerateOgpImage
             elsif @model == 'Request'
               "【求】#{post.title}"
             end
-    @user_name = post.user.name
-    @id = post.id
   end
 
   def generate_ogp_image
@@ -28,7 +28,13 @@ class GenerateOgpImage
       config.gravity GRAVITY_TITLE
       config.pointsize FONT_SIZE_TITLE
       config.fill COLOR_CODE
-      config.annotate  "#{TEXT_POSITION_TITLE}", "#{@text}"
+      config.annotate  "#{TEXT_POSITION_TITLE}", "#{prepare_text(@text)}"
     end
+  end
+
+  private
+  def prepare_text(text)
+    # 1行あたりの文字数までで配列にする→最大行数までの連続した配列を取得→改行でjoin
+    text.to_s.scan(/.{1,#{INDENTION_COUNT}}/)[0...ROW_LIMIT].join("\n")
   end
 end
