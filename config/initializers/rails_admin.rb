@@ -1,6 +1,14 @@
 RailsAdmin.config do |config|
   config.asset_source = :importmap
 
+  # sorceryで認証機能を実装する(https://github.com/railsadminteam/rails_admin/wiki/Sorcery)
+  config.authenticate_with do
+    # Use sorcery's before filter to auth users
+    require_login
+  end
+  config.current_user_method(&:current_user)
+  config.parent_controller = 'ApplicationController'
+
   ### Popular gems integration
 
   ## == Devise ==
