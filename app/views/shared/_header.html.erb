@@ -13,8 +13,8 @@
         <li><%= link_to t('menu.promotion'), promotions_path %></li>
         <li><%= link_to t('menu.transition'), favorites_path %></li>
         <% if logged_in? %>
-          <li><%= button_to "ログアウト", logout_path, method: :delete %></li>
           <li><%= link_to t('menu.mypage'), mypage_path %></li>
+          <li><%= button_to "ログアウト", logout_path, method: :delete %></li>
         <% end %>
       </ul>
     </div>
