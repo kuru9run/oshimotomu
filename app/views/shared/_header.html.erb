@@ -5,16 +5,17 @@
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </label>
       <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-        <% if logged_in? %>
-          <li><%= button_to "ログアウト", logout_path, method: :delete %></li>
-          <li><%= link_to t('menu.mypage'), mypage_path %></li>
-        <% else %>
+        <% unless logged_in? %>
           <li><%= link_to "ログイン", login_path %></li>
           <li><%= link_to "ユーザー登録", new_user_path %></li>
         <% end %>
         <li><%= link_to t('menu.request'), requests_path %></li>
         <li><%= link_to t('menu.promotion'), promotions_path %></li>
         <li><%= link_to t('menu.transition'), favorites_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to t('menu.mypage'), mypage_path %></li>
+          <li><%= button_to "ログアウト", logout_path, method: :delete %></li>
+        <% end %>
       </ul>
     </div>
   </div>
