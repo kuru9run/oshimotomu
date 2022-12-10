@@ -84,6 +84,7 @@ GEM
     bullet (7.0.3)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
+    cancancan (3.4.0)
     chartkick (4.2.1)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
@@ -314,6 +315,7 @@ DEPENDENCIES
   annotate
   bootsnap
   bullet
+  cancancan
   chartkick
   cssbundling-rails
   debug
