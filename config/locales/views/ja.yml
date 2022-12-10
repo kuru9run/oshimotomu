@@ -19,6 +19,7 @@ ja:
     submit: '送信'
     delete: '削除'
     message:
+      unauthorized: '権限がありません'
       require_login: 'ログインしてください'
       delete_confirm: '削除してよろしいですか？'
   static_pages:
