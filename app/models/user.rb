@@ -7,7 +7,7 @@
 #  crypted_password :string
 #  email            :string           not null
 #  name             :string           not null
-#  role             :integer          default(0), not null
+#  role             :integer          default("general"), not null
 #  salt             :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
@@ -27,6 +27,9 @@ class User < ApplicationRecord
   has_many :promotions, dependent: :destroy
   has_many :promotion_bookmarks, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :authentications, dependent: :destroy
+
+  accepts_nested_attributes_for :authentications # has_many :authenticationsより下に書く
 
   validates :password, length: { minimum: 3 }, confirmation: true, if: -> { new_record? || change[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || change[:crypted_password] }
