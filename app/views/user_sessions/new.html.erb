@@ -12,6 +12,9 @@
           <%= f.submit t('defaults.login'), class: "btn py-4 w-full rounded" %>
         </div>
       <% end %>
+      <%= link_to auth_at_provider_path(provider: :twitter), class: 'btn twitter' do %>
+        <i class="bi bi-twitter"></i>Twitterでログイン
+      <% end %>
       <%= link_to '新規ユーザー登録はこちら', new_user_path %>
     </div>
   </div>
