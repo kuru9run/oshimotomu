@@ -97,6 +97,8 @@ ja:
   favorites:
     index:
       title: 'みんなの推し変遷'
+    show:
+      title: '推し変遷詳細'
   contents:
     create:
       success: '作品タイトルを追加しました'
