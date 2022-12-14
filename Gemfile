@@ -75,7 +75,7 @@ end
 gem 'cssbundling-rails'
 gem 'jsbundling-rails'
 
-gem 'sorcery', github: 'sorcery/sorcery'
+gem 'sorcery'
 gem 'rails-i18n', '~> 7.0.0'
 gem 'enum_help'
 gem 'gretel'
@@ -85,3 +85,4 @@ gem 'kaminari'
 gem 'mini_magick'
 gem 'rails_admin', '~> 3.0'
 gem 'cancancan'
+gem 'config'
