@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_10_013452) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_13_113358) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_10_013452) do
     t.datetime "updated_at", null: false
     t.index ["request_id"], name: "index_answers_on_request_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "authentications", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+    t.index ["user_id"], name: "index_authentications_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -130,7 +140,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_10_013452) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", null: false
+    t.string "email"
     t.string "name", null: false
     t.string "avatar"
     t.string "crypted_password"
@@ -138,6 +148,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_10_013452) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role", default: 0, null: false
+    t.bigint "twitter_id"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
