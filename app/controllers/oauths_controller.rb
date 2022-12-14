@@ -10,14 +10,14 @@ class OauthsController < ApplicationController
     if @user = login_from(provider)
       redirect_to root_path, notice: "#{provider.titleize}でログインしました"
     else
-      #begin
+      begin
         @user = create_from(provider)
         reset_session # protect from session fixation attack
         auto_login(@user)
         redirect_to root_path, notice: "#{provider.titleize}でログインしました"
-      #rescue
-        #redirect_to root_path, alert: "#{provider.titleize}でのログインに失敗しました"
-      #end
+      rescue
+        redirect_to root_path, alert: "#{provider.titleize}でのログインに失敗しました"
+      end
     end
   end
 
