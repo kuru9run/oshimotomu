@@ -12,10 +12,15 @@
           <%= f.submit t('defaults.login'), class: "btn py-4 w-full rounded" %>
         </div>
       <% end %>
-      <%= link_to auth_at_provider_path(provider: :twitter), class: 'btn twitter' do %>
-        <i class="bi bi-twitter"></i>Twitterでログイン
-      <% end %>
-      <%= link_to '新規ユーザー登録はこちら', new_user_path %>
+      <div class="text-center">
+        <%= link_to '新規ユーザー登録はこちら', new_user_path, class: "font-bold" %>
+      </div>
+      <div class="divider">もしくは</div>
+      <div class="text-center my-6">
+        <%= link_to auth_at_provider_path(provider: :twitter), class: 'bg-sky-500 hover:bg-sky-400 text-white rounded px-5 py-3' do %>
+          <i class="fa-brands fa-twitter px-2"></i>Twitterでログイン
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
