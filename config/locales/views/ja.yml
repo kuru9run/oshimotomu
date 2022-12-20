@@ -7,6 +7,7 @@ ja:
   breadcrumbs:
     home: 'トップ'
     mypage: 'マイページ'
+    mypage_edit: 'プロフィール編集'
     requests: '推し募集'
     new: '新規作成'
     promotions: '布教'
@@ -28,6 +29,9 @@ ja:
   mypages:
     show:
       title: 'マイページ'
+    edit:
+      title: 'プロフィール編集'
+      save: '変更を保存'
   users:
     new:
       title: 'ユーザー登録'

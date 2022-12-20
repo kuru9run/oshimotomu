@@ -9,4 +9,9 @@ class MypagesController < ApplicationController
     commented_promotions = current_user.comments.includes(:promotion).map { |comment| comment.promotion }
     @commented_promotions = commented_promotions.uniq
   end
+
+  def edit; end
+
+  def update
+  end
 end

@@ -2,7 +2,11 @@
 <% breadcrumb :mypage %>
 <div class="container mx-auto px-4 my-3">
   <div class="p-6">
-    <p class="text-xl">プロフィール</p>
+    <p class="text-xl">プロフィール
+      <%= link_to edit_mypage_path do %>
+        <i class="ml-5 fa-solid fa-pen-to-square"></i>
+      <% end %>
+    </p>
     <div class="lg:flex">
       <div class="place-self-center">
         <%= render partial: 'shared/avatar', locals: { user: current_user } %>
