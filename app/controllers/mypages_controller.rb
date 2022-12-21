@@ -13,5 +13,16 @@ class MypagesController < ApplicationController
   def edit; end
 
   def update
+    if current_user.update(profile_params)
+      redirect_to mypage_path, notice: t('.success')
+    else
+      flash.now[:alert] = t('.fail')
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  private
+  def profile_params
+    params.require(:user).permit(:name, :email, :avatar)
   end
 end
