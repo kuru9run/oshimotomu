@@ -4,6 +4,7 @@ tmp
 log
 public/assets
 public/packs
+public/uploads
 .bundle
 
 db/*.sqlite3
