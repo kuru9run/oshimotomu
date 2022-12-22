@@ -35,7 +35,7 @@ class RequestsController < ApplicationController
 
   def update
     if @request.update(request_params)
-      redirect_to request_path(@request)c
+      redirect_to request_path(@request)
     else
       flash.now[:alert] = t('.fail')
       render :edit, status: :unprocessable_entity

@@ -1,4 +1,4 @@
-<% if user.avatar? %>
+<% unless user.avatar.identifier.nil? %>
   <%= render partial: 'shared/avatar_img', locals: { user: user } %>
 <% else %>
   <%= render partial: 'shared/avatar_placeholder', locals: { user: user } %>
