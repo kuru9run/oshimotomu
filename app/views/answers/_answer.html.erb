@@ -1,9 +1,9 @@
 <div class="divider"></div>
 <div class="rounded-box items-center">
-  <div class="my-3">
-    <span><%= render partial: 'shared/avatar', locals: { user: answer.user } %></span><%= answer.user.name %>
-    <p class="text-right text-sm"><%= l(answer.created_at, format: :long) %></p>
+  <div class="my-3 flex items-center">
+    <%= render partial: 'shared/avatar', locals: { user: answer.user } %><%= answer.user.name %>
   </div>
+  <p class="text-right text-sm"><%= l(answer.created_at, format: :long) %></p>
   <div class="m-5">
     <%= simple_format answer.body %>
   </div>

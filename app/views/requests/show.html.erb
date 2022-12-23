@@ -5,8 +5,8 @@
   <div class="mx-auto w-full max-w-2xl">
     <div class="border-2 px-8 pt-8 pb-3 rounded-lg">
       <p class="text-xl text-center font-bold text-neutral"><%= @request.title %></p>
-      <div class="my-3">
-        <span><%= render partial: 'shared/avatar', locals: { user: @request.user } %></span><%= @request.user.name %>
+      <div class="my-3 flex items-center">
+        <%= render partial: 'shared/avatar', locals: { user: @request.user } %><%= @request.user.name %>
       </div>
       <% unless @favorites_before_name.blank? %>
         <p class="text-right"><%= "元#{@favorites_before_name}推し" %></p>

@@ -123,7 +123,7 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.user_info_mapping = { 
     twitter_id: 'screen_name',
     name: 'name',
-    avatar: 'profile_image_url_https'
+    icon_url: 'profile_image_url_https'
   }
   #
   # config.facebook.key = ""

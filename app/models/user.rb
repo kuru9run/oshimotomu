@@ -6,6 +6,7 @@
 #  avatar           :string
 #  crypted_password :string
 #  email            :string
+#  icon_url         :string
 #  name             :string           not null
 #  role             :integer          default("general"), not null
 #  salt             :string
@@ -46,5 +47,9 @@ class User < ApplicationRecord
 
   def twitter_login?
     !twitter_id.nil?
+  end
+
+  def avatar_url
+    avatar? ? avatar.url : icon_url
   end
 end
