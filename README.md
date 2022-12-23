@@ -1,4 +1,4 @@
-![logo_big](https://user-images.githubusercontent.com/81852866/201279472-76e2ffc2-0fb6-4eaf-be56-734d08f39d42.png)
+![ogp_default](https://user-images.githubusercontent.com/81852866/209276247-28073a41-b8df-4bb9-bf79-1d71a4ee37dc.png)
 
 ## ■ サービスURL
 https://oshimotomu.fly.dev/
@@ -13,11 +13,8 @@ https://oshimotomu.fly.dev/
 特に推しの活動休止などによる「推しロス」に悩む方<br>
 
 ## ■ユーザーが抱える課題
-- 推しを探している人
-  →推せる対象を探す良い方法がない
-
-- 既に推しがいる人
-  →推しのファンになってくれそうな人に布教したいが、条件に合う人を探す場がない
+- 推しを探している人 → 推せる対象を探す良い方法がない
+- 既に推しがいる人 → 推しのファンになってくれそうな人に布教したいが、条件に合う人を探す場がない
 
 ## ■解決方法
 - 推しを募集することができ、それを見た人が好みに合いそうな推し対象を紹介してくれる仕組みを作る
@@ -33,7 +30,7 @@ https://oshimotomu.fly.dev/
 https://www.figma.com/file/yx6Ks5LfpCuKDECLkD1qof/oshimotomu?node-id=0%3A1
 
 ## ■ ER図
-![ER図](https://user-images.githubusercontent.com/81852866/197425759-030555ce-72fb-4203-bc9f-38b5d7e116df.png)
+![ER](https://user-images.githubusercontent.com/81852866/209278356-dbc0d513-cd31-4fa7-9087-afa0c8f6cf9c.png)
 
 ## ■ 使用技術
 ### フロントエンド
@@ -59,4 +56,4 @@ https://www.figma.com/file/yx6Ks5LfpCuKDECLkD1qof/oshimotomu?node-id=0%3A1
 ### インフラ
 - fly.io
 - postgreSQL
-- AWS S3(アバター用)
+- AWS S3
