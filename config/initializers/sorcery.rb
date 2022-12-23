@@ -121,9 +121,9 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.callback_url = "#{Settings.sorcery[:callback_url]}provider=twitter"
   config.twitter.user_info_path = "/1.1/account/verify_credentials.json?include_email=true"
   config.twitter.user_info_mapping = { 
-    twitter_id: 'id',
+    twitter_id: 'screen_name',
     name: 'name',
-    avatar: 'profile_image_url_https'
+    icon_url: 'profile_image_url_https'
   }
   #
   # config.facebook.key = ""

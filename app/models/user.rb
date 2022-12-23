@@ -6,12 +6,13 @@
 #  avatar           :string
 #  crypted_password :string
 #  email            :string
+#  icon_url         :string
 #  name             :string           not null
 #  role             :integer          default("general"), not null
 #  salt             :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  twitter_id       :bigint
+#  twitter_id       :string
 #
 # Indexes
 #
@@ -19,6 +20,7 @@
 #
 class User < ApplicationRecord
   authenticates_with_sorcery!
+  mount_uploader :avatar, AvatarUploader
 
   has_many :fans, dependent: :destroy
   has_many :favorites, through: :fans
@@ -32,9 +34,9 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :authentications # has_many :authenticationsより下に書く
 
-  validates :password, length: { minimum: 3 }, confirmation: true, if: -> { new_record? || change[:crypted_password] }
-  validates :password_confirmation, presence: true, if: -> { new_record? || change[:crypted_password] }
-  validates :email, uniqueness: true, presence: true, if: -> { new_record? || change[:email] }
+  validates :password, length: { minimum: 3 }, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
+  validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
+  validates :email, uniqueness: true, presence: true, if: -> { new_record? || changes[:email] }
   validates :name, presence: true, length: { maximum: 255 }
   validates :twitter_id, uniqueness: true, if: :twitter_login?
   enum role: { general: 0, admin: 1 }
@@ -45,5 +47,9 @@ class User < ApplicationRecord
 
   def twitter_login?
     !twitter_id.nil?
+  end
+
+  def avatar_url
+    avatar? ? avatar.url : icon_url
   end
 end

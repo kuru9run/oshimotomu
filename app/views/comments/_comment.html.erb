@@ -1,9 +1,9 @@
 <div class="divider"></div>
 <div class="rounded-box items-center">
-  <div class="my-3">
-    <span><%= render partial: 'shared/avatar', locals: { user: comment.user } %></span><%= comment.user.name %>
-    <p class="text-right text-sm"><%= l(comment.created_at, format: :long) %></p>
+  <div class="my-3 flex items-center">
+    <%= render partial: 'shared/avatar', locals: { user: comment.user } %><%= comment.user.name %>
   </div>
+  <p class="text-right text-sm"><%= l(comment.created_at, format: :long) %></p>
   <div class="m-5">
     <%= simple_format comment.body %>
   </div>

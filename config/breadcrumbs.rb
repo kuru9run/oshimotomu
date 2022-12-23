@@ -7,6 +7,11 @@ crumb :mypage do
   parent :root
 end
 
+crumb :mypage_edit do
+  link t('breadcrumbs.mypage_edit'), edit_mypage_path
+  parent :mypage
+end
+
 crumb :requests do
   link t('breadcrumbs.requests'), requests_path
   parent :root

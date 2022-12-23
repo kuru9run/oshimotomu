@@ -1,6 +1,8 @@
 <div class="card w-96 border text-primary-content m-3">
   <div class="card-body">      
-    <span><%= render partial: 'shared/avatar', locals: { user: promotion.user } %><%= promotion.user.name %></span>
+    <div class="flex items-center">
+      <%= render partial: 'shared/avatar', locals: { user: promotion.user } %><%= promotion.user.name %>
+    </div>
     <p class="self-end"><%= l(promotion.created_at, format: :long) %></p>
     <h2><%= link_to "#{promotion.name}さんの布教", promotion_path(promotion), class: "card-title underline" %></h2>
     <p class="text-sky-500"><%= "##{promotion.group.name}所属" unless promotion.group.nil? %></p>
