@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :promotions, shallow: true do
     resources :comments, only: %i[create destroy]
   end
+  get 'embeds/plus', to: 'embeds#plus'
   resources :favorites, only: %i[index show] do
     collection do
       post 'search'

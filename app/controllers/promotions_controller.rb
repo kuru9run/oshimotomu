@@ -12,9 +12,11 @@ class PromotionsController < ApplicationController
     @promotion.user = current_user
     Promotion.transaction do
       @promotion.save!
-      unless params[:promotion][:embed_url].blank?
-        embed = @promotion.embeds.build(identifier: params[:promotion][:embed_url], embeddable_media: params[:promotion][:embed_media])
-        embed.save!
+      10.times do |i|
+        unless params["embed_url_#{i}"].blank?
+          embed = @promotion.embeds.build(identifier: params["embed_url_#{i}"], embeddable_media: params["embed_media_#{i}"])
+          embed.save!
+        end
       end
     end
     redirect_to promotion_path(@promotion), notice: t('.success')
