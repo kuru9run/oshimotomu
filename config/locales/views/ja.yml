@@ -69,6 +69,7 @@ ja:
     destroy:
       success: '削除しました'
     edit:
+      title: '推し募集 編集'
       save: '編集内容を保存'
     show:
       title: '推し募集詳細'
@@ -92,6 +93,7 @@ ja:
     destroy:
       success: '削除しました'
     edit:
+      title: '布教 編集'
       save: '編集内容を保存'
     show:
       title: '布教詳細'
