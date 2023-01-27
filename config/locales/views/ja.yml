@@ -41,6 +41,8 @@ ja:
     create:
       success: 'ユーザー登録が完了しました'
       fail: 'ユーザー登録に失敗しました'
+    show:
+      title: "#{user.name}さんのプロフィール"
   fans:
     new:
       title: '推し登録'
