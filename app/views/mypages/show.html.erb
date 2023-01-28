@@ -45,7 +45,24 @@
       </div>
     </div>
   </div>
-
+  <div class="collapse">
+    <input type="checkbox" /> 
+    <div class="collapse-title text-xl font-medium">
+      フォロー中  <span class="font-bold"><%= current_user.followings.count %></span>
+    </div>
+    <div class="collapse-content"> 
+      <%= render partial: 'shared/follow_users', locals: { users: current_user.followings } %>
+    </div>
+  </div>
+  <div class="collapse">
+    <input type="checkbox" /> 
+    <div class="collapse-title text-xl font-medium">
+      フォロワー  <span class="font-bold"><%= current_user.followers.count %></span>
+    </div>
+    <div class="collapse-content"> 
+      <%= render partial: 'shared/follow_users', locals: { users: current_user.followers } %>
+    </div>
+  </div>
   <div class="divider"></div> 
 
   <p class="text-xl">投稿した推し募集一覧</p>
