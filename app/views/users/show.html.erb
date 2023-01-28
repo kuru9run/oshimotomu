@@ -40,6 +40,24 @@
       </div>
     </div>
   </div>
+  <div class="collapse">
+    <input type="checkbox" /> 
+    <div class="collapse-title text-xl font-medium">
+      フォロー中  <span class="font-bold"><%= @user.followings.count %></span>
+    </div>
+    <div class="collapse-content"> 
+      <%= render partial: 'shared/follow_users', locals: { users: @user.followings } %>
+    </div>
+  </div>
+  <div class="collapse">
+    <input type="checkbox" /> 
+    <div class="collapse-title text-xl font-medium">
+      フォロワー  <span class="font-bold"><%= @user.followers.count %></span>
+    </div>
+    <div class="collapse-content"> 
+      <%= render partial: 'shared/follow_users', locals: { users: @user.followers } %>
+    </div>
+  </div>
 
   <div class="divider"></div> 
 
