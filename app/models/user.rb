@@ -34,8 +34,8 @@ class User < ApplicationRecord
   has_many :relationships, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   # 一覧画面用
-  has_many :followings, through: :relationships, source: :follow
-  has_many :followers, through: :reverse_of_relationships, source: :followed
+  has_many :followings, through: :relationships, source: :followed
+  has_many :followers, through: :reverse_of_relationships, source: :follow
 
   accepts_nested_attributes_for :authentications # has_many :authenticationsより下に書く
 
