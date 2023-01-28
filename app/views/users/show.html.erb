@@ -11,6 +11,7 @@
         <p><i class="fa-brands fa-twitter text-sky-500"></i> <%= @user.twitter_id.blank? ? 'Twitter未連携' : link_to(@user.twitter_id, "https://twitter.com/#{@user.twitter_id}", target: '_blank') %></p>
       </div>
     </div>
+    <%= link_to 'フォロー', new_follow_path, class: 'btn w-1/4' %>
   </div>
   <div class="p-6">
     <p class="text-xl">推し情報</p>
