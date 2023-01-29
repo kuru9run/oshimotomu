@@ -1,5 +1,5 @@
-<div class="flex items-center">
-  <%= link_to user_path(user) do %>
+<%= link_to user_path(user) do %>
+  <div class="flex items-center">
     <%= render partial: 'shared/avatar', locals: { user: user } %><%= user.name %>
-  <% end %>
-</div>
+  </div>
+<% end %>
