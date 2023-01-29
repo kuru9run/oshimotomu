@@ -5,9 +5,7 @@
   <div class="mx-auto w-full max-w-2xl">
     <div class="border-2 px-8 pt-8 pb-3 rounded-lg">
       <p class="text-xl text-center font-bold text-neutral"><%= @promotion.name %>さんの布教</p>
-      <div class="my-3 flex items-center">
-        <%= render partial: 'shared/avatar', locals: { user: @promotion.user } %><%= @promotion.user.name %>
-      </div>
+      <%= render partial: 'shared/avatar_name', locals: { user: @promotion.user } %>
       <p class="text-sm text-right"><%= l(@promotion.created_at, format: :long) %></p>
       <div class="grid card rounded-box">
         <p class="mx-auto py-4 text-lg text-neutral">推し情報</p>

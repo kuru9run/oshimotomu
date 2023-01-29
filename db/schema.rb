@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_23_014048) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_28_051423) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -115,6 +115,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_23_014048) do
     t.index ["content_id"], name: "index_promotions_on_content_id"
     t.index ["group_id"], name: "index_promotions_on_group_id"
     t.index ["user_id"], name: "index_promotions_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follow_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "request_bookmarks", force: :cascade do |t|
