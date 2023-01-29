@@ -30,7 +30,7 @@ https://oshimotomu.fly.dev/
 https://www.figma.com/file/yx6Ks5LfpCuKDECLkD1qof/oshimotomu?node-id=0%3A1
 
 ## ■ ER図
-![ER](https://user-images.githubusercontent.com/81852866/209278356-dbc0d513-cd31-4fa7-9087-afa0c8f6cf9c.png)
+![ER](https://user-images.githubusercontent.com/81852866/215298062-a35dfdef-3407-4cd5-b20f-7a32bceb9df2.png)
 
 ## ■ 使用技術
 ### フロントエンド
