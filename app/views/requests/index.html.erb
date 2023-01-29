@@ -2,12 +2,16 @@
 <% breadcrumb :requests %>
 <div class="container mx-auto px-4 my-3">
   <h1 class="text-center text-2xl font-bold text-primary mb-6"><%= t('.title') %></h1>
-  <div class="flex flex-row">
+  <div class="flex flex-1">
     <%= search_form_for @q do |f| %>
       <%= f.search_field :title_or_description_cont, class: "input input-bordered w-48 m-2", placeholder: "キーワード" %>
       <%= f.select :existence_eq, Request.existences_i18n.invert.map {|k, v| [k, Request.existences[v]]}, {include_blank: '実在／キャラクター'}, {class: "select select-bordered w-48 m-2"} %>
       <%= f.select :decade_eq, Request.decades_i18n.invert.map {|k, v| [k, Request.decades[v]]}, {include_blank: '年齢'}, {class: "select select-bordered w-48 m-2"} %>
       <%= f.select :gender_eq, Request.genders_i18n.invert.map {|k, v| [k, Request.genders[v]]}, {include_blank: '性別'}, {class: "select select-bordered w-48 m-2"} %>
+  <label class="cursor-pointer">
+    <span class="label-text">フォロー中のユーザーによる投稿</span> 
+    <input name="follow" type="checkbox" class="checkbox checkbox-primary" />
+  </label>
       <%= f.submit class: "btn my-2" %>
     <% end %>
   </div>

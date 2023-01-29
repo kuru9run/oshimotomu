@@ -3,7 +3,13 @@ class RequestsController < ApplicationController
   before_action :set_request, only: %i[edit update destroy]
 
   def index
-    @q = Request.ransack(params[:q])
+    # フォロー中ユーザーの投稿で絞り込み
+    requests = if params[:follow] == "on"
+      Request.where(user_id: current_user.followings.ids)
+    else
+      Request
+    end
+    @q = requests.ransack(params[:q])
     @requests = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
