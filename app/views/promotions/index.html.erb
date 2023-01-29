@@ -3,26 +3,32 @@
 <div class="container mx-auto px-4 my-3">
   <h1 class="text-center text-2xl font-bold text-primary mb-6"><%= t('.title') %></h1>
   <div class="flex flex-row">
-    <%= search_form_for @q do |f| %>
+    <%= search_form_for @q, html: { data: { turbo_frame: 'promotions' } } do |f| %>
       <%= f.search_field :name_or_description_cont, class: "input input-bordered w-48 m-2", placeholder: "キーワード" %>
       <%= f.select :existence_eq, Promotion.existences_i18n.invert.map {|k, v| [k, Promotion.existences[v]]}, {include_blank: '実在／キャラクター'}, {class: "select select-bordered w-48 m-2"} %>
       <%= f.select :decade_eq, Promotion.decades_i18n.invert.map {|k, v| [k, Promotion.decades[v]]}, {include_blank: '年齢'}, {class: "select select-bordered w-48 m-2"} %>
       <%= f.select :gender_eq, Promotion.genders_i18n.invert.map {|k, v| [k, Promotion.genders[v]]}, {include_blank: '性別'}, {class: "select select-bordered w-48 m-2"} %>
+      <label class="cursor-pointer">
+        <span class="label-text">フォロー中のユーザーによる投稿</span> 
+        <input name="follow" type="checkbox" class="checkbox checkbox-primary" />
+      </label>
       <%= f.submit class: "btn my-2" %>
     <% end %>
   </div>
   <%= link_to '布教を作成', new_promotion_path, class: 'btn mt-5' %>
-  <% if @promotions.count > 0 %>
-    <div class="flex flex-wrap">
-      <%= render @promotions %>
-    </div>
-  <% else %>
-    <div class="alert my-5">
-      <div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-        <span>布教が見つかりませんでした</span>
+  <%= turbo_frame_tag 'promotions' do %>
+    <% if @promotions.count > 0 %>
+      <div class="flex flex-wrap">
+        <%= render @promotions %>
       </div>
-    </div>
+    <% else %>
+      <div class="alert my-5">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span>布教が見つかりませんでした</span>
+        </div>
+      </div>
+    <% end %>
+    <%= paginate @promotions %>
   <% end %>
-  <%= paginate @promotions %>
 </div>
