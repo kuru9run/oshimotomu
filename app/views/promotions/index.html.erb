@@ -8,10 +8,12 @@
       <%= f.select :existence_eq, Promotion.existences_i18n.invert.map {|k, v| [k, Promotion.existences[v]]}, {include_blank: '実在／キャラクター'}, {class: "select select-bordered w-48 m-2"} %>
       <%= f.select :decade_eq, Promotion.decades_i18n.invert.map {|k, v| [k, Promotion.decades[v]]}, {include_blank: '年齢'}, {class: "select select-bordered w-48 m-2"} %>
       <%= f.select :gender_eq, Promotion.genders_i18n.invert.map {|k, v| [k, Promotion.genders[v]]}, {include_blank: '性別'}, {class: "select select-bordered w-48 m-2"} %>
-      <label class="cursor-pointer">
-        <span class="label-text">フォロー中のユーザーによる投稿</span> 
-        <input name="follow" type="checkbox" class="checkbox checkbox-primary" />
-      </label>
+      <% if logged_in? %>
+        <label class="cursor-pointer">
+          <span class="label-text">フォロー中のユーザーによる投稿</span> 
+          <input name="follow" type="checkbox" class="checkbox checkbox-primary" />
+        </label>
+      <% end %>
       <%= f.submit class: "btn my-2" %>
     <% end %>
   </div>
