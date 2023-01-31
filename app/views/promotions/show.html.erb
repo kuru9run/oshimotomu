@@ -5,6 +5,9 @@
   <div class="mx-auto w-full max-w-2xl">
     <div class="border-2 px-8 pt-8 pb-3 rounded-lg">
       <p class="text-xl text-center font-bold text-neutral"><%= @promotion.name %>さんの布教</p>
+      <%= turbo_frame_tag @promotion do %>
+        <%= render partial: 'shared/promotion_bookmark', locals: { promotion: @promotion } %>
+      <% end %>
       <%= render partial: 'shared/avatar_name', locals: { user: @promotion.user } %>
       <p class="text-sm text-right"><%= l(@promotion.created_at, format: :long) %></p>
       <div class="grid card rounded-box">

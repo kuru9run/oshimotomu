@@ -1,5 +1,8 @@
 <div class="card w-96 border text-primary-content m-3">
   <div class="card-body">      
+    <%= turbo_frame_tag promotion do %>
+      <%= render partial: 'shared/promotion_bookmark', locals: { promotion: promotion } %>
+    <% end %>
     <%= render partial: 'shared/avatar_name', locals: { user: promotion.user } %>
     <p class="self-end"><%= l(promotion.created_at, format: :long) %></p>
     <h2><%= link_to "#{promotion.name}さんの布教", promotion_path(promotion), class: "card-title underline" %></h2>

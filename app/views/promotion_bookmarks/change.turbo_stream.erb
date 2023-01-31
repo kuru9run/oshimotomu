@@ -1,0 +1,3 @@
+<%= turbo_stream.update @promotion do %>
+  <%= render partial: 'shared/promotion_bookmark', locals: { promotion: @promotion } %>
+<% end %>

@@ -1,5 +1,8 @@
 <div class="card w-96 border text-primary-content m-3">
   <div class="card-body">
+    <%= turbo_frame_tag request do %>
+      <%= render partial: 'shared/request_bookmark', locals: { request: request } %>
+    <% end %>
     <%= render partial: 'shared/avatar_name', locals: { user: request.user } %>
     <p class="self-end"><%= l(request.created_at, format: :long) %></p>
     <h2><%= link_to "【求】#{request.title}", request_path(request), class: "card-title underline" %></h2>

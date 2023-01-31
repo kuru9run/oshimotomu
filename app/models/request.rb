@@ -30,4 +30,8 @@ class Request < ApplicationRecord
   enum existence: { person: 0, character: 1 }
   enum decade: { under_ten: 0, teens: 1, twenties: 2, thirties: 3, forties: 4, fifties: 5, sixties: 6, seventies_and_over: 7  }
   enum gender: { male: 0, female: 1 }
+
+  def bookmarked?(user)
+    self.request_bookmarks.pluck(:user_id).include?(user.id)
+  end
 end
