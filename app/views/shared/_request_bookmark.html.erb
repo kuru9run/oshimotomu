@@ -1,0 +1,13 @@
+<div class="text-right">
+  <% if logged_in? %>
+    <% if @request.bookmarked?(current_user) %>
+      <%= button_to request_bookmark_path(@request.request_bookmarks.find_by(user_id: current_user.id).id), method: :delete do %>
+        <i class="text-neutral fa-solid fa-star"></i>
+      <% end %>
+    <% else %>
+      <%= button_to request_bookmarks_path(request_id: @request.id), method: :post do %>
+        <i class="text-neutral fa-regular fa-star"></i>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

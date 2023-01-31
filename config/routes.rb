@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   resources :promotions, shallow: true do
     resources :comments, only: %i[create destroy]
   end
+  resources :request_bookmarks, only: %i[create destroy]
+  resources :promotion_bookmarks, only: %i[create destroy]
   resources :favorites, only: %i[index show] do
     collection do
       post 'search'

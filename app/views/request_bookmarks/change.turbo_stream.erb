@@ -1,0 +1,3 @@
+<%= turbo_stream.update 'bookmark' do %>
+  <%= render partial: 'shared/request_bookmark', locals: { request: @request } %>
+<% end %>
