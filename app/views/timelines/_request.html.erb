@@ -1,18 +1,16 @@
-<%= turbo_frame_tag 'timeline' do %>
-  <%= turbo_frame_tag 'requests_timeline' do %>
-    <% if requests.count > 0 %>
-      <div class="flex flex-wrap">
-        <%= render requests %>
+<%= turbo_frame_tag 'requests_timeline' do %>
+  <% if requests.count > 0 %>
+    <div class="flex flex-wrap">
+      <%= render requests %>
+    </div>
+  <% else %>
+    <div class="alert my-5">
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <span>フォローユーザーの投稿がありません</span>
       </div>
-    <% else %>
-      <div class="alert my-5">
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <span>フォローユーザーの投稿がありません</span>
-        </div>
-      </div>
-      <%= link_to '全ての推し募集を見る', requests_path, class: "btn" %>
-    <% end %>
-    <%= paginate requests %>
+    </div>
+    <%= link_to '全ての推し募集を見る', requests_path, class: "btn" %>
   <% end %>
+  <%= paginate requests %>
 <% end %>
