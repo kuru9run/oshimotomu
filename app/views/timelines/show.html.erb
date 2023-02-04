@@ -1,0 +1,14 @@
+<% content_for(:og_title, t('.title')) %>
+<% breadcrumb :timeline %>
+<div class="container mx-auto px-4 my-3">
+  <h1 class="text-center text-2xl font-bold text-primary mb-6">フォローユーザーの投稿</h1>
+  <div class="tabs ml-10">
+  <%= turbo_frame_tag 'timeline-tab' do %>
+    <%= link_to t('menu.request'), requests_timeline_path, class: 'tab tab-bordered tab-active', data: { turbo_frame: 'timeline', turbo_method: :post } %>
+    <%= link_to t('menu.promotion'), promotions_timeline_path, class: 'tab tab-bordered', data: { turbo_frame: 'timeline', turbo_method: :post } %>
+  <% end %>
+  </div>
+  <%= turbo_frame_tag 'timeline' do %>
+    <%= render partial: 'request', locals: { requests: @requests } %>
+  <% end %>
+</div>

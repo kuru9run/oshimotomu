@@ -68,7 +68,7 @@
     </div>
     <div class= "flex justify-center mt-16 content-center">
       <% if logged_in? %>
-        <%= link_to 'マイページへ', mypage_path, class: "btn text-lg mx-3" %>
+        <%= link_to 'タイムライン', timeline_path, class: "btn text-lg mx-3" %>
       <% else %>
         <%= link_to 'ログイン', login_path, class: "btn text-lg mx-3" %>
         <%= link_to '新規登録', new_user_path, class: "btn text-lg mx-3" %>

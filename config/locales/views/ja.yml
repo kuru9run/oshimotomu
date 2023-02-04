@@ -8,6 +8,7 @@ ja:
     home: 'トップ'
     mypage: 'マイページ'
     mypage_edit: 'プロフィール編集'
+    timeline: 'タイムライン'
     requests: '推し募集'
     new: '新規作成'
     promotions: '布教'
@@ -35,6 +36,9 @@ ja:
     update:
       success: '変更内容を保存しました'
       fail: '変更内容を保存できませんでした'
+  timelines:
+    show:
+      title: 'タイムライン'
   users:
     new:
       title: 'ユーザー登録'

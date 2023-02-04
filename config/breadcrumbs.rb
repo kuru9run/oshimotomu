@@ -12,6 +12,11 @@ crumb :mypage_edit do
   parent :mypage
 end
 
+crumb :timeline do
+  link t('breadcrumbs.timeline'), timeline_path
+  parent :root
+end
+
 crumb :requests do
   link t('breadcrumbs.requests'), requests_path
   parent :root
