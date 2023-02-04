@@ -1,0 +1,8 @@
+<%= turbo_stream.update "timeline-tab" do %>
+  <%= link_to t('menu.request'), requests_timeline_path, class: 'tab tab-bordered', data: { turbo_frame: 'timeline', turbo_method: :post } %>
+  <%= link_to t('menu.promotion'), promotions_timeline_path, class: 'tab tab-bordered tab-active', data: { turbo_frame: 'timeline', turbo_method: :post } %>
+<% end %>
+
+<%= turbo_stream.update "timeline" do %>
+  <%= render partial: 'promotion', locals: { promotions: @promotions } %>
+<% end %>

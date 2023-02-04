@@ -57,13 +57,7 @@ class PromotionsController < ApplicationController
   end
 
   def index
-    # フォロー中ユーザーの投稿で絞り込み
-    promotions = if params[:follow] == "on"
-      Promotion.where(user_id: current_user.followings.ids)
-    else
-      Promotion
-    end
-    @q = promotions.ransack(params[:q])
+    @q = Promotion.ransack(params[:q])
     @promotions = @q.result(distinct: true).includes(:user, :content, :group).order(created_at: :desc).page(params[:page])
   end
 
