@@ -65,7 +65,7 @@
   </div>
   <div class="divider"></div> 
 
-  <p class="text-xl">投稿した推し募集一覧</p>
+  <p class="text-xl"><i class="fas fa-search mx-2"></i>投稿した推し募集一覧</p>
   <% if @wrote_requests.any? %>
     <div class="overflow-x-auto">
       <table class="table w-full">
@@ -93,7 +93,7 @@
     <%= link_to '推し募集を作成', new_request_path, class: "btn" %>
   <% end %>
   <div class="divider"></div> 
-  <p class="text-xl">回答した推し募集一覧</p>
+  <p class="text-xl"><i class="fa-solid fa-comment mx-2"></i>回答した推し募集一覧</p>
   <% if @answered_requests.any? %>
     <div class="overflow-x-auto">
       <table class="table w-full">
@@ -121,7 +121,7 @@
     <%= link_to '推し募集一覧へ', requests_path, class: "btn" %>
   <% end %>
   <div class="divider"></div> 
-  <p class="text-xl">投稿した布教一覧</p>
+  <p class="text-xl"><i class="fa-solid fa-bullhorn mx-2"></i>投稿した布教一覧</p>
   <% if @wrote_promotions.any? %>
     <div class="overflow-x-auto">
       <table class="table w-full">
@@ -148,7 +148,7 @@
     <%= link_to '布教を作成', new_promotion_path, class: "btn" %>
   <% end %>
   <div class="divider"></div> 
-  <p class="text-xl">コメントした布教一覧</p>
+  <p class="text-xl"><i class="fa-solid fa-comment mx-2"></i>コメントした布教一覧</p>
   <% if @commented_promotions.any? %>
     <div class="overflow-x-auto">
       <table class="table w-full">
@@ -175,7 +175,7 @@
     <%= link_to '布教一覧へ', promotions_path, class: "btn" %>
   <% end %>
   <div class="divider"></div>
-  <p class="text-xl">ブックマークした推し募集一覧</p>
+  <p class="text-xl"><i class="fa-solid fa-star mx-2"></i>お気に入りした推し募集一覧</p>
   <% if current_user.request_bookmarks.any? %>
     <div class="overflow-x-auto">
       <table class="table w-full">
@@ -196,12 +196,12 @@
   <% else %>
     <div class="alert my-5">
       <div>
-        <span>ブックマークした推し募集はまだありません</span>
+        <span>お気に入りした推し募集はまだありません</span>
       </div>
     </div>
   <% end %>
   <div class="divider"></div>
-  <p class="text-xl">ブックマークした布教一覧</p>
+  <p class="text-xl"><i class="fa-solid fa-star mx-2"></i>お気に入りした布教一覧</p>
   <% if current_user.promotion_bookmarks.any? %>
     <div class="overflow-x-auto">
       <table class="table w-full">
@@ -222,7 +222,7 @@
   <% else %>
     <div class="alert my-5">
       <div>
-        <span>ブックマークした布教はまだありません</span>
+        <span>お気に入りした布教はまだありません</span>
       </div>
     </div>
   <% end %>
