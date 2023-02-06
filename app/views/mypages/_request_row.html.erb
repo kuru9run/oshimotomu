@@ -1,6 +1,6 @@
 <tr>
-  <!--<th>未</th>-->
   <td><%= link_to request.title, request_path(request), class: "text-lg underline" %></td>
   <td><%= l(request.created_at, format: :long) %></td>
   <td><%= request.answers.count %></td>
+  <td><%= request.request_bookmarks.count %></td>
 </tr>
