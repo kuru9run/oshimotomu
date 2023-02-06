@@ -2,11 +2,11 @@
   <% if logged_in? %>
     <% if promotion.bookmarked?(current_user) %>
       <%= button_to promotion_bookmark_path(promotion.promotion_bookmarks.find_by(user_id: current_user.id).id), method: :delete do %>
-        <i class="text-neutral fa-solid fa-star"></i>
+        <i class="text-neutral fa-solid fa-star"></i><span class="text-neutral"><%= promotion.promotion_bookmarks.count %></span>
       <% end %>
     <% else %>
       <%= button_to promotion_bookmarks_path(promotion_id: promotion.id), method: :post do %>
-        <i class="text-neutral fa-regular fa-star"></i>
+        <i class="text-neutral fa-regular fa-star"></i><span class="text-neutral"><%= promotion.promotion_bookmarks.count %></span>
       <% end %>
     <% end %>
   <% end %>

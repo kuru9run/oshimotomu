@@ -2,4 +2,5 @@
   <td><%= link_to promotion.name, promotion_path(promotion), class: "text-lg underline" %></td>
   <td><%= l(promotion.created_at, format: :long) %></td>
   <td><%= promotion.comments.count %></td>
+  <td><%= promotion.promotion_bookmarks.count %></td>
 </tr>
