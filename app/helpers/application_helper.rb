@@ -4,9 +4,9 @@ module ApplicationHelper
     page_title.empty? ? base_title : page_title + '  ･*' + base_title + '⋆｡ '
   end
 
-  def ogp_title(ogp_title = '')
+  def og_title(og_title = '')
     base_title = '求：推し'
-    ogp_title.empty? ? base_title : ogp_title + '  ･*' + base_title + '⋆｡ '
+    og_title.empty? ? base_title : og_title + '  ･*' + base_title + '⋆｡ '
   end
 
   def ogp_image(ogp_image = '')
