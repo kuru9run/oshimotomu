@@ -6,7 +6,7 @@ module ApplicationHelper
 
   def og_title(og_title = '')
     base_title = '求：推し'
-    og_title.empty? ? base_title : og_title + '･*' + base_title + '⋆｡'
+    og_title.empty? ? base_title : og_title.gsub(' ', '') + '･*' + base_title + '⋆｡'
   end
 
   def ogp_image(ogp_image = '')
