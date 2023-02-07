@@ -1,5 +1,6 @@
 <% content_for(:og_title, t('.title')) %>
 <% content_for(:image_url, ogp_generate_url(model: @request.class.name, id: @request.id)) %>
+<% content_for(:title, t('.title')) %>
 <% breadcrumb :request_show, @request %>
 <div class="flex items-center justify-center py-12 px-4">
   <div class="mx-auto w-full max-w-2xl">
