@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Relationship, type: :model do
   let(:user_a) { create(:user, name: 'フォロイー', email: 'follow_test@example.com', password: 'password' ) }
   let(:user_b) { create(:user, name: 'フォワー', email: 'followed_test@example.com', password: 'password') }

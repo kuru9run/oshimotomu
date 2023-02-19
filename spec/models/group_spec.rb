@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Group, type: :model do
   let(:group) { build(:group) }
   it "既定文字数内のグループ名で作成が成功すること" do

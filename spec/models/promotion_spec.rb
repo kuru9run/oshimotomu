@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Promotion, type: :model do
   let(:promotion) { build(:promotion) }
   it "既定文字数内での投稿が成功すること" do

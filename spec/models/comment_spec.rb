@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Comment, type: :model do
   let(:comment) { build(:comment) }
   it "既定文字数内での投稿が成功すること" do

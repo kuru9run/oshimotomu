@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Request, type: :model do
   let(:request) { build(:request) }
   it "既定文字数内での投稿が成功すること" do

@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe RequestBookmark, type: :model do
   let(:request_bookmark) { build(:request_bookmark) }
   it "ブックマークができること" do

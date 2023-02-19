@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe PromotionBookmark, type: :model do
   let(:promotion_bookmark) { build(:promotion_bookmark) }
   it "ブックマークができること" do

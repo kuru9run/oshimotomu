@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Content, type: :model do
   let(:content) { build(:content) }
   it "既定文字数内のタイトルで作成が成功すること" do

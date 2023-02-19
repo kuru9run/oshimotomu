@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Favorite, type: :model do
   let(:favorite_person) { build(:favorite_person) }
   let(:favorite_character) { build(:favorite_character) }

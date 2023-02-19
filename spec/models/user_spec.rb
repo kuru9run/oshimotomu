@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe User, type: :model do
   let(:user) { build(:user) }
   it "ユーザーの作成が成功すること" do
