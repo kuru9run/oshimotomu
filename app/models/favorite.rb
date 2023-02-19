@@ -29,7 +29,7 @@ class Favorite < ApplicationRecord
   belongs_to :group, optional: true
 
   validates :name, uniqueness: { scope: [:existence, :gender, :group_id, :content_id] }
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 255 }
   validates :decade, presence: true
   validates :existence, presence: true
   validates :gender, presence: true

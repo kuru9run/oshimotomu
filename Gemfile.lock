@@ -144,6 +144,11 @@ GEM
       activesupport (>= 3.0.0)
     erubi (1.11.0)
     excon (0.95.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     faker (2.23.0)
       i18n (>= 1.8.11, < 2)
     faraday (2.7.1)
@@ -305,6 +310,23 @@ GEM
     reverse_markdown (2.1.1)
       nokogiri
     rexml (3.2.5)
+    rspec-core (3.12.1)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (6.0.1)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.11)
+      rspec-expectations (~> 3.11)
+      rspec-mocks (~> 3.11)
+      rspec-support (~> 3.11)
+    rspec-support (3.12.0)
     rubocop (1.36.0)
       json (~> 2.3)
       parallel (~> 1.10)
@@ -396,6 +418,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   enum_help
+  factory_bot_rails
   faker
   fog-aws
   gretel
@@ -411,6 +434,7 @@ DEPENDENCIES
   rails_admin (~> 3.0)
   ransack
   redis (~> 4.0)
+  rspec-rails
   rubocop
   rubocop-rails
   solargraph
